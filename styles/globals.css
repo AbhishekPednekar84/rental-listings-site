@@ -1,16 +1,125 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
+:root {
+  --scrollbar-thumb-color: #99f6e4;
+  --scrollbar-track-color: #ccfbf1;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+}
+
+html::-webkit-scrollbar {
+  width: 1vw;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color);
+}
+
+html::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track-color);
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl font-bold mb-12 text-center;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-3xl;
+  }
+  h4 {
+    @apply text-2xl;
+  }
+  ::selection {
+    @apply bg-teal-100 text-black;
+  }
+  input:focus {
+    @apply outline-none ring-0;
+  }
+  input:focus-within {
+    @apply outline-none ring-0;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply hover:underline hover:underline-offset-8 hover:decoration-2 font-semibold cursor-pointer tracking-wide text-lg transition-all duration-200 md:text-sm lg:text-base;
+  }
+  .menu-icon {
+    @apply flex justify-center items-center bg-opacity-50 h-10 w-10 rounded-full shadow-xl md:hidden cursor-pointer;
+  }
+  .radio-checkbox-style {
+    @apply border-teal-600 text-teal-600 focus:ring-teal-600;
+  }
+  .ad-card-underline {
+    @apply underline underline-offset-4 decoration-teal-400;
+  }
+  .ad-card-listing-type {
+    @apply py-1 px-2 rounded-full text-white font-semibold text-sm lg:text-base;
+  }
+  .remove-default-focus {
+    @apply border-transparent focus:border-t-transparent focus:border-r-transparent focus:border-l-transparent focus:border-teal-600 focus:ring-0 focus-within:outline-none;
+  }
+  .remove-default-focus-textarea {
+    @apply focus:border-teal-600 focus:ring-0 focus-within:outline-none;
+  }
+  .heading-underline {
+    @apply underline underline-offset-8 decoration-teal-600 decoration-4;
+  }
+}
+
+.footer-tilt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.footer-tilt svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 30px;
+  transform: rotateY(180deg);
+}
+
+.footer-tilt .shape-fill {
+  fill: #ffffff;
+}
+
+.modal {
+  width: clamp(60%, 700px, 95%);
+  height: min(50%, 300px);
+
+  margin: auto;
+  padding: 0 2rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3px;
+}
+
+.image-modal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: fit-content;
+}
+
+.apartment-modal {
+  margin-top: 5rem;
 }

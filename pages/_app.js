@@ -1,7 +1,66 @@
-import '../styles/globals.css'
+import { useRef, useEffect } from "react";
+import "../styles/globals.css";
+import SiteState from "@/context/site/SiteState";
+import AuthState from "@/context/auth/AuthState";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, Zoom } from "react-toastify";
+import { motion } from "framer-motion";
+import smoothscroll from "smoothscroll-polyfill";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+const pageVariants = {
+  pageInitial: {
+    opacity: 0,
+  },
+  pageAnimate: {
+    opacity: 1,
+  },
+};
+
+const contextClass = {
+  default: "bg-teal-600",
+};
+
+function MyApp({ Component, pageProps, router }) {
+  const pathHistory = useRef(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      smoothscroll.polyfill();
+    }
+  }, []);
+
+  return (
+    <motion.div
+      key={router.route}
+      variants={pageVariants}
+      initial="pageInitial"
+      animate="pageAnimate"
+    >
+      <AuthState>
+        <SiteState>
+          <Component {...pageProps} pathHistory={pathHistory} />
+          <ToastContainer
+            position="top-center"
+            autoClose={3000}
+            hideProgressBar={true}
+            newestOnTop
+            closeOnClick
+            closeButton={false}
+            rtl={false}
+            pauseOnHover
+            transition={Zoom}
+            toastClassName={({ type }) =>
+              contextClass[type || "default"] +
+              " flex p-1 min-h-10 justify-center overflow-hidden cursor-pointer"
+            }
+            bodyClassName={() =>
+              "text-base text-white font-semibold tracking-wide block p-3 text-center"
+            }
+          />
+        </SiteState>
+      </AuthState>
+    </motion.div>
+  );
 }
 
-export default MyApp
+export default MyApp;

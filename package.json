@@ -5,11 +5,38 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.3.1",
+    "@tailwindcss/forms": "^0.4.0",
+    "axios": "^0.24.0",
+    "cookie": "^0.4.1",
+    "cookies-next": "^2.0.3",
+    "formik": "^2.2.9",
+    "framer-motion": "^5.5.5",
+    "imagekit": "^3.2.3",
+    "imagekitio-react": "^1.1.0",
+    "install": "^0.13.0",
     "next": "12.0.7",
+    "npm": "^8.3.0",
+    "qs": "^6.5.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-datepicker": "^4.5.0",
+    "react-dom": "17.0.2",
+    "react-dropzone": "^11.4.2",
+    "react-responsive-carousel": "^3.2.22",
+    "react-select": "^5.2.1",
+    "react-toastify": "^8.1.0",
+    "smoothscroll-polyfill": "^0.4.4",
+    "uuid": "^8.3.2",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "next-sitemap": "^1.9.12",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^3.0.0"
   }
 }
