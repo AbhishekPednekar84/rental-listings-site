@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Terms from "@/components/policy/Terms";
 import Privacy from "@/components/policy/Privacy";
 import Layout from "@/components/layout/Layout";
+import TermsHeadLayout from "@/components/layout/head/TermsHeadLayout";
 
 const Policy = () => {
   useEffect(() => {
@@ -11,14 +12,16 @@ const Policy = () => {
   }, []);
 
   return (
-    <Layout>
-      <section id="terms">
-        <Terms />
-      </section>
-      <section id="privacy">
-        <Privacy />
-      </section>
-    </Layout>
+    <TermsHeadLayout>
+      <Layout>
+        <section id="terms">
+          <Terms />
+        </section>
+        <section id="privacy">
+          <Privacy />
+        </section>
+      </Layout>
+    </TermsHeadLayout>
   );
 };
 
