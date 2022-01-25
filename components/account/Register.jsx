@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { errorIcon } from "@/utils/icons";
 
 // Component imports
 import Alert from "@/components/common/Alert";
@@ -19,23 +20,6 @@ const validationSchema = Yup.object({
     .min(8, "Password should be at least 8 characters")
     .trim(),
 });
-
-const errorIcon = (
-  <svg
-    className="w-4 h-4"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-    ></path>
-  </svg>
-);
 
 const loaderIcon = (
   <svg

@@ -53,6 +53,12 @@ export const getServerSideProps = async ({ req, params }) => {
     `${process.env.NEXT_PUBLIC_API_URL}/listings/${listingModificationParam[0]}`
   );
 
+  if (listingRes.data.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
+
   const listingInfo = listingRes.data;
 
   if (listingRes.data.user_id.toString() !== listingModificationParam[1]) {

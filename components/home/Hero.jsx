@@ -1,10 +1,23 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 // Component imports
 import CTA from "@/components/home/CTA";
 import ApartmentModal from "../apartment/ApartmentModal";
+
+const variants = {
+  initial: {
+    x: "100vw",
+  },
+  animate: {
+    x: 0,
+    transition: {
+      delay: 0.3,
+      duration: 0.4,
+    },
+  },
+};
 
 const Hero = ({ apartments }) => {
   const [message, setMessage] = useState(null);
@@ -17,10 +30,20 @@ const Hero = ({ apartments }) => {
   const openModal = () => setModalOpen(true);
 
   return (
-    <div className="bg-hero bg-cover">
+    <div
+      variants={variants}
+      initial="initial"
+      animate="animate"
+      className="bg-hero bg-cover"
+    >
       <div className="bg-black bg-opacity-30">
         <div className="flex flex-col justify-center items-center h-screen relative mx-6">
-          <div className="bg-gray-900 bg-opacity-70 px-3 py-7 md:px-5 mx-2 text-white">
+          <motion.div
+            variants={variants}
+            initial="initial"
+            animate="animate"
+            className="bg-gray-900 bg-opacity-70 px-3 py-7 md:px-5 mx-2 text-white"
+          >
             <h1 className="text-white text-3xl lg:text-4xl tracking-wide font-semibold text-center mb-6">
               Find flats for rent or sale in your dream apartment
             </h1>
@@ -39,7 +62,7 @@ const Hero = ({ apartments }) => {
                 </a>
               </Link>
             </div>
-          </div>
+          </motion.div>
           <Link href="#how-it-works">
             <a
               className="absolute bottom-0 pb-10"

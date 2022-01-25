@@ -6,7 +6,7 @@ import Layout from "@/components/layout/Layout";
 import FullPageAd from "@/components/listings/FullPageAd";
 import FullPageAdHeadLayout from "@/components/layout/head/FullPageAdHeadLayout";
 
-const AdPage = ({ adId, adData, apartmentName, username }) => {
+const AdPage = ({ adId, adData, apartmentName, username, pathHistory }) => {
   useEffect(() => {
     window.scroll({
       top: 1,
@@ -14,6 +14,8 @@ const AdPage = ({ adId, adData, apartmentName, username }) => {
       behavior: "smooth",
     });
   }, []);
+
+  pathHistory.current = `/ad/${adId}`;
 
   return (
     <FullPageAdHeadLayout

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import AuthContext from "@/context/auth/authContext";
+import Link from "next/link";
 import Image from "next/image";
 import { AnimatePresence } from "framer-motion";
 import {
@@ -127,7 +128,8 @@ const FullPageAd = ({ adData, apartmentName, username }) => {
                     <Image
                       src={adData.images[0].image_url}
                       alt="Apartment image"
-                      layout="responsive"
+                      placeholder="blur"
+                      blurDataURL={adData.images[0].image_url + "/tr:bl-10"}
                       height={adData.images[0].height / 2}
                       width={adData.images[0].width / 2}
                     />
@@ -259,7 +261,12 @@ const FullPageAd = ({ adData, apartmentName, username }) => {
                 </div>
                 {!user && (
                   <div className="text-sm text-zinc-500 text-left pt-2 print:hidden">
-                    Login to view contact details
+                    <Link href="/account/login">
+                      <a className="underline decoration-2 underline-offset-4 decoration-teal-600 text-teal-600">
+                        Login
+                      </a>
+                    </Link>{" "}
+                    to view contact details
                   </div>
                 )}
               </div>

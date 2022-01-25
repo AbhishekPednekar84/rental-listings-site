@@ -27,7 +27,6 @@ const variants = {
 };
 
 const DeleteUserModal = ({ handleDelete, handleClose, id, loading }) => {
-  console.log(id);
   return (
     <Backdrop onClick={handleClose}>
       <motion.div

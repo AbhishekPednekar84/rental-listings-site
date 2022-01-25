@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { starIcon } from "@/utils/icons";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+const variants = {
+  hidden: {
+    x: "-100vw",
+  },
+};
 
 const HowItWorks = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start((i) => ({
+        x: 0,
+        transition: {
+          duration: 1,
+          delay: i * 0.3,
+        },
+      }));
+    }
+  }, [controls, inView]);
+
   return (
     <div
       id="how-it-works"
@@ -11,12 +34,23 @@ const HowItWorks = () => {
       <h2 className="text-center font-bold mb-16 mx-2">
         <span className="heading-underline">Th</span>ree steps. That's all!
       </h2>
-      <div className="flex flex-col lg:flex-row justify-center lg:justify-evenly items-center ">
-        <div className="p-5 shadow-lg hover:shadow-2xl transition-shadow duration-150 ease-in-out max-w-[400px] bg-white mx-4 mb-16 lg:mb-0">
+      <motion.div
+        ref={ref}
+        className="flex flex-col lg:flex-row justify-center lg:justify-evenly items-center "
+      >
+        <motion.div
+          custom={0.75}
+          variants={variants}
+          initial="hidden"
+          animate={controls}
+          className="p-5 shadow-lg hover:shadow-2xl transition-shadow duration-150 ease-in-out max-w-[400px] bg-white mx-4 mb-16 lg:mb-0"
+        >
           <div className="flex flex-col justify-center relative">
             <Image
               src="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/hiw-2_p_d-ygIQA.jpg"
-              alt="hiw-image"
+              alt="how it works seller"
+              placeholder="blur"
+              blurDataURL="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/hiw-2_p_d-ygIQA.jpg/tr:bl-10"
               height={250}
               width={350}
             />
@@ -34,9 +68,7 @@ const HowItWorks = () => {
           </div>
 
           <h3 className="text-center font-bold mt-5 mb-10">
-            <span className="underline underline-offset-4 decoration-teal-600 decoration-4">
-              Ow
-            </span>
+            <span className="heading-underline">Ow</span>
             ners
           </h3>
           <ul className="ml-5 lg:ml-10">
@@ -53,12 +85,20 @@ const HowItWorks = () => {
               contacted by a potential tenant/buyer
             </li>
           </ul>
-        </div>
-        <div className="p-5 shadow-lg hover:shadow-2xl transition-shadow duration-150 ease-in-out max-w-[400px] bg-white mx-4">
+        </motion.div>
+        <motion.div
+          custom={1.25}
+          variants={variants}
+          initial="hidden"
+          animate={controls}
+          className="p-5 shadow-lg hover:shadow-2xl transition-shadow duration-150 ease-in-out max-w-[400px] bg-white mx-4"
+        >
           <div className="flex justify-center relative">
             <Image
               src="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/hiw-1_A2_WuYNR3.jpg"
-              alt="hiw-image"
+              alt="how it works - seeker"
+              placeholder="blur"
+              blurDataURL="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/hiw-1_A2_WuYNR3.jpg/tr:bl-10"
               height={250}
               width={350}
             />
@@ -76,9 +116,7 @@ const HowItWorks = () => {
             </svg>
           </div>
           <h3 className="text-center font-bold mt-5 mb-10">
-            <span className="underline underline-offset-4 decoration-teal-600 decoration-4">
-              Se
-            </span>
+            <span className="heading-underline">Se</span>
             ekers
           </h3>
           <ul className="ml-5 lg:ml-10">
@@ -95,8 +133,8 @@ const HowItWorks = () => {
               owner directly and finalize your dream home
             </li>
           </ul>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

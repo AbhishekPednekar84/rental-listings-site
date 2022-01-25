@@ -1,5 +1,4 @@
-import React, { useEffect, useContext } from "react";
-import AuthContext from "@/context/auth/authContext";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 
@@ -29,16 +28,42 @@ const Dashboard = ({ user, userListings }) => {
   );
 };
 
-export const getServerSideProps = async ({ params }) => {
+export const getServerSideProps = async ({ params, req }) => {
   const { id } = params;
 
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/${id}`);
+  const rosToken = req.cookies.__ros__listing__token;
+
+  if (!rosToken) {
+    return {
+      redirect: {
+        destination: "/account/login",
+        permanent: false,
+      },
+    };
+  }
+
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/${id}`, {
+    headers: {
+      "Authorization": "Bearer " + req.cookies.__ros__listing__token,
+    },
+  });
 
   const user = res.data;
 
+  if (!user) {
+    return {
+      notFound: true,
+    };
+  }
+
   if (res.statusText === "OK") {
     const listingRes = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/user/listings/${user.id}`
+      `${process.env.NEXT_PUBLIC_API_URL}/user/listings/${user.id}`,
+      {
+        headers: {
+          "Authorization": "Bearer " + req.cookies.__ros__listing__token,
+        },
+      }
     );
 
     var listing = listingRes.data;
@@ -46,7 +71,7 @@ export const getServerSideProps = async ({ params }) => {
 
   return {
     props: {
-      user,
+      user: user,
       userListings: listing,
     },
   };

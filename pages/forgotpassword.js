@@ -8,7 +8,7 @@ import Layout from "@/components/layout/Layout";
 import ChangePasswordHeadLayout from "@/components/listings/ChangePasswordHeadLayout";
 
 const logoutToast = () => {
-  toast.warning("Please logout", {
+  toast("Looks like you are already logged in", {
     draggablePercent: 60,
   });
 };

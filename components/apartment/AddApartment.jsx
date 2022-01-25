@@ -48,8 +48,8 @@ const AddApartment = ({ message, setMessage }) => {
       >
         {(props) => (
           <Form ref={form} autoComplete="off">
-            <h3 className="font-semibold mb-3 text-center">
-              Add your apartment
+            <h3 className="font-semibold mb-7 text-center">
+              <span className="heading-underline">Ad</span>d your apartment
             </h3>
             <div className="text-sm mb-7 flex justify-center items-center">
               <p className="text-center">

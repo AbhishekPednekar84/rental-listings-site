@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import AuthContext from "@/context/auth/authContext";
 import SiteContext from "@/context/site/siteContext";
+import Router, { useRouter } from "next/router";
 import { Formik, Form, Field } from "formik";
 import Image from "next/image";
 import DatePicker from "react-datepicker";
@@ -8,7 +9,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import * as Yup from "yup";
 import Select from "react-select";
 import { listingSelectStyles } from "@/utils/selectStyles";
-import { loaderIcon } from "@/utils/icons";
+import { loaderIcon, errorIcon } from "@/utils/icons";
+import { sessionExpiredToast } from "@/utils/toasts";
 
 // Component import
 import ImageUploader from "@/components/listings/ImageUploader";
@@ -35,23 +37,6 @@ const validationSchema = Yup.object({
     .min(10, "At least 10 digits"),
 });
 
-const errorIcon = (
-  <svg
-    className="w-4 h-4"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-    ></path>
-  </svg>
-);
-
 const infoCircle = (
   <svg
     className="w-4 h-4"
@@ -73,11 +58,13 @@ const AddListing = ({ apartments }) => {
   const [apartmentSelected, setApartmentSelected] = useState(false);
   const [files, setFiles] = useState([]);
 
+  const router = useRouter();
+
   const authContext = useContext(AuthContext);
   const siteContext = useContext(SiteContext);
 
-  const { user, getCurrentUser } = authContext;
-  const { createNewListing, loading, setLoading } = siteContext;
+  const { user, getCurrentUser, logout } = authContext;
+  const { createNewListing, loading, setLoading, siteError } = siteContext;
 
   const options = apartments.map((apartment) => {
     return {
@@ -90,6 +77,14 @@ const AddListing = ({ apartments }) => {
   useEffect(() => {
     getCurrentUser();
   }, []);
+
+  useEffect(() => {
+    if (siteError === "Token expired") {
+      logout();
+      sessionExpiredToast();
+      setTimeout(() => router.push("/account/login"), 1500);
+    }
+  }, [siteError]);
 
   var availableFromDate = new Date(startDate);
 
@@ -128,9 +123,7 @@ const AddListing = ({ apartments }) => {
         </div>
         <div className="px-2 md:px-10 py-8 bg-white">
           <h1 className="font-bold mb-10 text-center">
-            <span className="underline underline-offset-8 decoration-teal-600 decoration-4">
-              Cr
-            </span>
+            <span className="heading-underline">Cr</span>
             eate listing
           </h1>
         </div>

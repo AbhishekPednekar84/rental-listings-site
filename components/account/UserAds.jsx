@@ -1,10 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import SiteContext from "@/context/site/siteContext";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { editAlt, trashIconLg, viewIcon } from "@/utils/icons";
 import { AnimatePresence } from "framer-motion";
+import { sessionExpiredToast } from "@/utils/toasts";
 
 import DeleteAdModal from "@/components/listings/DeleteAdModal";
 
@@ -17,7 +18,15 @@ const UserAds = ({ listings, setListings, token, user }) => {
   const siteContext = useContext(SiteContext);
   const router = useRouter();
 
-  const { deleteListing, deleteImageFromImageKit } = siteContext;
+  const { deleteListing, siteError } = siteContext;
+
+  useEffect(() => {
+    if (siteError === "Token expired") {
+      logout();
+      sessionExpiredToast();
+      setTimeout(() => router.push("/account/login"), 1500);
+    }
+  }, [siteError]);
 
   const handleDelete = (id, images) => {
     deleteListing(id);

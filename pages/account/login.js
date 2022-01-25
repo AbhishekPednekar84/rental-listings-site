@@ -14,7 +14,7 @@ const createListingToast = () => {
 };
 
 const logoutToast = () => {
-  toast.warning("Please logout to login as someone else", {
+  toast("Please logout to log back in as someone else", {
     draggablePercent: 60,
   });
 };
@@ -47,18 +47,12 @@ const LoginPage = ({ pathHistory }) => {
   }
 };
 
-export const getServerSideProps = ({ req }) => {
-  if (req.headers.cookie) {
-    return {
-      notFound: true,
-    };
-  }
-
-  const token = req.headers.cookie;
+export const getServerSideProps = async ({ req }) => {
+  console.log(req.cookies);
 
   return {
     props: {
-      token: null,
+      cookie: null,
     },
   };
 };

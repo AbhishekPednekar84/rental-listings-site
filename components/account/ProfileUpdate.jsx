@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "@/context/auth/authContext";
-import SiteContext from "@/context/site/siteContext";
+import { useRouter } from "next/router";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import {
@@ -11,6 +11,7 @@ import {
   errorIcon,
   cancelIcon,
 } from "@/utils/icons";
+import { sessionExpiredToast } from "@/utils/toasts";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Name is required"),
@@ -19,16 +20,31 @@ const validationSchema = Yup.object({
 const ProfileUpdate = ({ user }) => {
   const [editForm, setEditForm] = useState(false);
   const [textChanged, setTextChanged] = useState(false);
+  const router = useRouter();
 
   const authContext = useContext(AuthContext);
 
-  const { updateProfile, profileImage, generateUserProfileImage } = authContext;
+  const {
+    updateProfile,
+    profileImage,
+    generateUserProfileImage,
+    authError,
+    logout,
+  } = authContext;
 
   useEffect(() => {
     if (user && user) {
       generateUserProfileImage(user.name);
     }
   }, [user]);
+
+  useEffect(() => {
+    if (authError === "Token expired") {
+      logout();
+      sessionExpiredToast();
+      setTimeout(() => router.push("/account/login"), 1500);
+    }
+  }, [authError]);
 
   return (
     <div className="w-11/12 lg:w-1/3">

@@ -21,12 +21,6 @@ import {
   FORGOT_PASSWORD_OTP,
 } from "@/context/Types";
 
-const logoutToast = () => {
-  toast("See you soon! 👋", {
-    draggablePercent: 60,
-  });
-};
-
 const userDeleteToast = () => {
   toast("Sorry to see you go :(", {
     draggablePercent: 60,
@@ -66,25 +60,30 @@ const AuthState = ({ children }) => {
 
   // Register
   const register = async (name, email, password) => {
-    const res = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/user`,
-      { name: name, email: email, password: password },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
+    setAuthToken();
+
+    try {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/user`,
+        { name: name, email: email, password: password },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const data = res.data;
+
+      if (res.statusText === "Created") {
+        registerToast(data.name);
+
+        dispatch({ type: REGISTER, payload: data });
       }
-    );
-
-    const data = res.data;
-
-    if (res.statusText === "Created") {
-      registerToast(data.name);
-
-      dispatch({ type: REGISTER, payload: data });
-    } else {
-      dispatch({ type: AUTH_ERROR, payload: data.message });
-      setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
+    } catch (err) {
+      console.log(err``);
+      dispatch({ type: AUTH_ERROR, payload: err.response.data.detail });
+      // setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
     }
   };
 
@@ -120,16 +119,18 @@ const AuthState = ({ children }) => {
   const getCurrentUser = async () => {
     setAuthToken();
 
-    const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/auth/current_user`
-    );
+    try {
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/current_user`
+      );
 
-    const data = res.data;
+      const data = res.data;
 
-    if (res.statusText === "OK") {
-      dispatch({ type: USER_AUTH, payload: data });
-    } else {
-      dispatch({ type: AUTH_ERROR, payload: data });
+      if (res.statusText === "OK") {
+        dispatch({ type: USER_AUTH, payload: data });
+      }
+    } catch (err) {
+      dispatch({ type: AUTH_ERROR, payload: err.response.data.detail });
     }
   };
 
@@ -139,12 +140,6 @@ const AuthState = ({ children }) => {
     //   method: "POST",
     // });
     dispatch({ type: LOGOUT });
-    setTimeout(() => logoutToast(), 1000);
-    if (router.pathname === "/") {
-      router.reload();
-    } else {
-      router.push("/");
-    }
   };
 
   const deleteUser = async (userId) => {
@@ -183,6 +178,7 @@ const AuthState = ({ children }) => {
 
   // Update user profile
   const updateProfile = async (id, name) => {
+    setAuthToken();
     try {
       const res = await axios.put(
         `${process.env.NEXT_PUBLIC_API_URL}/user/update`,

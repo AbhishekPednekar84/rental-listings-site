@@ -101,6 +101,7 @@ const SiteState = ({ children }) => {
     user,
     images
   ) => {
+    setAuthToken();
     const formData = new FormData();
 
     formData.set("title", title);
@@ -161,6 +162,7 @@ const SiteState = ({ children }) => {
     excuse,
     images
   ) => {
+    setAuthToken();
     const formData = new FormData();
 
     formData.set("listing_id", listingId);
@@ -204,12 +206,16 @@ const SiteState = ({ children }) => {
   };
 
   const deleteListing = async (listingId) => {
+    setAuthToken();
+
     const res = await axios.delete(
       `${process.env.NEXT_PUBLIC_API_URL}/listing/${listingId}`
     );
   };
 
   const deleteImageFromImageKit = async (fileId) => {
+    setAuthToken();
+
     const res = await axios.delete(
       `${process.env.NEXT_PUBLIC_API_URL}/image/${fileId}`
     );

@@ -1,3 +1,4 @@
+import Cookies from "universal-cookie";
 import {
   LOGIN,
   REGISTER,
@@ -12,6 +13,8 @@ import {
   FORGOT_PASSWORD,
   FORGOT_PASSWORD_OTP,
 } from "@/context/Types";
+
+const cookie = new Cookies();
 
 const authReducer = (state, action) => {
   switch (action.type) {
@@ -28,6 +31,11 @@ const authReducer = (state, action) => {
         "__ros__listing__token",
         action.payload.access_token
       );
+      cookie.set("__ros__listing__token", action.payload.access_token, {
+        "path": "/",
+        "sameSite": "Strict",
+        "secure": process.env.NODE_ENV === "production",
+      });
       return {
         ...state,
         token: action.payload,
@@ -35,7 +43,15 @@ const authReducer = (state, action) => {
         loading: false,
       };
     case REGISTER:
-      localStorage.setItem("__ros__listing__token", action.payload.token);
+      localStorage.setItem(
+        "__ros__listing__token",
+        action.payload.access_token
+      );
+      cookie.set("__ros__listing__token", action.payload.token, {
+        "path": "/",
+        "sameSite": "Strict",
+        "secure": process.env.NODE_ENV === "production",
+      });
       return {
         ...state,
         token: action.payload.token,
@@ -45,6 +61,9 @@ const authReducer = (state, action) => {
       };
     case DELETE_USER:
       localStorage.removeItem("__ros__listing__token");
+      cookie.remove("__ros__listing__token", {
+        path: "/",
+      });
       return {
         ...state,
         user: null,
@@ -91,6 +110,9 @@ const authReducer = (state, action) => {
       };
     case LOGOUT:
       localStorage.removeItem("__ros__listing__token");
+      cookie.remove("__ros__listing__token", {
+        path: "/",
+      });
       return {
         ...state,
         user: null,

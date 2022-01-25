@@ -1,10 +1,17 @@
 import React from "react";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 // Component imports
 import Layout from "@/components/layout/Layout";
 import Register from "@/components/account/Register";
 import RegisterHeadLayout from "@/components/layout/head/RegisterHeadLayout";
+
+const registerToast = () => {
+  toast("Please logout to register with a different account", {
+    draggablePercent: 60,
+  });
+};
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -13,7 +20,7 @@ const RegisterPage = () => {
     typeof window !== "undefined" &&
     localStorage.getItem("__ros__listing__token")
   ) {
-    toast.warning("Please logout to register with a different account");
+    registerToast();
     setTimeout(() => router.push("/"), 2000);
 
     return null;
@@ -26,22 +33,6 @@ const RegisterPage = () => {
       </RegisterHeadLayout>
     );
   }
-};
-
-export const getServerSideProps = ({ req }) => {
-  if (req.headers.cookie) {
-    return {
-      notFound: true,
-    };
-  }
-
-  const token = req.headers.cookie;
-
-  return {
-    props: {
-      token: null,
-    },
-  };
 };
 
 export default RegisterPage;

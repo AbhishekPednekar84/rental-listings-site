@@ -85,6 +85,8 @@ const ApartmentListings = ({ apartmentName }) => {
                       <Image
                         src={ad.images[0].image_url}
                         alt="Image of rental property"
+                        placeholder="blur"
+                        blurDataURL={ad.images[0].image_url + "/tr:bl-10"}
                         height={ad.images[0].height / 5}
                         width={ad.images[0].width / 5}
                       />

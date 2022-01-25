@@ -64,20 +64,20 @@ const Footer = () => {
 
                 <ul className="flex flex-col gap-5 flex-start">
                   <li>
-                    <Link href="/terms">
+                    <Link href="/policy/#terms">
                       <a className="nav-link font-medium">Terms of Use</a>
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link href="/policy/#privacy">
+                      <a className="nav-link font-medium">Privacy Policy</a>
                     </Link>
                   </li>
 
                   <li>
                     <Link href="/faqs">
                       <a className="nav-link font-medium">FAQs</a>
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link href="/sitemap">
-                      <a className="nav-link font-medium">Sitemap</a>
                     </Link>
                   </li>
                 </ul>

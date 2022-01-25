@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import AuthContext from "@/context/auth/authContext";
 import SiteContext from "@/context/site/siteContext";
 import { Formik, Form, Field } from "formik";
@@ -6,10 +6,8 @@ import Image from "next/image";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import * as Yup from "yup";
-import Select from "react-select";
-import { listingSelectStyles } from "@/utils/selectStyles";
-import { loaderIcon, trashIcon } from "@/utils/icons";
-import { IKImage } from "imagekitio-react";
+import { loaderIcon, trashIcon, errorIcon } from "@/utils/icons";
+import { sessionExpiredToast } from "@/utils/toasts";
 
 // Component import
 import ImageUploader from "@/components/listings/ImageUploader";
@@ -34,23 +32,6 @@ const validationSchema = Yup.object({
     .required("Mobile number is required")
     .matches(/^[0-9]+$/, "Numbers only"),
 });
-
-const errorIcon = (
-  <svg
-    className="w-4 h-4"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-    ></path>
-  </svg>
-);
 
 const infoCircle = (
   <svg
@@ -86,10 +67,10 @@ const EditListing = ({
   const { user } = authContext;
   const {
     updateListing,
-    updateListingWithoutImages,
     loading,
     setLoading,
     deleteImageFromImageKit,
+    siteError,
   } = siteContext;
 
   // const options = apartments.map((apartment) => {
@@ -103,6 +84,14 @@ const EditListing = ({
   //       apartment.attributes.city,
   //   };
   // });
+
+  useEffect(() => {
+    if (siteError === "Token expired") {
+      logout();
+      sessionExpiredToast();
+      setTimeout(() => router.push("/account/login"), 1500);
+    }
+  }, [siteError]);
 
   var availableFromDate = new Date(startDate);
 
@@ -141,9 +130,7 @@ const EditListing = ({
         </div>
         <div className="px-2 lg:px-10 pt-8 bg-white">
           <h1 className="font-bold mb-10 text-center">
-            <span className="underline underline-offset-8 decoration-teal-600 decoration-4">
-              Up
-            </span>
+            <span className="heading-underline">Up</span>
             date your listing
           </h1>
         </div>
