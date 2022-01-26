@@ -5,8 +5,8 @@ import faqs from "@/utils/faqs";
 const FAQ = () => {
   return (
     <div
-      itemscope
-      itemtype="https://schema.org/FAQPage"
+      itemScope
+      itemType="https://schema.org/FAQPage"
       className="pt-36 pb-20 flex flex-col justify-center items-center gap-10 bg-gradient-to-br from-zinc-200 via-slate-100 to-gray-50"
     >
       <h1>
@@ -15,6 +15,7 @@ const FAQ = () => {
       {faqs.map((item, index) => {
         return (
           <div
+            key="index"
             className={`flex ${
               index % 2 === 0
                 ? "flex-col lg:flex-row lg:hover:-rotate-1"
@@ -23,18 +24,18 @@ const FAQ = () => {
           >
             <img src={item.image} alt="faq-image" />
             <div
-              itemscope
-              itemprop="mainEntity"
-              itemtype="https://schema.org/Question"
+              itemScope
+              itemProp="mainEntity"
+              itemType="https://schema.org/Question"
               className="flex flex-col p-5"
             >
-              <h4 itemprop="name" className="font-semibold pb-3">
+              <h4 itemProp="name" className="font-semibold pb-3">
                 {item.question}
               </h4>
               <p
-                itemscope
-                itemprop="acceptedAnswer"
-                itemtype="https://schema.org/Answer"
+                itemScope
+                itemProp="acceptedAnswer"
+                itemType="https://schema.org/Answer"
                 dangerouslySetInnerHTML={{ __html: item.answer }}
               ></p>
             </div>
