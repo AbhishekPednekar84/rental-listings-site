@@ -3,8 +3,15 @@ export const customSelectStyles = {
     ...provided,
     color: state.isSelected ? "#0D9488" : "black",
     backgroundColor: state.isSelected && "#CCFBF1",
+    fontSize: "1rem",
     fontWeight: state.isSelected && 600,
   }),
+  placeholder: (defaultStyles) => {
+    return {
+      ...defaultStyles,
+      fontSize: "1rem",
+    };
+  },
   control: (base, state) => ({
     ...base,
     border: state.isFocused ? 0 : 0,
@@ -22,7 +29,7 @@ export const customSelectStyles = {
   container: (styles) => ({
     ...styles,
     "@media only screen and (max-width: 600px)": {
-      width: "350px",
+      width: "325px",
     },
     "@media only screen and (min-width: 601px)": {
       width: "525px",

@@ -48,11 +48,11 @@ const AddApartment = ({ message, setMessage }) => {
       >
         {(props) => (
           <Form ref={form} autoComplete="off">
-            <h3 className="font-semibold mb-7 text-center">
+            <h4 className="font-semibold mb-7 text-center leading-10">
               <span className="heading-underline">Ad</span>d your apartment
-            </h3>
+            </h4>
             <div className="text-sm mb-7 flex justify-center items-center">
-              <p className="text-center">
+              <p className="text-center leading-6">
                 <span className="font-semibold mr-1 underline underline-offset-4 decoration-teal-600 decoration-2">
                   Pro Tip:
                 </span>

@@ -19,7 +19,7 @@ const HowItWorks = () => {
       controls.start((i) => ({
         x: 0,
         transition: {
-          duration: 1,
+          duration: 0.7,
           delay: i * 0.3,
         },
       }));
@@ -29,7 +29,7 @@ const HowItWorks = () => {
   return (
     <div
       id="how-it-works"
-      className="pt-24 pb-20 bg-gradient-to-b from-zinc-300 via-slate-200 to-white"
+      className="pt-16 lg:pt-24 pb-20 bg-gradient-to-b from-zinc-300 via-slate-200 to-white"
     >
       <h2 className="text-center font-bold mb-16 mx-2">
         <span className="heading-underline">Th</span>ree steps. That's all!
@@ -55,7 +55,7 @@ const HowItWorks = () => {
               width={350}
             />
             <svg
-              className="absolute bottom-0"
+              className="absolute -bottom-1"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1440 320"
             >
@@ -104,7 +104,7 @@ const HowItWorks = () => {
             />
 
             <svg
-              className="absolute bottom-0"
+              className="absolute -bottom-1"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1440 320"
             >

@@ -19,7 +19,7 @@ const linkCopiedToast = () => {
   toast("Copied!", { draggablePercent: 60 });
 };
 
-const FullPageAd = ({ adData, apartmentName, username }) => {
+const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const closeModal = () => setModalOpen(false);
@@ -134,7 +134,7 @@ const FullPageAd = ({ adData, apartmentName, username }) => {
                       width={adData.images[0].width / 2}
                     />
                   </div>
-                  <p className="pt-2 text-sm">
+                  <p className="pt-2 text-sm print:hidden">
                     Click on the image to view the gallery
                   </p>
                 </>
@@ -294,12 +294,14 @@ const FullPageAd = ({ adData, apartmentName, username }) => {
             >
               Copy ad link {copyIcon}
             </button>
-            <button
-              onClick={() => window.print()}
-              className="w-36 md:w-40 h-14 bg-teal-600 p-2 text-white uppercase font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in-out flex justify-evenly items-center"
-            >
-              Print ad {printIcon}
-            </button>
+            {!disablePrint.current && (
+              <button
+                onClick={() => window.print()}
+                className="w-36 md:w-40 h-14 bg-teal-600 p-2 text-white uppercase font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in-out flex justify-evenly items-center"
+              >
+                Print ad {printIcon}
+              </button>
+            )}
           </div>
         </div>
       </div>

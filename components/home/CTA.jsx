@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Select from "react-select";
 import { customSelectStyles } from "@/utils/selectStyles";
+import { loaderIcon } from "@/utils/icons";
 
 const CTA = ({ apartments }) => {
   const [selectedValue, setSelectedValue] = useState(null);
@@ -33,7 +34,10 @@ const CTA = ({ apartments }) => {
           styles={customSelectStyles}
           isSearchable={true}
           placeholder="Enter the apartment name..."
-          onChange={(o) => setSelectedValue(o.value)}
+          onChange={(o) => {
+            setSelectedValue(o.value);
+            setCtaClicked(false);
+          }}
           className="text-lg"
         />
       </div>
@@ -46,9 +50,15 @@ const CTA = ({ apartments }) => {
               router.push(`/listings/${selectedValue}`);
             }
           }}
-          className="px-5 py-3 bg-teal-600 text-white hover:bg-teal-800 shadow-white transition-colors duration-200 ease-in-out text-lg font-semibold uppercase tracking-wide rounded-full focus:outline-none "
+          className="w-44 px-5 py-3 bg-teal-600 text-white hover:bg-teal-800 shadow-white transition-colors duration-200 ease-in-out text-lg font-semibold uppercase tracking-wide rounded-full focus:outline-none"
         >
-          See Listings
+          {selectedValue && ctaClicked ? (
+            <span className="animate-spin flex justify-center">
+              {loaderIcon}
+            </span>
+          ) : (
+            "See Listings"
+          )}
         </button>
       </div>
     </div>

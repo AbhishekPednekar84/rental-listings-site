@@ -22,10 +22,19 @@ const contextClass = {
 
 function MyApp({ Component, pageProps, router }) {
   const pathHistory = useRef(null);
+  const disablePrint = useRef(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       smoothscroll.polyfill();
+    }
+  }, []);
+
+  useEffect(() => {
+    let userAgent = navigator.userAgent;
+
+    if (userAgent.match(/firefox|fxios/i) && userAgent.match(/android/i)) {
+      disablePrint.current = true;
     }
   }, []);
 
@@ -38,7 +47,11 @@ function MyApp({ Component, pageProps, router }) {
     >
       <AuthState>
         <SiteState>
-          <Component {...pageProps} pathHistory={pathHistory} />
+          <Component
+            {...pageProps}
+            pathHistory={pathHistory}
+            disablePrint={disablePrint}
+          />
           <ToastContainer
             position="top-center"
             autoClose={3000}
