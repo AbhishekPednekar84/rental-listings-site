@@ -19,7 +19,7 @@ const Hero = ({ apartments }) => {
   return (
     <div className="bg-hero bg-cover">
       <div className="bg-black bg-opacity-30">
-        <div className="flex flex-col justify-center items-center h-screen relative mx-5">
+        <div className="flex flex-col justify-center items-center py-44 lg:py-56 h-full relative mx-5">
           <div className="bg-gray-900 bg-opacity-70 px-4 py-7 md:px-5 text-white">
             <h1 className="text-white text-2xl lg:text-4xl tracking-wide font-semibold text-center mb-6">
               Find flats for rent or sale in your dream apartment
@@ -40,28 +40,28 @@ const Hero = ({ apartments }) => {
               </Link>
             </div>
           </div>
-        </div>
-        <Link href="#how-it-works">
-          <a
-            className="absolute bottom-0 pb-10"
-            aria-label="Link to navigate to the next section"
-          >
-            <svg
-              className="motion-safe:animate-bounce w-16 h-16"
-              fill="none"
-              stroke="#FFFFFF"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+          <Link href="#how-it-works">
+            <a
+              className="absolute bottom-6"
+              aria-label="Link to navigate to the next section"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M16 17l-4 4m0 0l-4-4m4 4V3"
-              ></path>
-            </svg>
-          </a>
-        </Link>
+              <svg
+                className="motion-safe:animate-bounce w-16 h-16"
+                fill="none"
+                stroke="#FFFFFF"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M16 17l-4 4m0 0l-4-4m4 4V3"
+                ></path>
+              </svg>
+            </a>
+          </Link>
+        </div>
       </div>
       <AnimatePresence exitBeforeEnter>
         {modalOpen && (

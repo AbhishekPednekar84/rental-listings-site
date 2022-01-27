@@ -11,7 +11,7 @@ module.exports = {
         "xxs": ".65rem",
       },
       backgroundImage: {
-        hero: "url(https://ik.imagekit.io/ykidmzssaww/Listings/site-images/jrwyvl3qck6d9lxtkatz_gBw5kYrCax.jpg)",
+        hero: "url(https://ik.imagekit.io/ykidmzssaww/Listings/site-images/jrwyvl3qck6d9lxtkatz_gBw5kYrCax_KAaRH_7Hd.jpg)",
         listing1:
           "url(https://ik.imagekit.io/ykidmzssaww/Listings/site-images/rfyz78gdhrrcrim6rnys_l_QNDrw7Ei_.jpg)",
         loginHero:
