@@ -39,7 +39,7 @@ const UserAds = ({ listings, setListings, token, user }) => {
   };
 
   return (
-    <div className="bg-zinc-50 py-10">
+    <div className="bg-zinc-50 py-5 lg:py-10">
       <h3 className="mb-10 text-3xl font-semibold text-center">My Ads</h3>
 
       {listings.length === 0 && (

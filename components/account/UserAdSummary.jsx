@@ -42,7 +42,7 @@ const UserAdSummary = ({ listings, user }) => {
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center bg-white py-10 px-5 shadow-lg hover:shadow-xl">
+      <div className="flex flex-col justify-center items-center bg-white py-10 px-3 shadow-lg hover:shadow-xl">
         <h5 className="mb-10 text-xl font-semibold">Ad Summary</h5>
 
         <div>
@@ -76,7 +76,7 @@ const UserAdSummary = ({ listings, user }) => {
         </div>
       </div>
 
-      <div className="mt-10 lg:mt-5 text-center bg-white py-10 px-5 shadow-lg hover:shadow-xl">
+      <div className="mt-10 lg:mt-5 text-center bg-white py-10 px-3 shadow-lg hover:shadow-xl">
         <button
           onClick={() => (modalOpen ? closeModal() : openModal())}
           className="p-3 h-12 w-56 bg-rose-600 text-white font-semibold rounded-full focus:outline-none hover:bg-rose-800 focus:ring-2 focus:ring-offset-2 focus:ring-rose-600 transition-colors duration-200 ease-in uppercase"

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { errorIcon } from "@/utils/icons";
+import { errorIcon, loaderIcon } from "@/utils/icons";
 
 // Component imports
 import Alert from "@/components/common/Alert";
@@ -20,23 +20,6 @@ const validationSchema = Yup.object({
     .min(8, "Password should be at least 8 characters")
     .trim(),
 });
-
-const loaderIcon = (
-  <svg
-    className="w-4 h-4"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-    ></path>
-  </svg>
-);
 
 const Register = () => {
   const authContext = useContext(AuthContext);

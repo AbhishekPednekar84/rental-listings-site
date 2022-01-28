@@ -148,7 +148,7 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                 />
               )}
             </div>
-            <div className="px-10 lg:px-2 mt-5 print:mt-1">
+            <div className="px-5 lg:px-10 lg:px-2 mt-5 print:mt-1">
               <div className="mt-2 mb-7 text-left lg:text-center">
                 This unit is for{" "}
                 <span className="bg-teal-100 p-1 rounded-md font-semibold">
@@ -231,9 +231,9 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
             <h3 className="pt-5 print:pt-1 px-3 pb-3 print:py-2 font-semibold">
               Contact details
             </h3>
-            <div className="pt-5 pb-10 print:py-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-2 print:gap-2 gap-5 place-items-start px-10">
+            <div className="pt-5 pb-10 print:py-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-2 print:gap-2 gap-5 place-items-start px-5 lg:px-10">
               <div className="flex items-center">
-                <span className="text-sm text-zinc-500">Ad Posted By:</span>
+                <span className="text-sm text-zinc-500">Posted By:</span>
                 &nbsp;
                 <span className="font-semibold">{username}</span>
               </div>
@@ -271,7 +271,7 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                 )}
               </div>
 
-              <div className="flex items-center print:hidden">
+              <div className="flex items-center print:mt-5 print:hidden">
                 <span className="text-sm text-zinc-500">Posted On:</span>&nbsp;
                 <span className="font-semibold">
                   {new Date(adData.date_created).toLocaleDateString()}
