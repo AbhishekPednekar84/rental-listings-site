@@ -11,6 +11,10 @@ module.exports = {
         "xxs": ".65rem",
       },
       backgroundImage: {
+        heroSmall:
+          "url(https://ik.imagekit.io/ykidmzssaww/Listings/site-images/90172b299ac72b9f_KaUA8ph3m.jpg)",
+        heroSmallBlur:
+          "url(https://ik.imagekit.io/ykidmzssaww/Listings/site-images/90172b299ac72b9f_KaUA8ph3m.jpg/tr:bl-10)",
         hero: "url(https://ik.imagekit.io/ykidmzssaww/Listings/site-images/jrwyvl3qck6d9lxtkatz_gBw5kYrCax_KAaRH_7Hd.jpg)",
         heroBlur:
           "url(https://ik.imagekit.io/ykidmzssaww/Listings/site-images/jrwyvl3qck6d9lxtkatz_gBw5kYrCax_KAaRH_7Hd.jpg/tr:bl-10)",

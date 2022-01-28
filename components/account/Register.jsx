@@ -35,7 +35,7 @@ const Register = () => {
   return (
     <div className="min-h-screen bg-zinc-100 via-slate-50 to-white flex justify-center items-center pt-10">
       <div className="w-96 bg-white overflow-hidden shadow-xl my-20 mx-5">
-        <div className="relative h-52 bg-registerHero bg-cover border-b-transparent">
+        <div className="relative h-52 bg-registerHero bg-cover bg-center border-b-transparent">
           <svg
             className="absolute -bottom-4"
             xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ const Register = () => {
           </svg>
         </div>
 
-        <div className="px-10 py-8 bg-white">
+        <div className="px-2 lg:px-5 py-8 bg-white">
           <h1>
             <span className="heading-underline">Le</span>
             t's Begin!
@@ -73,7 +73,7 @@ const Register = () => {
           >
             {(props) => (
               <Form autoComplete="off">
-                <div className="grid grid-cols-1">
+                <div className="grid grid-cols-1 px-6">
                   <div
                     className={`relative ${
                       props.touched.name && props.errors.name ? "mb-1" : "mb-6"

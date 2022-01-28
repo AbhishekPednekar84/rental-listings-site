@@ -41,39 +41,41 @@ const UserAdSummary = ({ listings, user }) => {
   };
 
   return (
-    <div>
-      <div className="flex flex-col justify-center items-center bg-white py-10 px-3 shadow-lg hover:shadow-xl">
-        <h5 className="mb-10 text-xl font-semibold">Ad Summary</h5>
+    <div className="">
+      <div className="bg-white py-10 shadow-lg hover:shadow-xl w-[300px] lg:w-[400px] px-5">
+        <h5 className="text-center mb-10 text-xl font-semibold">Ad Summary</h5>
 
-        <div>
-          <p className="text-sm lg:text-base flex items-center">
-            <span className="mr-1 text-teal-600">{starIcon}</span> Number of
-            active ads:{" "}
-            <span className="bg-teal-600 px-2 py-1 text-white font-semibold ml-1 rounded-md">
-              {listings.length}
-            </span>
-          </p>
+        <p className="text-sm lg:text-base flex items-center justify-start">
+          <span className="mr-1 text-teal-600">{starIcon}</span> Number of
+          active ads:{" "}
+          <span className="bg-teal-600 px-2 py-1 text-white font-semibold ml-1 rounded-md">
+            {listings.length}
+          </span>
+        </p>
 
-          {listings.length > 0 && (
-            <p className="text-sm lg:text-base mt-10 flex items-center">
-              <span className="mr-1 text-teal-600">{starIcon}</span> Apartments:{" "}
-              <span>
-                {uniqueApartments.map((apt, index) => {
-                  return (
-                    <span
-                      key={index}
-                      className={`ml-2 text-white p-1 rounded-md text-sm font-semibold whitespace-nowrap ${
-                        chipBackground[Math.floor(Math.random() * 10)]
-                      }`}
-                    >
-                      {apt}
-                    </span>
-                  );
-                })}
-              </span>{" "}
-            </p>
-          )}
-        </div>
+        {listings.length > 0 && (
+          <div>
+            <div className="text-sm lg:text-base mt-10 flex items-center justify-start ">
+              <span className="mr-1 text-teal-600">{starIcon}</span>
+              <span>Apartments:</span>{" "}
+            </div>
+
+            {uniqueApartments.map((apt, index) => {
+              return (
+                <>
+                  <p
+                    key={index}
+                    className={`max-w-max ml-2 text-white p-1 rounded-md text-sm font-semibold mt-2 whitespace-nowrap ${
+                      chipBackground[Math.floor(Math.random() * 10)]
+                    }`}
+                  >
+                    {apt}
+                  </p>
+                </>
+              );
+            })}
+          </div>
+        )}
       </div>
 
       <div className="mt-10 lg:mt-5 text-center bg-white py-10 px-3 shadow-lg hover:shadow-xl">

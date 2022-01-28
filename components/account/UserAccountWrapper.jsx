@@ -20,7 +20,7 @@ const UserAccountWrapper = ({ user, userListings }) => {
       <h1 className="text-center font-bold mb-10 lg:mb-16">
         <span className="heading-underline">My</span> Dashboard
       </h1>
-      <div className="flex justify-center items-center flex-col lg:flex-row lg:items-start lg:justify-evenly gap-10 lg:gap-0 bg-zinc-50 p-10">
+      <div className="flex justify-center items-center flex-col lg:flex-row lg:items-start lg:justify-evenly gap-10 lg:gap-0 bg-zinc-50 p-10 mx-1">
         <ProfileUpdate user={user} token={token} />
         <UserAdSummary listings={listings} user={user} />
       </div>

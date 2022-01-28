@@ -53,12 +53,12 @@ const UserAds = ({ listings, setListings, token, user }) => {
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 px-10">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 place-items-center mx-5">
         {listings.map((ad) => {
           return (
             <div
               key={ad.id}
-              className="bg-white py-3 px-4 text-center shadow-lg hover:shadow-xl"
+              className="bg-white py-3 px-5 min-w-[300px] text-center shadow-lg hover:shadow-xl"
             >
               {ad.images.length > 0 ? (
                 <img

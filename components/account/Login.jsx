@@ -71,7 +71,7 @@ const Login = ({ pathHistoryProp }) => {
           </svg>
         </div>
 
-        <div className="px-10 py-8 bg-white">
+        <div className="px-2 lg:px-5 py-8 bg-white">
           <h1>
             <span className="heading-underline">We</span>
             lcome back!
@@ -93,7 +93,7 @@ const Login = ({ pathHistoryProp }) => {
           >
             {(props) => (
               <Form autoComplete="off">
-                <div className="grid grid-cols-1">
+                <div className="grid grid-cols-1 px-6">
                   <div
                     className={`relative ${
                       props.touched.email && props.errors.email

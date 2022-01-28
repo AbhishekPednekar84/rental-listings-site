@@ -22,7 +22,11 @@ const Hero = ({ apartments }) => {
   const openModal = () => setModalOpen(true);
 
   return (
-    <div className={`${mounted ? "bg-hero" : "bg-heroBlur"} bg-cover`}>
+    <div
+      className={`${
+        mounted ? "bg-heroSmall lg:bg-hero" : "bg-heroSmallBlur lg:bg-heroBlur"
+      } bg-center md:bg-right-bottom lg:bg-center bg-cover`}
+    >
       <div className="bg-black bg-opacity-30">
         <div className="flex flex-col justify-center items-center py-44 lg:py-56 h-full relative mx-5">
           <div className="bg-gray-900 bg-opacity-70 px-4 py-7 md:px-5 text-white">

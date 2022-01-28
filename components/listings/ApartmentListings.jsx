@@ -139,7 +139,7 @@ const ApartmentListings = ({ apartmentName }) => {
                       </div>
                       <button
                         onClick={() => router.push(`/ad/${ad.id}`)}
-                        className="mt-5 px-3 py-2 h-10 bg-teal-600 text-white uppercase font-semibold rounded-full text-sm shadow-md shadow-teal-100 focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in-out"
+                        className="mt-5 mb-4 px-3 py-2 h-10 bg-teal-600 text-white uppercase font-semibold rounded-full text-sm shadow-md shadow-teal-100 focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in-out"
                       >
                         See Full Ad
                       </button>

@@ -47,7 +47,7 @@ const ProfileUpdate = ({ user }) => {
   }, [authError]);
 
   return (
-    <div className="w-11/12 lg:w-1/3">
+    <div className="w-[300px] lg:w-[600px]">
       <div className="flex flex-col justify-center items-center bg-white py-10 px-5 shadow-lg hover:shadow-xl">
         <h5 className="mb-10 text-lg text-center">
           Your registered email:{" "}
