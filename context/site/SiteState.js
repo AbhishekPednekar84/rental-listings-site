@@ -43,7 +43,7 @@ const SiteState = ({ children }) => {
 
       const ads = res.data;
 
-      if (res.statusText === "OK") dispatch({ type: LOAD_ADS, payload: ads });
+      dispatch({ type: LOAD_ADS, payload: ads });
     } catch (err) {
       dispatch({ type: SITE_ERROR, payload: err });
     }
