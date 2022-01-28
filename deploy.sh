@@ -7,7 +7,6 @@ if [ $TRAVIS_BRANCH == 'main' ] ; then
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_rsa
 
-  cd client
   rsync -a .next package.json package-lock.json public travis@$server:/home/listings/site
   echo "Deployed successfully!"
 else
