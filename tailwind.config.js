@@ -12,6 +12,8 @@ module.exports = {
       },
       backgroundImage: {
         hero: "url(https://ik.imagekit.io/ykidmzssaww/Listings/site-images/jrwyvl3qck6d9lxtkatz_gBw5kYrCax_KAaRH_7Hd.jpg)",
+        heroBlur:
+          "url(https://ik.imagekit.io/ykidmzssaww/Listings/site-images/jrwyvl3qck6d9lxtkatz_gBw5kYrCax_KAaRH_7Hd.jpg/tr:bl-10)",
         listing1:
           "url(https://ik.imagekit.io/ykidmzssaww/Listings/site-images/rfyz78gdhrrcrim6rnys_l_QNDrw7Ei_.jpg)",
         loginHero:

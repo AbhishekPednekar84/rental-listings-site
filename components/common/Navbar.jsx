@@ -369,93 +369,93 @@ const Navbar = ({ textColor }) => {
                 </>
               )}
 
-              {pathname === "/listings/[apartment]" ||
-                (pathname === "/ad/[id]" && (
-                  <>
-                    <li>
-                      <Link href="/">
+              {(pathname === "/listings/[apartment]" ||
+                pathname === "/ad/[id]") && (
+                <>
+                  <li>
+                    <Link href="/">
+                      <a
+                        className={`nav-link uppercase ${
+                          textColor ? "text-" + textColor : "text-white"
+                        } hover:decoration-inherit`}
+                      >
+                        Home
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/faqs">
+                      <a
+                        className={`nav-link uppercase ${
+                          textColor ? "text-" + textColor : "text-white"
+                        } hover:decoration-inherit`}
+                      >
+                        FAQ<span className="lowercase">s</span>
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    {loggedInState && loggedInState ? (
+                      <Link href={`/account/dashboard/${user && user.id}`}>
                         <a
                           className={`nav-link uppercase ${
-                            textColor ? "text-" + textColor : "text-white"
+                            textColor ? textColor : "text-white"
                           } hover:decoration-inherit`}
                         >
-                          Home
+                          Dashboard
                         </a>
                       </Link>
-                    </li>
-                    <li>
-                      <Link href="/faqs">
+                    ) : (
+                      <Link href="/account/login">
                         <a
                           className={`nav-link uppercase ${
-                            textColor ? "text-" + textColor : "text-white"
+                            textColor ? textColor : "text-white"
                           } hover:decoration-inherit`}
                         >
-                          FAQ<span className="lowercase">s</span>
+                          Login
                         </a>
                       </Link>
-                    </li>
-                    <li>
-                      {loggedInState && loggedInState ? (
-                        <Link href={`/account/dashboard/${user && user.id}`}>
-                          <a
-                            className={`nav-link uppercase ${
-                              textColor ? textColor : "text-white"
-                            } hover:decoration-inherit`}
-                          >
-                            Dashboard
-                          </a>
-                        </Link>
-                      ) : (
-                        <Link href="/account/login">
-                          <a
-                            className={`nav-link uppercase ${
-                              textColor ? textColor : "text-white"
-                            } hover:decoration-inherit`}
-                          >
-                            Login
-                          </a>
-                        </Link>
-                      )}
-                    </li>
-                    <li>
-                      {loggedInState && loggedInState ? (
-                        <Link href="/listings/create">
-                          <a
-                            className={`nav-link uppercase ${
-                              textColor ? textColor : "text-white"
-                            } hover:decoration-inherit`}
-                          >
-                            Create Listing
-                          </a>
-                        </Link>
-                      ) : (
-                        <Link href="/account/register">
-                          <a
-                            className={`nav-link uppercase ${
-                              textColor ? textColor : "text-white"
-                            } hover:decoration-inherit`}
-                          >
-                            Sign Up
-                          </a>
-                        </Link>
-                      )}
-                    </li>
-                    <li>
-                      {loggedInState && loggedInState && (
-                        <Link href="#">
-                          <a
-                            className={`nav-link uppercase ${
-                              textColor ? textColor : "text-white"
-                            } hover:decoration-inherit`}
-                            onClick={() => handleLogout()}
-                          >
-                            Logout
-                          </a>
-                        </Link>
-                      )}
-                    </li>
-                  </>
-                ))}
+                    )}
+                  </li>
+                  <li>
+                    {loggedInState && loggedInState ? (
+                      <Link href="/listings/create">
+                        <a
+                          className={`nav-link uppercase ${
+                            textColor ? textColor : "text-white"
+                          } hover:decoration-inherit`}
+                        >
+                          Create Listing
+                        </a>
+                      </Link>
+                    ) : (
+                      <Link href="/account/register">
+                        <a
+                          className={`nav-link uppercase ${
+                            textColor ? textColor : "text-white"
+                          } hover:decoration-inherit`}
+                        >
+                          Sign Up
+                        </a>
+                      </Link>
+                    )}
+                  </li>
+                  <li>
+                    {loggedInState && loggedInState && (
+                      <Link href="#">
+                        <a
+                          className={`nav-link uppercase ${
+                            textColor ? textColor : "text-white"
+                          } hover:decoration-inherit`}
+                          onClick={() => handleLogout()}
+                        >
+                          Logout
+                        </a>
+                      </Link>
+                    )}
+                  </li>
+                </>
+              )}
 
               {pathname === "/forgotpassword" && (
                 <>
@@ -907,25 +907,47 @@ const Navbar = ({ textColor }) => {
                     </>
                   )}
 
-                  {pathname === "/listings/[apartment]" ||
-                    (pathname === "/ad/[id]" && (
-                      <>
-                        <li className="my-7">
-                          <Link href="/">
+                  {(pathname === "/listings/[apartment]" ||
+                    pathname === "/ad/[id]") && (
+                    <>
+                      <li className="my-7">
+                        <Link href="/">
+                          <a
+                            className={`nav-link uppercase ${
+                              textColor ? "text-" + textColor : "text-gray-900"
+                            } hover:text-teal-600`}
+                            onClick={() => setShowMenu(false)}
+                          >
+                            Home
+                          </a>
+                        </Link>
+                      </li>
+                      <li className="my-7">
+                        <Link href="/faqs">
+                          <a
+                            className={`nav-link uppercase ${
+                              textColor ? "text-" + textColor : "text-gray-900"
+                            } hover:text-teal-600`}
+                          >
+                            FAQ<span className="lowercase">s</span>
+                          </a>
+                        </Link>
+                      </li>
+                      <li className="my-7">
+                        {loggedInState && loggedInState ? (
+                          <Link href={`/account/dashboard/${user && user.id}`}>
                             <a
                               className={`nav-link uppercase ${
                                 textColor
                                   ? "text-" + textColor
                                   : "text-gray-900"
                               } hover:text-teal-600`}
-                              onClick={() => setShowMenu(false)}
                             >
-                              Home
+                              Dashboard
                             </a>
                           </Link>
-                        </li>
-                        <li className="my-7">
-                          <Link href="/faqs">
+                        ) : (
+                          <Link href="/account/login">
                             <a
                               className={`nav-link uppercase ${
                                 textColor
@@ -933,84 +955,56 @@ const Navbar = ({ textColor }) => {
                                   : "text-gray-900"
                               } hover:text-teal-600`}
                             >
-                              FAQ<span className="lowercase">s</span>
+                              Login
                             </a>
                           </Link>
-                        </li>
-                        <li className="my-7">
-                          {loggedInState && loggedInState ? (
-                            <Link
-                              href={`/account/dashboard/${user && user.id}`}
+                        )}
+                      </li>
+                      <li className="my-7">
+                        {loggedInState && loggedInState ? (
+                          <Link href="/listings/create">
+                            <a
+                              className={`nav-link uppercase ${
+                                textColor
+                                  ? "text-" + textColor
+                                  : "text-gray-900"
+                              } hover:text-teal-600`}
                             >
-                              <a
-                                className={`nav-link uppercase ${
-                                  textColor
-                                    ? "text-" + textColor
-                                    : "text-gray-900"
-                                } hover:text-teal-600`}
-                              >
-                                Dashboard
-                              </a>
-                            </Link>
-                          ) : (
-                            <Link href="/account/login">
-                              <a
-                                className={`nav-link uppercase ${
-                                  textColor
-                                    ? "text-" + textColor
-                                    : "text-gray-900"
-                                } hover:text-teal-600`}
-                              >
-                                Login
-                              </a>
-                            </Link>
-                          )}
-                        </li>
-                        <li className="my-7">
-                          {loggedInState && loggedInState ? (
-                            <Link href="/listings/create">
-                              <a
-                                className={`nav-link uppercase ${
-                                  textColor
-                                    ? "text-" + textColor
-                                    : "text-gray-900"
-                                } hover:text-teal-600`}
-                              >
-                                Create Listing
-                              </a>
-                            </Link>
-                          ) : (
-                            <Link href="/account/register">
-                              <a
-                                className={`nav-link uppercase ${
-                                  textColor
-                                    ? "text-" + textColor
-                                    : "text-gray-900"
-                                } hover:text-teal-600`}
-                              >
-                                Sign Up
-                              </a>
-                            </Link>
-                          )}
-                        </li>
-                        <li>
-                          {loggedInState && loggedInState && (
-                            <Link href="#">
-                              <a
-                                className={`nav-link uppercase ${
-                                  textColor
-                                    ? "text-" + textColor
-                                    : "text-gray-900"
-                                } hover:text-teal-600`}
-                                onClick={() => handleLogout()}
-                              >
-                                Logout
-                              </a>
-                            </Link>
-                          )}
-                        </li>
-                      </>
-                    ))}
+                              Create Listing
+                            </a>
+                          </Link>
+                        ) : (
+                          <Link href="/account/register">
+                            <a
+                              className={`nav-link uppercase ${
+                                textColor
+                                  ? "text-" + textColor
+                                  : "text-gray-900"
+                              } hover:text-teal-600`}
+                            >
+                              Sign Up
+                            </a>
+                          </Link>
+                        )}
+                      </li>
+                      <li>
+                        {loggedInState && loggedInState && (
+                          <Link href="#">
+                            <a
+                              className={`nav-link uppercase ${
+                                textColor
+                                  ? "text-" + textColor
+                                  : "text-gray-900"
+                              } hover:text-teal-600`}
+                              onClick={() => handleLogout()}
+                            >
+                              Logout
+                            </a>
+                          </Link>
+                        )}
+                      </li>
+                    </>
+                  )}
 
                   {pathname === "/forgotpassword" && (
                     <>

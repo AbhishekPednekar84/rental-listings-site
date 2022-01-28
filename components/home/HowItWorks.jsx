@@ -20,7 +20,7 @@ const HowItWorks = () => {
         x: 0,
         transition: {
           duration: 0.7,
-          delay: i * 0.3,
+          delay: i * 0.2,
         },
       }));
     }

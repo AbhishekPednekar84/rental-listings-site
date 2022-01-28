@@ -31,7 +31,7 @@ const Hero = ({ apartmentName, apartmentInfo }) => {
       <div className="bg-black bg-opacity-60 h-96 shadow-lg">
         <div className="flex justify-center items-center h-full">
           <div className="bg-gray-900 bg-opacity-70 px-3 py-7 md:px-5 mx-2 mt-14">
-            <h1 className=" text-white font-semibold text-center mb-4">
+            <h1 className="text-2xl lg:text-4xl text-white font-bold text-center mb-4">
               {apartmentName}
             </h1>
             <p className="flex items-center text-white my-2">

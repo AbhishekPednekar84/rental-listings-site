@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
 
@@ -8,7 +8,12 @@ import ApartmentModal from "../apartment/ApartmentModal";
 
 const Hero = ({ apartments }) => {
   const [message, setMessage] = useState(null);
+  const [mounted, setMounted] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const closeModal = () => {
     setModalOpen(false);
@@ -17,7 +22,7 @@ const Hero = ({ apartments }) => {
   const openModal = () => setModalOpen(true);
 
   return (
-    <div className="bg-hero bg-cover">
+    <div className={`${mounted ? "bg-hero" : "bg-heroBlur"} bg-cover`}>
       <div className="bg-black bg-opacity-30">
         <div className="flex flex-col justify-center items-center py-44 lg:py-56 h-full relative mx-5">
           <div className="bg-gray-900 bg-opacity-70 px-4 py-7 md:px-5 text-white">

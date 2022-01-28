@@ -67,13 +67,17 @@ const Filter = ({ apartmentName }) => {
 
   return (
     <div className="mt-10 text-center">
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <div>
+      <form
+        onSubmit={handleSubmit}
+        autoComplete="off"
+        className="flex justify-center"
+      >
+        <div className="border-2 border-teal-600 md:w-[800px] mx-4 py-4 px-2">
           <h3 className="font-semibold flex justify-center items-center mb-5">
             {filterIcon}
           </h3>
-          <div className="flex flex-col lg:flex-row justify-center items-center">
-            <div className="mb-7 lg:mb-0 flex justify-center items-center lg:mr-16">
+          <div className="flex flex-col md:flex-row justify-center items-center">
+            <div className="mb-7 lg:mb-0 flex justify-center items-center md:mr-16">
               <h5 className="font-semibold">Type of listing:</h5>
 
               <div className="flex justify-center items-center">
@@ -105,7 +109,7 @@ const Filter = ({ apartmentName }) => {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row items-center justify-center">
+            <div className="flex flex-col md:flex-row items-center justify-center">
               <h5 className="pb-2 lg:pb-0 font-semibold">
                 Number of bedrooms:
               </h5>

@@ -136,10 +136,13 @@ const AuthState = ({ children }) => {
 
   // Logout
   const logout = async () => {
-    // const res = await fetch(`${process.env.NEXT_PUBLIC_NEXT_API_URL}/logout`, {
-    //   method: "POST",
-    // });
     dispatch({ type: LOGOUT });
+
+    if (router.pathname === "/") {
+      router.reload();
+    } else {
+      router.push("/");
+    }
   };
 
   const deleteUser = async (userId) => {

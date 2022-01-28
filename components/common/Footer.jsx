@@ -1,10 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { heartIcon, dotIcon } from "@/utils/icons";
+import { useRouter } from "next/router";
+import { heartIcon } from "@/utils/icons";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+
+  const router = useRouter();
 
   return (
     <div className="relative print:hidden">
@@ -22,7 +25,13 @@ const Footer = () => {
         </svg>
       </div> */}
 
-      <div className="h-full bg-gradient-to-r from-teal-900 via-emerald-800 to-green-900 text-white">
+      <div
+        className={`h-full bg-gradient-to-r ${
+          router.pathname === "/account/register"
+            ? "from-cyan-900 via-sky-800 to-blue-900"
+            : "from-teal-900 via-emerald-800 to-green-900"
+        } text-white`}
+      >
         <div className="flex flex-col justify-center items-center">
           <div className="mt-7">
             <Image

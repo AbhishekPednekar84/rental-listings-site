@@ -95,9 +95,9 @@ const AddListing = ({ apartments }) => {
   availableFromDate = currYear + "-" + currMonth + "-" + currDate;
 
   return (
-    <div className="min-h-screen bg-teal-50 flex justify-center items-center">
+    <div className="bg-teal-50 flex justify-center items-center">
       <div className="bg-white overflow-hidden shadow-xl mt-32 mb-20 mx-5">
-        <div className="relative h-52 lg:h-64 bg-createListingHero bg-contain lg:bg-center">
+        <div className="relative h-52 lg:h-64 bg-createListingHero bg-cover lg:bg-center">
           {/* <svg
             className="absolute -bottom-4"
             xmlns="http://www.w3.org/2000/svg"

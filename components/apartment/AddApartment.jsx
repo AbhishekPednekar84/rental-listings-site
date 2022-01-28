@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { errorIcon, starIconSmall } from "@/utils/icons";
+import { errorIcon, loaderIcon } from "@/utils/icons";
 import emailjs from "@emailjs/browser";
 
 const validationSchema = Yup.object({
@@ -69,8 +69,10 @@ const AddApartment = ({ message, setMessage }) => {
             {/* Apartment name */}
             {message && (
               <div
-                className={`max-w-sm text-sm p-2 mb-7 font-medium rounded-md ${
-                  message.includes("Thanks!") ? "bg-teal-100" : "bg-rose-100"
+                className={`max-w-sm text-sm p-2 mb-7 font-semibold rounded-md ${
+                  message.includes("Thanks!")
+                    ? "bg-teal-100 text-teal-900"
+                    : "bg-rose-100 text-rose-900"
                 }`}
               >
                 {message}
@@ -139,9 +141,15 @@ const AddApartment = ({ message, setMessage }) => {
             <div className="mt-10 flex justify-center">
               <button
                 type="submit"
-                className="p-3 w-40 h-12 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in"
+                className="p-3 w-40 h-12 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in uppercase"
               >
-                ADD APARTMENT
+                {props.isSubmitting ? (
+                  <span className="animate-spin flex justify-center">
+                    {loaderIcon}
+                  </span>
+                ) : (
+                  "ADD APARTMENT"
+                )}
               </button>
             </div>
           </Form>

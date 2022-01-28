@@ -2,26 +2,32 @@ import React, { useEffect, useContext } from "react";
 import SiteContext from "@/context/site/siteContext";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from "framer-motion";
+import { searchIcon } from "@/utils/icons";
 
-const searchIcon = (
-  <svg
-    className="w-6 h-6"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-      color="#6B7280"
-    ></path>
-  </svg>
-);
+const variants = {
+  initial: {
+    opacity: 0.8,
+  },
+};
 
 const ApartmentListings = ({ apartmentName }) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start((i) => ({
+        opacity: 1,
+        transition: {
+          duration: 0.4,
+          delay: i * 0.5,
+        },
+      }));
+    }
+  });
+
   const siteContext = useContext(SiteContext);
   const { loading, setLoading, apartmentAds, fetchAdsForApartment } =
     siteContext;
@@ -59,28 +65,33 @@ const ApartmentListings = ({ apartmentName }) => {
   }
 
   return (
-    <div className="my-20">
+    <div className="mt-10 lg:mt-16">
       <div className="flex justify-center">
         <div className="w-[800px] mx-5 flex flex-col">
           {apartmentAds &&
-            apartmentAds.map((ad) => {
+            apartmentAds.map((ad, index) => {
               return (
-                <div
+                <motion.div
+                  ref={ref}
                   key={ad.id}
-                  className="border-2 border-teal-50 p-2 flex flex-col md:flex-row items-center rounded-md shadow-lg hover:shadow-xl relative mb-[60px] hover:scale-105 transition duration-200 ease-in-out"
+                  variants={variants}
+                  custom={index}
+                  initial="initial"
+                  animate={controls}
+                  className="flex flex-col md:flex-row items-center shadow-sm hover:shadow-xl transition-shadow duration-200 ease-in relative mb-[60px] border-2 border-teal-100 p-2"
                 >
-                  <div className="absolute top-2 right-2 md:-top-2 md:-right-4 lg:-top-3 lg:-right-6 z-10">
+                  <div className="absolute -top-2 -right-2 z-10">
                     <span
                       className={`ad-card-listing-type text-sm ${
                         ad.listing_type === "sale"
-                          ? "bg-orange-400"
-                          : "bg-lime-600"
+                          ? "bg-rose-600"
+                          : "bg-teal-600"
                       }`}
                     >
                       {ad.listing_type.toUpperCase()}
                     </span>
                   </div>
-                  <div>
+                  <div className="w-full md:w-[45%] flex justify-center">
                     {ad.images.length !== 0 ? (
                       <Image
                         src={ad.images[0].image_url}
@@ -92,25 +103,25 @@ const ApartmentListings = ({ apartmentName }) => {
                       />
                     ) : (
                       <Image
-                        src="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/default-listing_nJ1h_cG5N.jpg?updatedAt=1640766058193"
+                        src="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/default-listing_nJ1h_cG5N.jpg"
                         alt="thumbnail"
                         height={160}
                         width={250}
                       />
                     )}
                   </div>
-                  <div className="flex flex-col items-center justify-center w-full p-1 mt-5 md:mt-0">
+                  <div className="flex flex-col items-center justify-center w-full mt-5 md:mt-0">
                     <h3 className="pb-3 font-semibold">{ad.title}</h3>
                     <p className="pb-5 text-sm text-gray-600">
                       {ad.description.slice(0, 75)}...
                     </p>
                     <div className="flex justify-around items-center w-full">
-                      <p className="text-sm">
+                      <p className="text-sm lg:text-base">
                         <span className="ad-card-underline">Bedrooms</span>:{" "}
                         <span className="font-semibold">{ad.bedrooms}</span>
                       </p>
                       {ad.date_created && (
-                        <p className="text-sm">
+                        <p className="text-sm lg:text-base">
                           <span className="ad-card-underline">Posted on</span>:{" "}
                           <span className="font-semibold">
                             {new Date(ad.date_created).toLocaleDateString(
@@ -136,7 +147,7 @@ const ApartmentListings = ({ apartmentName }) => {
                       See Full Ad
                     </button>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
         </div>
