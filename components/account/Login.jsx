@@ -77,7 +77,10 @@ const Login = ({ pathHistoryProp }) => {
             lcome back!
           </h1>
 
-          <Alert />
+          <div className="mx-5">
+            <Alert />
+          </div>
+
           <Formik
             initialValues={{
               email: "",

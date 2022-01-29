@@ -28,7 +28,7 @@ const Register = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      setTimeout(() => router.push("/"), 1000);
+      // setTimeout(() => router.push("/"), 1000);
     }
   }, [isAuthenticated]);
 
@@ -55,7 +55,9 @@ const Register = () => {
             t's Begin!
           </h1>
 
-          <Alert />
+          <div className="mx-5">
+            <Alert />
+          </div>
 
           <Formik
             initialValues={{

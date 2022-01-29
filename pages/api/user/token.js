@@ -8,8 +8,6 @@ export default async (req, res) => {
   // const cookie = new Cookies(req.headers.cookie);
 
   if (req.method === "POST") {
-    console.log(req.body);
-
     res.setHeader(
       "Set-Cookie",
       cookie.serialize("token", req.body, {

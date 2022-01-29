@@ -6,7 +6,8 @@ import { useInView } from "react-intersection-observer";
 
 const variants = {
   hidden: {
-    x: "-100vw",
+    opacity: 0,
+    y: "10vw",
   },
 };
 
@@ -17,9 +18,10 @@ const HowItWorks = () => {
   useEffect(() => {
     if (inView) {
       controls.start((i) => ({
-        x: 0,
+        y: 0,
+        opacity: 1,
         transition: {
-          duration: 0.7,
+          duration: 0.5,
           delay: i * 0.2,
         },
       }));

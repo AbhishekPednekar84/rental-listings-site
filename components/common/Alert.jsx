@@ -9,9 +9,8 @@ const Alert = () => {
   return (
     <Fragment>
       {authError && authError && (
-        <p className="-mt-5 mb-7 bg-rose-100 p-1 flex items-center justify-center text-rose-600 text-sm">
-          <span className="mr-1">{errorIcon}</span>
-          {authError}
+        <p className="-mt-5 mb-7 bg-rose-100 p-2 px-3 text-rose-600 text-sm font-semibold">
+          <span>{authError}</span>
         </p>
       )}
     </Fragment>

@@ -48,8 +48,6 @@ const LoginPage = ({ pathHistory }) => {
 };
 
 export const getServerSideProps = async ({ req }) => {
-  console.log(req.cookies);
-
   return {
     props: {
       cookie: null,

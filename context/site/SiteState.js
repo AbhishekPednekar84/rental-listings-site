@@ -43,7 +43,7 @@ const SiteState = ({ children }) => {
 
       const ads = res.data;
 
-      dispatch({ type: LOAD_ADS, payload: ads });
+      if (res.status === 200) dispatch({ type: LOAD_ADS, payload: ads });
     } catch (err) {
       dispatch({ type: SITE_ERROR, payload: err });
     }
@@ -57,7 +57,7 @@ const SiteState = ({ children }) => {
 
       const filteredAds = res.data;
 
-      if (res.statusText === "OK")
+      if (res.status === 200)
         dispatch({ type: FILTER_ADS, payload: filteredAds });
     } catch (err) {
       dispatch({ type: SITE_ERROR, payload: err });
@@ -75,7 +75,7 @@ const SiteState = ({ children }) => {
 
       const listings = res.data;
 
-      if (res.statusText === "OK") {
+      if (res.status === 200) {
         dispatch({ type: USER_LISTINGS, payload: listings });
       }
     } catch (err) {
@@ -136,7 +136,7 @@ const SiteState = ({ children }) => {
 
       const listingId = res.data;
 
-      if (res.statusText === "Created") {
+      if (res.status === 201) {
         dispatch({ type: CREATE_LISTING });
         router.push(`/ad/${listingId}`);
       }
@@ -196,7 +196,7 @@ const SiteState = ({ children }) => {
 
       const listingId = res.data;
 
-      if (res.statusText === "Created") {
+      if (res.status === 201) {
         dispatch({ type: CREATE_LISTING });
         router.push(`/ad/${listingId}`);
       }

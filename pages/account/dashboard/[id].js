@@ -56,7 +56,7 @@ export const getServerSideProps = async ({ params, req }) => {
     };
   }
 
-  if (res.statusText === "OK") {
+  if (res.status === 200) {
     const listingRes = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/user/listings/${user.id}`,
       {

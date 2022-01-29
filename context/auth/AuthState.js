@@ -60,8 +60,6 @@ const AuthState = ({ children }) => {
 
   // Register
   const register = async (name, email, password) => {
-    setAuthToken();
-
     try {
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/user`,
@@ -75,15 +73,14 @@ const AuthState = ({ children }) => {
 
       const data = res.data;
 
-      if (res.statusText === "Created") {
+      if (res.status === 201) {
         registerToast(data.name);
 
         dispatch({ type: REGISTER, payload: data });
       }
     } catch (err) {
-      console.log(err``);
       dispatch({ type: AUTH_ERROR, payload: err.response.data.detail });
-      // setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
+      setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
     }
   };
 
@@ -107,7 +104,7 @@ const AuthState = ({ children }) => {
 
       const data = res.data;
 
-      if (res.statusText === "OK") {
+      if (res.status === 200) {
         dispatch({ type: LOGIN, payload: data });
       }
     } catch (err) {
@@ -126,7 +123,7 @@ const AuthState = ({ children }) => {
 
       const data = res.data;
 
-      if (res.statusText === "OK") {
+      if (res.status === 200) {
         dispatch({ type: USER_AUTH, payload: data });
       }
     } catch (err) {
@@ -151,7 +148,7 @@ const AuthState = ({ children }) => {
         `${process.env.NEXT_PUBLIC_API_URL}/user/delete/${userId}`
       );
 
-      if (res.statusText === "Created") {
+      if (res.status === 201) {
         dispatch({ type: DELETE_USER });
         userDeleteToast();
         setTimeout(() => router.push("/"), 3000);
@@ -244,7 +241,7 @@ const AuthState = ({ children }) => {
 
       const data = res.data;
 
-      if (res.statusText === "OK") {
+      if (res.status === 200) {
         dispatch({ type: FORGOT_PASSWORD, payload: data });
       }
     } catch (err) {
@@ -284,7 +281,7 @@ const AuthState = ({ children }) => {
         }
       );
 
-      if (res.statusText === "Created") {
+      if (res.status === 201) {
         dispatch({ type: PASSWORD_RESET_EMAIL });
       }
     } catch (err) {

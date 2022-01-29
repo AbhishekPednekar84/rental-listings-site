@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
 
@@ -8,12 +9,20 @@ import ApartmentModal from "../apartment/ApartmentModal";
 
 const Hero = ({ apartments }) => {
   const [message, setMessage] = useState(null);
-  const [mounted, setMounted] = useState(false);
+
   const [modalOpen, setModalOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" && window.innerWidth
+  );
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [windowWidth]);
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
 
   const closeModal = () => {
     setModalOpen(false);
@@ -23,11 +32,31 @@ const Hero = ({ apartments }) => {
 
   return (
     <div
-      className={`${
-        mounted ? "bg-heroSmall lg:bg-hero" : "bg-heroSmallBlur lg:bg-heroBlur"
-      } bg-center md:bg-right-bottom lg:bg-center bg-cover`}
+      className="relative"
+      //className={`${
+      //  mounted ? "bg-heroSmall lg:bg-hero" : "bg-heroSmallBlur lg:bg-heroBlur"
+      //} bg-center md:bg-right-bottom lg:bg-center bg-cover`}
     >
-      <div className="bg-black bg-opacity-30">
+      {windowWidth < 769 ? (
+        <Image
+          src="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/7538f295215840d3_91yuTOAZc.jpg"
+          alt="Hero image"
+          layout="fill"
+          className="-z-10"
+          placeholder="blur"
+          blurDataURL="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/7538f295215840d3_91yuTOAZc.jpg/tr:bl-10"
+        />
+      ) : (
+        <Image
+          src="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/d4c4344f3988a251_dYilqibMX.jpg"
+          alt="Hero image"
+          layout="fill"
+          className="-z-10"
+          placeholder="blur"
+          blurDataURL="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/d4c4344f3988a251_dYilqibMX.jpg/tr:bl-10"
+        />
+      )}
+      <div className="flex justify-center items-center">
         <div className="flex flex-col justify-center items-center py-44 lg:py-56 h-full relative mx-5">
           <div className="bg-gray-900 bg-opacity-70 px-4 py-7 md:px-5 text-white">
             <h1 className="text-white text-2xl lg:text-4xl tracking-wide font-semibold text-center mb-6">
@@ -51,7 +80,7 @@ const Hero = ({ apartments }) => {
           </div>
           <Link href="#how-it-works">
             <a
-              className="absolute bottom-6"
+              className="absolute bottom-16"
               aria-label="Link to navigate to the next section"
             >
               <svg

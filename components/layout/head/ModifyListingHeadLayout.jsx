@@ -3,8 +3,6 @@ import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
 
 const ModifyListingHeadLayout = ({ listingId, listingInfo, children }) => {
-  console.log(listingId);
-  console.log(listingInfo);
   return (
     <Fragment>
       <CommonHeadLayout />
