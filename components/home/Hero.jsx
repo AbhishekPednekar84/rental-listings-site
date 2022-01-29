@@ -37,25 +37,29 @@ const Hero = ({ apartments }) => {
       //  mounted ? "bg-heroSmall lg:bg-hero" : "bg-heroSmallBlur lg:bg-heroBlur"
       //} bg-center md:bg-right-bottom lg:bg-center bg-cover`}
     >
-      {windowWidth < 769 ? (
-        <Image
-          src="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/7538f295215840d3_91yuTOAZc.jpg"
-          alt="Hero image"
-          layout="fill"
-          className="-z-10"
-          placeholder="blur"
-          blurDataURL="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/7538f295215840d3_91yuTOAZc.jpg/tr:bl-10"
-        />
-      ) : (
-        <Image
-          src="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/d4c4344f3988a251_dYilqibMX.jpg"
-          alt="Hero image"
-          layout="fill"
-          className="-z-10"
-          placeholder="blur"
-          blurDataURL="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/d4c4344f3988a251_dYilqibMX.jpg/tr:bl-10"
-        />
-      )}
+      {/* <Image
+        src="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/7538f295215840d3_91yuTOAZc.jpg"
+        alt="Hero image"
+        layout="fill"
+        objectFit="cover"
+        objectPosition="center"
+        priority={true}
+        className="-z-10"
+        placeholder="blur"
+        blurDataURL="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/7538f295215840d3_91yuTOAZc.jpg/tr:bl-10"
+      /> */}
+
+      <Image
+        src="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/d4c4344f3988a251_dYilqibMX.jpg"
+        alt="Hero image"
+        layout="fill"
+        objectFit="cover"
+        objectPosition="center"
+        priority={true}
+        className="-z-10"
+        placeholder="blur"
+        blurDataURL="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/d4c4344f3988a251_dYilqibMX.jpg/tr:bl-10"
+      />
       <div className="flex justify-center items-center">
         <div className="flex flex-col justify-center items-center py-44 lg:py-56 h-full relative mx-5">
           <div className="bg-gray-900 bg-opacity-70 px-4 py-7 md:px-5 text-white">
