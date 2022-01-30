@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --scrollbar-thumb-color: #99f6e4;
-  --scrollbar-track-color: #ccfbf1;
+  --scrollbar-thumb-color: #0d9488;
+  --scrollbar-track-color: #cbd5e1;
 }
 
 * {
