@@ -14,6 +14,7 @@ import { toast } from "react-toastify";
 
 // Component imports
 import ImageModal from "./ImageModal";
+import BackToListingsLink from "./BackToListingsLink";
 
 const linkCopiedToast = () => {
   toast("Copied!", { draggablePercent: 60 });
@@ -56,6 +57,8 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
 
   return (
     <div className="print:pt-0 pt-36 mb-20">
+      <BackToListingsLink apartmentName={apartmentName} />
+
       <div itemScope itemType="https://schema.org/Apartment">
         <meta itemProp="name" content={adData.title} />
         <meta itemProp="numberOfBedrooms" content={adData.bedrooms} />
@@ -231,9 +234,9 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
             <h3 className="pt-5 print:pt-1 px-3 pb-3 print:py-2 font-semibold">
               Contact details
             </h3>
-            <div className="pt-5 pb-10 print:py-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-2 print:gap-2 gap-5 place-items-start px-5 lg:px-10">
+            <div className="pt-5 pb-10 print:py-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-2 print:gap-2 gap-5 place-items-start lg:place-items-center px-5 lg:px-10">
               <div className="flex items-center">
-                <span className="text-sm text-zinc-500">Posted By:</span>
+                <span className="text-sm text-zinc-500">Owner:</span>
                 &nbsp;
                 <span className="font-semibold">{username}</span>
               </div>
@@ -260,13 +263,13 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                   </span>
                 </div>
                 {!user && (
-                  <div className="text-sm text-zinc-500 text-left pt-2 print:hidden">
+                  <div className="text-xs text-zinc-500 text-left pt-2 print:hidden">
                     <Link href="/account/login">
                       <a className="underline decoration-2 underline-offset-4 decoration-teal-600 text-teal-600">
                         Login
                       </a>
                     </Link>{" "}
-                    to view contact details
+                    to view full number
                   </div>
                 )}
               </div>

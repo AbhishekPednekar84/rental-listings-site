@@ -41,7 +41,7 @@ const Footer = () => {
               width={200}
             />
           </div>
-          <h5 className="mt-5 mb-14 text-lg text-center">
+          <h5 className="mt-5 mb-14 px-2 text-lg text-center">
             &copy; {year} - rentorsale.apartments - All rights reserved
           </h5>
 

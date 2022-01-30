@@ -21,7 +21,7 @@ const HowItWorks = () => {
         y: 0,
         opacity: 1,
         transition: {
-          duration: 0.5,
+          duration: i * 0.5,
           delay: i * 0.2,
         },
       }));
