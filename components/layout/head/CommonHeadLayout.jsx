@@ -115,7 +115,7 @@ const CommonHeadLayout = () => {
 
       <meta
         property="og:image"
-        content="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/ros_mrUlsGF1T.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1642437129463"
+        content="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/ros_geMmK3M_l.png"
       />
       <meta property="og:image:width" content="256" />
       <meta property="og:image:height" content="256" />
@@ -131,7 +131,7 @@ const CommonHeadLayout = () => {
       />
       <meta
         name="twitter:image"
-        content="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/ros_mrUlsGF1T.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1642437129463"
+        content="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/ros_geMmK3M_l.png"
       />
     </Head>
   );

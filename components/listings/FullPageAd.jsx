@@ -234,7 +234,7 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
             <h3 className="pt-5 print:pt-1 px-3 pb-3 print:py-2 font-semibold">
               Contact details
             </h3>
-            <div className="pt-5 pb-10 print:py-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-2 print:gap-2 gap-5 place-items-start px-5 lg:px-10">
+            <div className="pt-5 pb-10 print:py-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-2 print:gap-2 gap-5 place-items-start lg:place-items-center px-5 lg:px-10">
               <div className="flex items-center">
                 <span className="text-sm text-zinc-500">Owner:</span>
                 &nbsp;
