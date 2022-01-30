@@ -111,7 +111,7 @@ const CommonHeadLayout = () => {
         name="msapplication-TileImage"
         content="/ms-icon-310x310.png"
       ></meta>
-      <meta name="theme-color" content="#CCFBF1" />
+      <meta name="theme-color" content="#0D9488" />
 
       <meta
         property="og:image"
