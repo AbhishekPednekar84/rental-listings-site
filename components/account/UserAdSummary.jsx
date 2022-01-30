@@ -6,6 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 // Component imports
 import DeleteUserModal from "@/components/account/DeleteUserModal";
 
+const variants = {
+  tap: {
+    y: "2px",
+  },
+};
+
 const UserAdSummary = ({ listings, user }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const authContext = useContext(AuthContext);
@@ -79,12 +85,14 @@ const UserAdSummary = ({ listings, user }) => {
       </div>
 
       <div className="mt-10 lg:mt-5 text-center bg-white py-10 px-3 shadow-lg hover:shadow-xl">
-        <button
+        <motion.button
+          variants={variants}
+          whileTap="tap"
           onClick={() => (modalOpen ? closeModal() : openModal())}
           className="p-3 h-12 w-56 bg-rose-600 text-white font-semibold rounded-full focus:outline-none hover:bg-rose-800 focus:ring-2 focus:ring-offset-2 focus:ring-rose-600 transition-colors duration-200 ease-in uppercase"
         >
           Delete My Account
-        </button>
+        </motion.button>
       </div>
 
       <AnimatePresence exitBeforeEnter>

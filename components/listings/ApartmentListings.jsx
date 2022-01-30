@@ -12,6 +12,9 @@ const variants = {
     opacity: 0,
     y: "10vw",
   },
+  tap: {
+    y: "2px",
+  },
 };
 
 const ApartmentListings = ({ apartmentName }) => {
@@ -58,7 +61,7 @@ const ApartmentListings = ({ apartmentName }) => {
     return (
       <div className="mt-10 mb-20 lg:mt-16">
         {apartmentAds && apartmentAds.length === 0 && (
-          <div className="flex justify-center items-center mt-10 mb-20">
+          <div className="flex justify-center items-center mt-10">
             {searchIcon}{" "}
             <p className="ml-2 text-xl text-gray-500">
               We looked high and low but found nothing :(
@@ -145,12 +148,14 @@ const ApartmentListings = ({ apartmentName }) => {
                     </p>
                   )} */}
                         </div>
-                        <button
+                        <motion.button
+                          variants={variants}
+                          whileTap="tap"
                           onClick={() => router.push(`/ad/${ad.id}`)}
                           className="mt-7 mb-4 px-3 py-2 h-10 bg-teal-600 text-white uppercase font-semibold rounded-full text-sm shadow-md focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in-out"
                         >
                           See Full Ad
-                        </button>
+                        </motion.button>
                       </div>
                     </motion.div>
                   );

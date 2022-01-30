@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import SiteContext from "@/context/site/siteContext";
 import { filterIcon } from "@/utils/icons";
+import { motion } from "framer-motion";
+
+const variants = {
+  tap: {
+    y: "2px",
+  },
+};
 
 const Filter = ({ apartmentName }) => {
   const [filter, setFilter] = useState({ rent: "", sale: "", bedrooms: "" });
@@ -171,7 +178,9 @@ const Filter = ({ apartmentName }) => {
           </div>
 
           <div className="mt-7">
-            <button
+            <motion.button
+              variants={variants}
+              whileTap="tap"
               type="submit"
               disabled={!filter.rent && !filter.sale && !filter.bedrooms}
               className={`bg-teal-600 rounded-full  px-5 py-2 h-10 uppercase text-white tracking-wide font-semibold hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in-out shadow-lg shadow-teal-100 ${
@@ -182,8 +191,10 @@ const Filter = ({ apartmentName }) => {
               }`}
             >
               Search
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+              variants={variants}
+              whileTap="tap"
               disabled={!filter.rent && !filter.sale && !filter.bedrooms}
               className={`bg-zinc-500 rounded-full focus:outline-none px-5 py-2 uppercase text-white tracking-wide font-semibold shadow-lg shadow-zinc-100 hover:bg-zinc-700 transition-colors duration-200 ease-in-out ml-5 ${
                 !filter.rent &&
@@ -194,7 +205,7 @@ const Filter = ({ apartmentName }) => {
               onClick={clear}
             >
               Reset
-            </button>
+            </motion.button>
           </div>
         </div>
       </form>
