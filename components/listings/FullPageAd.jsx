@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import AuthContext from "@/context/auth/authContext";
 import Link from "next/link";
 import Image from "next/image";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   checkIcon,
   cancelIcon,
@@ -18,6 +18,10 @@ import BackToListingsLink from "./BackToListingsLink";
 
 const linkCopiedToast = () => {
   toast("Copied!", { draggablePercent: 60 });
+};
+
+const variants = {
+  tap: { y: "2px" },
 };
 
 const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
@@ -291,19 +295,23 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
           </div>
 
           <div className="flex justify-around items-center my-5 print:hidden">
-            <button
+            <motion.button
+              variants={variants}
+              whileTap="tap"
               onClick={() => handleLinkCopy()}
               className="w-36 md:w-40 h-14 bg-cyan-600 p-2 text-white uppercase font-semibold rounded-full focus:outline-none hover:bg-cyan-800 focus:ring-2 focus:ring-offset-2 focus:ring-cyan-600 transition-colors duration-200 ease-in-out flex justify-evenly items-center"
             >
               Copy ad link {copyIcon}
-            </button>
+            </motion.button>
             {!disablePrint.current && (
-              <button
+              <motion.button
+                variants={variants}
+                whileTap="tap"
                 onClick={() => window.print()}
                 className="w-36 md:w-40 h-14 bg-teal-600 p-2 text-white uppercase font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in-out flex justify-evenly items-center"
               >
                 Print ad {printIcon}
-              </button>
+              </motion.button>
             )}
           </div>
         </div>

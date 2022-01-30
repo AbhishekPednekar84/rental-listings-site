@@ -132,7 +132,7 @@ const Navbar = ({ textColor }) => {
                       <Link href={`/account/dashboard/${user && user.id}`}>
                         <a
                           className={`nav-link uppercase ${
-                            textColor ? textColor : "text-white"
+                            textColor ? "text-" + textColor : "text-white"
                           } hover:decoration-inherit`}
                         >
                           Dashboard
@@ -142,7 +142,7 @@ const Navbar = ({ textColor }) => {
                       <Link href="/account/login">
                         <a
                           className={`nav-link uppercase ${
-                            textColor ? textColor : "text-white"
+                            textColor ? "text-" + textColor : "text-white"
                           } hover:decoration-inherit`}
                         >
                           Login
@@ -155,7 +155,7 @@ const Navbar = ({ textColor }) => {
                       <Link href="/listings/create">
                         <a
                           className={`nav-link uppercase ${
-                            textColor ? textColor : "text-white"
+                            textColor ? "text-" + textColor : "text-white"
                           } hover:decoration-inherit`}
                         >
                           Create Listing
@@ -165,7 +165,7 @@ const Navbar = ({ textColor }) => {
                       <Link href="/account/register">
                         <a
                           className={`nav-link uppercase ${
-                            textColor ? textColor : "text-white"
+                            textColor ? "text-" + textColor : "text-white"
                           } hover:decoration-inherit`}
                         >
                           Sign Up
@@ -178,7 +178,7 @@ const Navbar = ({ textColor }) => {
                       <Link href="#">
                         <a
                           className={`nav-link uppercase ${
-                            textColor ? textColor : "text-white"
+                            textColor ? "text-" + textColor : "text-white"
                           } hover:decoration-inherit`}
                           onClick={() => handleLogout()}
                         >
@@ -219,7 +219,7 @@ const Navbar = ({ textColor }) => {
                     <Link href={`/account/dashboard/${user && user.id}`}>
                       <a
                         className={`nav-link uppercase ${
-                          textColor ? textColor : "text-white"
+                          textColor ? "text-" + textColor : "text-white"
                         } hover:decoration-inherit`}
                       >
                         Dashboard
@@ -231,7 +231,7 @@ const Navbar = ({ textColor }) => {
                     <Link href="#">
                       <a
                         className={`nav-link uppercase ${
-                          textColor ? textColor : "text-white"
+                          textColor ? "text-" + textColor : "text-white"
                         } hover:decoration-inherit`}
                         onClick={() => handleLogout()}
                       >
@@ -271,7 +271,7 @@ const Navbar = ({ textColor }) => {
                     <Link href="/listings/create">
                       <a
                         className={`nav-link uppercase ${
-                          textColor ? textColor : "text-white"
+                          textColor ? "text-" + textColor : "text-white"
                         } hover:decoration-inherit`}
                       >
                         Create Listing
@@ -282,7 +282,7 @@ const Navbar = ({ textColor }) => {
                     <Link href="#">
                       <a
                         className={`nav-link uppercase ${
-                          textColor ? textColor : "text-white"
+                          textColor ? "text-" + textColor : "text-white"
                         } hover:decoration-inherit`}
                         onClick={() => handleLogout()}
                       >
@@ -399,7 +399,7 @@ const Navbar = ({ textColor }) => {
                       <Link href={`/account/dashboard/${user && user.id}`}>
                         <a
                           className={`nav-link uppercase ${
-                            textColor ? textColor : "text-white"
+                            textColor ? "text-" + textColor : "text-white"
                           } hover:decoration-inherit`}
                         >
                           Dashboard
@@ -409,7 +409,7 @@ const Navbar = ({ textColor }) => {
                       <Link href="/account/login">
                         <a
                           className={`nav-link uppercase ${
-                            textColor ? textColor : "text-white"
+                            textColor ? "text-" + textColor : "text-white"
                           } hover:decoration-inherit`}
                         >
                           Login
@@ -422,7 +422,7 @@ const Navbar = ({ textColor }) => {
                       <Link href="/listings/create">
                         <a
                           className={`nav-link uppercase ${
-                            textColor ? textColor : "text-white"
+                            textColor ? "text-" + textColor : "text-white"
                           } hover:decoration-inherit`}
                         >
                           Create Listing
@@ -432,7 +432,7 @@ const Navbar = ({ textColor }) => {
                       <Link href="/account/register">
                         <a
                           className={`nav-link uppercase ${
-                            textColor ? textColor : "text-white"
+                            textColor ? "text-" + textColor : "text-white"
                           } hover:decoration-inherit`}
                         >
                           Sign Up
@@ -445,7 +445,7 @@ const Navbar = ({ textColor }) => {
                       <Link href="#">
                         <a
                           className={`nav-link uppercase ${
-                            textColor ? textColor : "text-white"
+                            textColor ? "text-" + textColor : "text-white"
                           } hover:decoration-inherit`}
                           onClick={() => handleLogout()}
                         >

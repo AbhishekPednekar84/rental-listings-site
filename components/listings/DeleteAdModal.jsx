@@ -23,6 +23,9 @@ const variants = {
     y: "100vh",
     opacity: 0,
   },
+  tap: {
+    y: "2px",
+  },
 };
 
 const DeleteAdModal = ({ handleDelete, handleClose, id }) => {
@@ -41,12 +44,14 @@ const DeleteAdModal = ({ handleDelete, handleClose, id }) => {
             Are you sure you want to delete this listing?
           </p>
           <div className="flex justify-evenly mt-10">
-            <button
+            <motion.button
+              variants={variants}
+              whileTap="tap"
               className="bg-rose-600 rounded-full w-20 h-10 uppercase text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-600 transition-colors duration-200 ease-in-out"
               onClick={() => handleDelete(id)}
             >
               Delete
-            </button>
+            </motion.button>
             <button
               onClick={handleClose}
               className="text-teal-800 underline underline-offset-4 decoration-teal-800 decoration-2"

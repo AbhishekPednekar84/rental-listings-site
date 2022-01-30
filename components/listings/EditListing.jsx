@@ -8,9 +8,16 @@ import "react-datepicker/dist/react-datepicker.css";
 import * as Yup from "yup";
 import { loaderIcon, trashIcon, errorIcon } from "@/utils/icons";
 import { sessionExpiredToast } from "@/utils/toasts";
+import { motion } from "framer-motion";
 
 // Component import
 import ImageUploader from "@/components/listings/ImageUploader";
+
+const variants = {
+  tap: {
+    y: "2px",
+  },
+};
 
 const validationSchema = Yup.object({
   title: Yup.string().required("Title is required").trim(),
@@ -102,7 +109,7 @@ const EditListing = ({
   availableFromDate = currYear + "-" + currMonth + "-" + currDate;
 
   return (
-    <div className="min-h-screen bg-teal-50 flex justify-center items-center">
+    <div className="min-h-screen bg-gradient-to-br from-zinc-50 via-slate-100 to-neutral-200 flex justify-center items-center">
       <div className="bg-white overflow-hidden shadow-xl mt-32 mb-20 mx-5">
         <div className="relative h-52 lg:h-64 bg-editListingHero bg-cover bg-center lg:bg-center">
           {/* <svg
@@ -670,7 +677,9 @@ const EditListing = ({
                 </div>
               </div>
               <div className="my-10 flex justify-center">
-                <button
+                <motion.button
+                  variants={variants}
+                  whileTap="tap"
                   type="submit"
                   className="p-3 w-40 h-12 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in"
                 >
@@ -681,7 +690,7 @@ const EditListing = ({
                   ) : (
                     "UPDATE LISTING"
                   )}
-                </button>
+                </motion.button>
               </div>
             </Form>
           )}

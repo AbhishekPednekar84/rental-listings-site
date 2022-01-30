@@ -4,11 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { editAlt, trashIconLg, viewIcon } from "@/utils/icons";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { sessionExpiredToast } from "@/utils/toasts";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 import DeleteAdModal from "@/components/listings/DeleteAdModal";
+
+const variants = {
+  tap: {
+    y: "2px",
+  },
+};
 
 const UserAds = ({ listings, setListings, token, user }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -40,7 +46,7 @@ const UserAds = ({ listings, setListings, token, user }) => {
   };
 
   return (
-    <div className="bg-zinc-50 py-5 lg:py-10 mt-10">
+    <div className="bg-gradient-to-b from-zinc-50 via-neutral-100 to-slate-100 py-5 lg:py-10 mt-10">
       <h3 className="mb-10 text-3xl font-semibold text-center">My Ads</h3>
 
       {listings.length === 0 && (
@@ -99,26 +105,32 @@ const UserAds = ({ listings, setListings, token, user }) => {
                   </p>
 
                   <div className="flex justify-evenly items-center mt-10 mb-5">
-                    <button
+                    <motion.button
+                      variants={variants}
+                      whileTap="tap"
                       className="bg-fuchsia-600 text-white p-2 rounded-md hover:bg-fuchsia-800 transition-all duration-100 ease-in"
                       onClick={() => router.push(`/ad/${ad.id}`)}
                     >
                       {viewIcon}
-                    </button>
-                    <button
+                    </motion.button>
+                    <motion.button
+                      variants={variants}
+                      whileTap="tap"
                       className="bg-teal-600 text-white p-2 rounded-md hover:bg-teal-800 transition-all duration-100 ease-in"
                       onClick={() =>
                         router.push(`/listings/modify/${ad.id}/${user.id}`)
                       }
                     >
                       {editAlt}
-                    </button>
-                    <button
+                    </motion.button>
+                    <motion.button
+                      variants={variants}
+                      whileTap="tap"
                       onClick={() => (modalOpen ? closeModal() : openModal())}
                       className="bg-rose-600 text-white text-lg p-2 rounded-md hover:bg-rose-800 transition-all duration-100 ease-in"
                     >
                       {trashIconLg}
-                    </button>
+                    </motion.button>
                   </div>
                   <AnimatePresence exitBeforeEnter>
                     {modalOpen && (

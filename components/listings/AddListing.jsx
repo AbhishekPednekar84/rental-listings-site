@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import AuthContext from "@/context/auth/authContext";
 import SiteContext from "@/context/site/siteContext";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { Formik, Form, Field } from "formik";
 import Image from "next/image";
 import DatePicker from "react-datepicker";
@@ -11,6 +11,7 @@ import Select from "react-select";
 import { listingSelectStyles } from "@/utils/selectStyles";
 import { loaderIcon, errorIcon } from "@/utils/icons";
 import { sessionExpiredToast } from "@/utils/toasts";
+import { motion } from "framer-motion";
 
 // Component import
 import ImageUploader from "@/components/listings/ImageUploader";
@@ -51,6 +52,8 @@ const infoCircle = (
     ></path>
   </svg>
 );
+
+const variants = { tap: { y: "2px" } };
 
 const AddListing = ({ apartments }) => {
   const [startDate, setStartDate] = useState(new Date());
@@ -95,7 +98,7 @@ const AddListing = ({ apartments }) => {
   availableFromDate = currYear + "-" + currMonth + "-" + currDate;
 
   return (
-    <div className="bg-teal-50 flex justify-center items-center">
+    <div className="bg-gradient-to-br from-zinc-50 via-slate-100 to-neutral-200 flex justify-center items-center">
       <div className="bg-white overflow-hidden shadow-xl mt-32 mb-20 mx-5">
         <div className="relative h-52 lg:h-64 bg-createListingHero bg-cover lg:bg-center">
           {/* <svg
@@ -616,7 +619,9 @@ const AddListing = ({ apartments }) => {
                 </div>
               </div>
               <div className="my-10 flex justify-center">
-                <button
+                <motion.button
+                  variants={variants}
+                  whileTap="tap"
                   type="submit"
                   className="p-3 w-40 h-12 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in"
                   //disabled={props.isSubmitting.toString()}
@@ -629,7 +634,7 @@ const AddListing = ({ apartments }) => {
                   ) : (
                     "CREATE LISTING"
                   )}
-                </button>
+                </motion.button>
               </div>
             </Form>
           )}
