@@ -94,16 +94,15 @@ const Footer = () => {
             </div>
 
             <div className="p-2 flex flex-col items-center">
-              <h5 className="font-semibold text-2xl mb-7">
-                Our Other Offerings
-              </h5>
+              <h5 className="font-semibold text-2xl mb-7">Related Offering</h5>
               <p className="text-center">
-                Buy and sell preloved items with ease on{"  "}
+                Buy and sell preloved items in your apartment complex
+                <br /> with ease on{" "}
                 <Link href="https://nxtdoordeals.com" passHref={true}>
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="nav-link font-medium underline underline-offset-4 decoration-white decoration-2"
+                    className="font-medium underline underline-offset-4 decoration-white decoration-2"
                   >
                     nxtdoordeals.com
                   </a>
