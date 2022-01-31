@@ -136,7 +136,7 @@ const EditListing = ({
           </svg>
         </div>
         <div className="px-2 lg:px-10 pt-8 bg-white">
-          <h1 className="font-bold mb-10 text-center">
+          <h1 className="font-bold mb-10 text-center leading-normal">
             <span className="heading-underline">Up</span>
             date your listing
           </h1>
@@ -228,7 +228,7 @@ const EditListing = ({
                 )}
               </div> */}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 px-5 lg:px-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 px-4 md:px-5 lg:px-10">
                 {/* Column1 */}
                 <div className="grid grid-cols-1 md:pr-10 md:border-r-2 md:border-teal-100">
                   {/* Title */}
@@ -521,7 +521,7 @@ const EditListing = ({
                     className={`relative ${
                       props.touched.description && props.errors.description
                         ? "mb-1"
-                        : "mb-6"
+                        : "mb-1"
                     }`}
                   >
                     <Field
@@ -538,10 +538,18 @@ const EditListing = ({
                     />
                     <label
                       htmlFor="description"
-                      className="absolute left-2 -top-5 text-teal-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-5 peer-focus:text-teal-600 peer-focus:text-xs"
+                      className="absolute left-0 -top-5 text-teal-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-5 peer-focus:text-teal-600 peer-focus:text-xs"
                     >
                       Describe your unit*
                     </label>
+                  </div>
+
+                  <div className="mb-2 text-xxs inline-flex">
+                    <span className="mr-1">{infoCircle}</span>
+                    <span>
+                      Mention tenant preferences - family, bachelors,
+                      vegetarians etc..
+                    </span>
                   </div>
 
                   {props.touched.description && props.errors.description && (
@@ -556,7 +564,7 @@ const EditListing = ({
                 <div>
                   {/* Mobile */}
                   <div
-                    className={`relative ${
+                    className={`relative mt-3 lg:mt-0 ${
                       props.touched.mobile && props.errors.mobile
                         ? "mb-1"
                         : "mb-6"
@@ -580,9 +588,11 @@ const EditListing = ({
                   </div>
 
                   {!props.errors.mobile && (
-                    <div className="mb-6 -mt-4 text-xxs flex items-center">
+                    <div className="mb-6 -mt-4 text-xxs inline-flex">
                       <span className="mr-1">{infoCircle}</span>
-                      Your mobile number is visible to registered users only
+                      <span>
+                        Your mobile number is visible to registered users only
+                      </span>
                     </div>
                   )}
 
@@ -594,7 +604,7 @@ const EditListing = ({
                   )}
 
                   {/* Whatsapp */}
-                  <div className="mt-8 mb-6 flex items-center">
+                  <div className="mb-6 flex items-center">
                     <div
                       id="whatsapp-group"
                       className="flex items-center font-medium"

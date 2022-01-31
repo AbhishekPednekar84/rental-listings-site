@@ -22,7 +22,7 @@ const validationSchema = Yup.object({
 });
 
 const loginToast = (name) => {
-  toast(`Welcome ${name}!`, {
+  toast(`Welcome back, ${name}!`, {
     draggablePercent: 60,
   });
 };

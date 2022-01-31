@@ -104,7 +104,7 @@ const UserAds = ({ listings, setListings, token, user }) => {
                     <span className="font-semibold">{ad.apartment}</span>
                   </p>
 
-                  <div className="flex justify-around w-full items-center mt-10 mb-5">
+                  <div className="flex justify-around w-full items-center my-5">
                     <motion.button
                       variants={variants}
                       whileTap="tap"

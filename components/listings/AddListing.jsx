@@ -125,7 +125,7 @@ const AddListing = ({ apartments }) => {
           </svg>
         </div>
         <div className="px-2 md:px-10 py-8 bg-white">
-          <h1 className="font-bold mb-10 text-center">
+          <h1 className="font-bold mb-10 text-center leading-normal">
             <span className="heading-underline">Cr</span>
             eate listing
           </h1>
@@ -175,7 +175,7 @@ const AddListing = ({ apartments }) => {
             <Form autoComplete="off">
               <div className="flex flex-col items-center justify-center">
                 <div
-                  className={`w-80 ${
+                  className={`w-72 md:w-80 ${
                     selectedValue
                       ? "border-b-2 border-b-teal-600 mb-14"
                       : apartmentSelected
@@ -201,7 +201,7 @@ const AddListing = ({ apartments }) => {
                 )}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 px-5 lg:px-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 px-4 md:px-5 lg:px-10">
                 {/* Column1 */}
                 <div className="grid grid-cols-1 md:pr-10 md:border-r-2 md:border-teal-100">
                   {/* Title */}
@@ -501,7 +501,7 @@ const AddListing = ({ apartments }) => {
                       as="textarea"
                       id="description"
                       name="description"
-                      placeholder="Description*"
+                      placeholder="Describe your unit*"
                       autoComplete="off"
                       spellCheck={true}
                       rows="5"
@@ -511,15 +511,18 @@ const AddListing = ({ apartments }) => {
                     />
                     <label
                       htmlFor="description"
-                      className="absolute left-2 -top-5 text-teal-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-5 peer-focus:text-teal-600 peer-focus:text-xs"
+                      className="absolute left-0 -top-5 text-teal-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-5 peer-focus:text-teal-600 peer-focus:text-xs"
                     >
-                      Description*
+                      Describe your unit*
                     </label>
                   </div>
 
-                  <div className="mb-2 text-xxs flex items-center">
-                    <span className="mr-1">{infoCircle}</span>Mention tenant
-                    preferences - family, bachelors, vegetarians etc..
+                  <div className="mb-2 text-xxs inline-flex">
+                    <span className="mr-1">{infoCircle}</span>
+                    <span>
+                      Mention tenant preferences - family, bachelors,
+                      vegetarians etc..
+                    </span>
                   </div>
 
                   {props.touched.description && props.errors.description && (
@@ -555,10 +558,14 @@ const AddListing = ({ apartments }) => {
                     </label>
                   </div>
 
-                  <div className="mt-1 mb-2 text-xxs flex items-center">
-                    <span className="mr-1">{infoCircle}</span>
-                    Your mobile number is visible to registered users only
-                  </div>
+                  {!props.errors.mobile && (
+                    <div className="mb-6 mt-1 text-xxs inline-flex">
+                      <span className="mr-1">{infoCircle}</span>
+                      <span>
+                        Your mobile number is visible to registered users only
+                      </span>
+                    </div>
+                  )}
 
                   {props.touched.mobile && props.errors.mobile && (
                     <div className="mb-6 text-xs text-rose-600 flex items-center">
@@ -568,7 +575,7 @@ const AddListing = ({ apartments }) => {
                   )}
 
                   {/* Whatsapp */}
-                  <div className="mt-8 mb-6 flex items-center">
+                  <div className="mb-6 flex items-center">
                     <div
                       id="whatsapp-group"
                       className="flex items-center font-medium"

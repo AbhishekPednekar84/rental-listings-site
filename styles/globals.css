@@ -30,7 +30,7 @@ html::-webkit-scrollbar-track {
 
 @layer base {
   h1 {
-    @apply text-4xl font-bold mb-12 text-center;
+    @apply text-4xl font-bold mb-12 text-center leading-normal;
   }
   h2 {
     @apply text-3xl;

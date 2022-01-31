@@ -50,7 +50,7 @@ const Footer = () => {
               <h5 className="font-semibold text-center text-2xl mb-7">
                 Quick Links
               </h5>
-              <div className="grid grid-cols-2 gap-10">
+              <div className="grid grid-cols-2 gap-10 place-items-center">
                 <ul className="flex flex-col gap-5 flex-start">
                   <li>
                     <Link href="/account/login">
@@ -93,17 +93,22 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="p-2 flex flex-col items-center">
-              <h5 className="font-semibold text-2xl mb-7">Other Offerings</h5>
-              <Link href="https://nxtdoordeals.com" passHref={true}>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="nav-link font-medium"
-                >
-                  nxtdoordeals.com
-                </a>
-              </Link>
+            <div className="p-2 flex flex-col items-center justify-center">
+              <h5 className="font-semibold text-2xl mb-2">
+                Our Other Offerings
+              </h5>
+              <p className="text-center">
+                Buy and sell preloved items with ease on{"  "}
+                <Link href="https://nxtdoordeals.com" passHref={true}>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="nav-link font-medium underline underline-offset-4 decoration-white decoration-2"
+                  >
+                    nxtdoordeals.com
+                  </a>
+                </Link>
+              </p>
             </div>
           </div>
 

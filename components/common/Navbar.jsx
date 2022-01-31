@@ -158,7 +158,7 @@ const Navbar = ({ textColor }) => {
                             textColor ? "text-" + textColor : "text-white"
                           } hover:decoration-inherit`}
                         >
-                          Create Listing
+                          Create Free Listing
                         </a>
                       </Link>
                     ) : (
@@ -274,7 +274,7 @@ const Navbar = ({ textColor }) => {
                           textColor ? "text-" + textColor : "text-white"
                         } hover:decoration-inherit`}
                       >
-                        Create Listing
+                        Create Free Listing
                       </a>
                     </Link>
                   </li>
@@ -425,7 +425,7 @@ const Navbar = ({ textColor }) => {
                             textColor ? "text-" + textColor : "text-white"
                           } hover:decoration-inherit`}
                         >
-                          Create Listing
+                          Create Free Listing
                         </a>
                       </Link>
                     ) : (
@@ -563,7 +563,7 @@ const Navbar = ({ textColor }) => {
                             textColor ? "text-" + textColor : "text-white"
                           } hover:decoration-inherit`}
                         >
-                          Create Listing
+                          Create Free Listing
                         </a>
                       </Link>
                     ) : (
@@ -688,7 +688,7 @@ const Navbar = ({ textColor }) => {
                                   : "text-gray-900"
                               } hover:text-teal-600`}
                             >
-                              Create Listing
+                              Create Free Listing
                             </a>
                           </Link>
                         ) : (
@@ -757,7 +757,7 @@ const Navbar = ({ textColor }) => {
                               textColor ? "text-" + textColor : "text-gray-900"
                             } hover:text-teal-600`}
                           >
-                            Create Listing
+                            Create Free Listing
                           </a>
                         </Link>
                       </li>
@@ -970,7 +970,7 @@ const Navbar = ({ textColor }) => {
                                   : "text-gray-900"
                               } hover:text-teal-600`}
                             >
-                              Create Listing
+                              Create Free Listing
                             </a>
                           </Link>
                         ) : (
@@ -1120,7 +1120,7 @@ const Navbar = ({ textColor }) => {
                                   : "text-gray-900"
                               } hover:text-teal-600`}
                             >
-                              Create Listing
+                              Create Free Listing
                             </a>
                           </Link>
                         ) : (
