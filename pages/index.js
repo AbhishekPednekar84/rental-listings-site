@@ -7,15 +7,17 @@ import Layout from "@/components/layout/Layout";
 import Hero from "@/components/home/Hero";
 import HowItWorks from "@/components/home/HowItWorks";
 import HomeHeadLayout from "@/components/layout/head/HomeHeadLayout";
+import HiddenLink from "@/components/home/HiddenLink";
 
 const index = ({ apartments }) => {
   return (
     <HomeHeadLayout>
+      <HiddenLink />
       <Layout>
-        <section>
+        <section id="main">
           <Hero apartments={apartments} />{" "}
         </section>
-        <section>
+        <section id="how-it-works">
           <HowItWorks />
         </section>
       </Layout>

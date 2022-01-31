@@ -29,10 +29,7 @@ const HowItWorks = () => {
   }, [controls, inView]);
 
   return (
-    <div
-      id="how-it-works"
-      className="pt-16 lg:pt-24 pb-20 bg-gradient-to-b from-zinc-300 via-slate-200 to-white"
-    >
+    <div className="pt-16 lg:pt-24 pb-20 bg-gradient-to-b from-zinc-300 via-slate-200 to-white">
       <h2 className="text-center font-bold mb-16 mx-2">
         <span className="heading-underline">Th</span>ree steps. That's all!
       </h2>

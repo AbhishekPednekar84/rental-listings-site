@@ -69,7 +69,7 @@ const UserAds = ({ listings, setListings, token, user }) => {
               return (
                 <div
                   key={ad.id}
-                  className="bg-white py-3 px-5 min-w-[300px] text-center shadow-lg hover:shadow-xl"
+                  className="bg-white py-3 px-5 min-w-[300px] flex flex-col items-center shadow-lg hover:shadow-xl"
                 >
                   {ad.images.length > 0 ? (
                     <img
@@ -104,7 +104,7 @@ const UserAds = ({ listings, setListings, token, user }) => {
                     <span className="font-semibold">{ad.apartment}</span>
                   </p>
 
-                  <div className="flex justify-evenly items-center mt-10 mb-5">
+                  <div className="flex justify-around w-full items-center mt-10 mb-5">
                     <motion.button
                       variants={variants}
                       whileTap="tap"
