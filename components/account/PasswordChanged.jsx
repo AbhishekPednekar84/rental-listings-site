@@ -9,6 +9,9 @@ const variants = {
     pathLength: 1,
     transition: { delay: 1.2, duration: 2 },
   },
+  tap: {
+    y: "2px",
+  },
 };
 
 const PasswordChanged = () => {
@@ -39,12 +42,14 @@ const PasswordChanged = () => {
           Password changed successfully!
         </h4>
 
-        <button
+        <motion.button
+          variants={variants}
+          whileTap="tap"
           className="mt-10 mb-3 p-3 h-12 w-32 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in uppercase"
           onClick={() => router.push("/account/login")}
         >
           Login
-        </button>
+        </motion.button>
       </div>
     </div>
   );

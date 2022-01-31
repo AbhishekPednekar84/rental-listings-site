@@ -37,7 +37,8 @@ const validationSchema = Yup.object({
   floor: Yup.string().matches(/^[0-9]+$/, "Numbers only"),
   mobile: Yup.string()
     .required("Mobile number is required")
-    .matches(/^[0-9]+$/, "Numbers only"),
+    .matches(/^[0-9]+$/, "Numbers only")
+    .min(10, "At least 10 digits"),
 });
 
 const infoCircle = (
@@ -565,9 +566,7 @@ const EditListing = ({
                   {/* Mobile */}
                   <div
                     className={`relative mt-3 lg:mt-0 ${
-                      props.touched.mobile && props.errors.mobile
-                        ? "mb-1"
-                        : "mb-6"
+                      props.touched.mobile && props.errors.mobile && "mb-1"
                     }`}
                   >
                     <Field
@@ -587,14 +586,12 @@ const EditListing = ({
                     </label>
                   </div>
 
-                  {!props.errors.mobile && (
-                    <div className="mb-6 -mt-4 text-xxs inline-flex">
-                      <span className="mr-1">{infoCircle}</span>
-                      <span>
-                        Your mobile number is visible to registered users only
-                      </span>
-                    </div>
-                  )}
+                  <div className="mb-1 text-xxs inline-flex">
+                    <span className="mr-1">{infoCircle}</span>
+                    <span>
+                      Your mobile number is visible to registered users only
+                    </span>
+                  </div>
 
                   {props.touched.mobile && props.errors.mobile && (
                     <div className="mb-6 text-xs text-rose-600 flex items-center">
@@ -604,7 +601,7 @@ const EditListing = ({
                   )}
 
                   {/* Whatsapp */}
-                  <div className="mb-6 flex items-center">
+                  <div className="mt-5 mb-6 flex items-center">
                     <div
                       id="whatsapp-group"
                       className="flex items-center font-medium"
@@ -693,7 +690,7 @@ const EditListing = ({
                   type="submit"
                   className="p-3 w-40 h-12 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in"
                 >
-                  {loading ? (
+                  {props.isSubmitting ? (
                     <span className="flex justify-center animate-spin">
                       {loaderIcon}
                     </span>

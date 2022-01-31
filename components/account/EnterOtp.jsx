@@ -18,6 +18,9 @@ const variants = {
       duration: 0.4,
     },
   },
+  tap: {
+    y: "2px",
+  },
 };
 
 const validationSchema = Yup.object({
@@ -142,18 +145,20 @@ const EnterOtp = () => {
                   )}
 
                   <div className="text-center">
-                    <button
+                    <motion.button
+                      variants={variants}
+                      whileTap="tap"
                       type="submit"
                       className="mt-5 mb-3 p-3 h-12 w-48 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in uppercase"
                     >
-                      {loading ? (
+                      {props.isSubmitting ? (
                         <span className="flex justify-center animate-spin">
                           {loaderIcon}
                         </span>
                       ) : (
                         "Change Password"
                       )}
-                    </button>
+                    </motion.button>
                   </div>
                 </Form>
               )}

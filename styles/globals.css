@@ -54,7 +54,7 @@ html::-webkit-scrollbar-track {
 
 @layer components {
   .nav-link {
-    @apply hover:underline hover:underline-offset-8 hover:decoration-2 font-semibold cursor-pointer tracking-wide text-lg transition-all duration-200 md:text-sm lg:text-base;
+    @apply hover:underline hover:underline-offset-8 hover:decoration-2 font-semibold cursor-pointer tracking-wide text-lg transition-all duration-200 md:text-sm lg:text-base md:px-5 lg:px-7;
   }
   .menu-icon {
     @apply flex justify-center items-center bg-opacity-50 h-10 w-10 rounded-full shadow-xl md:hidden cursor-pointer;

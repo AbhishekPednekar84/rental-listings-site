@@ -93,8 +93,8 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="p-2 flex flex-col items-center justify-center">
-              <h5 className="font-semibold text-2xl mb-2">
+            <div className="p-2 flex flex-col items-center">
+              <h5 className="font-semibold text-2xl mb-7">
                 Our Other Offerings
               </h5>
               <p className="text-center">

@@ -35,7 +35,7 @@ const UserAds = ({ listings, setListings, token, user }) => {
     }
   }, [siteError]);
 
-  const handleDelete = (id, images) => {
+  const handleDelete = (id) => {
     deleteListing(id);
 
     setListings(
@@ -43,6 +43,8 @@ const UserAds = ({ listings, setListings, token, user }) => {
         return ad.id !== id;
       })
     );
+
+    closeModal();
   };
 
   return (

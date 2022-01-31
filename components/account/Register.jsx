@@ -28,7 +28,7 @@ const Register = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      // setTimeout(() => router.push("/"), 1000);
+      setTimeout(() => router.push("/"), 1000);
     }
   }, [isAuthenticated]);
 
@@ -70,7 +70,6 @@ const Register = () => {
               setSubmitting(true);
               setLoading();
               register(values.name, values.email, values.password);
-              setSubmitting(false);
             }}
           >
             {(props) => (
@@ -171,7 +170,7 @@ const Register = () => {
                     type="submit"
                     className="mt-5 mb-3 p-3 h-12 bg-cyan-600 text-white font-semibold rounded-full focus:outline-none hover:bg-cyan-800 focus:ring-2 focus:ring-offset-2 focus:ring-cyan-600 transition-colors duration-200 ease-in"
                   >
-                    {loading ? (
+                    {props.isSubmitting ? (
                       <span className="flex justify-center animate-spin">
                         {loaderIcon}
                       </span>

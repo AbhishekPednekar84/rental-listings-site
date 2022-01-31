@@ -101,10 +101,21 @@ const Navbar = ({ textColor }) => {
               <Image src="/logo.png" alt="Logo" width={90} height={55} />
             </a>
           </Link>
-          <div className="hidden md:block md:w-[70%] lg:w-[50%]">
+          <div className="hidden md:block">
             <ul className="md:flex justify-around items-center">
               {pathname === "/" && (
                 <>
+                  <li className="bg-black bg-opacity-50 px-3 py-2 hover:bg-black cursor-pointer transition-colors duration-200 ease-in-out">
+                    <Link href="/listings/create">
+                      <a
+                        className={`uppercase font-semibold tracking-wide text-lg md:text-sm lg:text-base ${
+                          textColor ? "text-" + textColor : "text-white"
+                        } hover:decoration-inherit`}
+                      >
+                        Create Free Listing
+                      </a>
+                    </Link>
+                  </li>
                   <li>
                     <Link href="#how-it-works">
                       <a
@@ -150,18 +161,8 @@ const Navbar = ({ textColor }) => {
                       </Link>
                     )}
                   </li>
-                  <li>
-                    {loggedInState && loggedInState ? (
-                      <Link href="/listings/create">
-                        <a
-                          className={`nav-link uppercase ${
-                            textColor ? "text-" + textColor : "text-white"
-                          } hover:decoration-inherit`}
-                        >
-                          Create Free Listing
-                        </a>
-                      </Link>
-                    ) : (
+                  {!loggedInState && (
+                    <li>
                       <Link href="/account/register">
                         <a
                           className={`nav-link uppercase ${
@@ -171,8 +172,8 @@ const Navbar = ({ textColor }) => {
                           Sign Up
                         </a>
                       </Link>
-                    )}
-                  </li>
+                    </li>
+                  )}
                   <li>
                     {loggedInState && loggedInState && (
                       <Link href="#">
@@ -521,7 +522,7 @@ const Navbar = ({ textColor }) => {
                       </a>
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/faqs">
                       <a
                         className={`nav-link uppercase ${
@@ -531,7 +532,7 @@ const Navbar = ({ textColor }) => {
                         FAQ<span className="lowercase">s</span>
                       </a>
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     {loggedInState && loggedInState ? (
                       <Link href={`/account/dashboard/${user && user.id}`}>
@@ -1072,7 +1073,7 @@ const Navbar = ({ textColor }) => {
                           </a>
                         </Link>
                       </li>
-                      <li className="my-7">
+                      {/* <li className="my-7">
                         <Link href="/faqs">
                           <a
                             className={`nav-link uppercase ${
@@ -1082,7 +1083,7 @@ const Navbar = ({ textColor }) => {
                             FAQ<span className="lowercase">s</span>
                           </a>
                         </Link>
-                      </li>
+                      </li> */}
                       <li className="my-7">
                         {loggedInState && loggedInState ? (
                           <Link href={`/account/dashboard/${user && user.id}`}>

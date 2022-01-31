@@ -211,6 +211,8 @@ const SiteState = ({ children }) => {
     const res = await axios.delete(
       `${process.env.NEXT_PUBLIC_API_URL}/listing/${listingId}`
     );
+
+    console.log(res);
   };
 
   const deleteImageFromImageKit = async (fileId) => {

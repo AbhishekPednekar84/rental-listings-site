@@ -558,14 +558,12 @@ const AddListing = ({ apartments }) => {
                     </label>
                   </div>
 
-                  {!props.errors.mobile && (
-                    <div className="mb-6 mt-1 text-xxs inline-flex">
-                      <span className="mr-1">{infoCircle}</span>
-                      <span>
-                        Your mobile number is visible to registered users only
-                      </span>
-                    </div>
-                  )}
+                  <div className="mb-1 mt-1 text-xxs inline-flex">
+                    <span className="mr-1">{infoCircle}</span>
+                    <span>
+                      Your mobile number is visible to registered users only
+                    </span>
+                  </div>
 
                   {props.touched.mobile && props.errors.mobile && (
                     <div className="mb-6 text-xs text-rose-600 flex items-center">
@@ -575,7 +573,7 @@ const AddListing = ({ apartments }) => {
                   )}
 
                   {/* Whatsapp */}
-                  <div className="mb-6 flex items-center">
+                  <div className="mt-5 mb-6 flex items-center">
                     <div
                       id="whatsapp-group"
                       className="flex items-center font-medium"
@@ -634,7 +632,7 @@ const AddListing = ({ apartments }) => {
                   //disabled={props.isSubmitting.toString()}
                   onClick={() => setApartmentSelected(true)}
                 >
-                  {loading ? (
+                  {props.isSubmitting ? (
                     <span className="flex justify-center animate-spin">
                       {loaderIcon}
                     </span>

@@ -9,8 +9,7 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 const variants = {
   initial: {
-    opacity: 0,
-    y: "10vw",
+    opacity: 0.7,
   },
   tap: {
     y: "2px",
@@ -24,7 +23,6 @@ const ApartmentListings = ({ apartmentName }) => {
   useEffect(() => {
     if (inView) {
       controls.start((i) => ({
-        y: 0,
         opacity: 1,
         transition: {
           duration: i * 0.4,

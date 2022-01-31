@@ -6,6 +6,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { loaderIcon, errorIcon } from "@/utils/icons";
 import { toast } from "react-toastify";
+import greeting from "@/utils/greeting";
 
 // Component import
 import Alert from "@/components/common/Alert";
@@ -22,7 +23,7 @@ const validationSchema = Yup.object({
 });
 
 const loginToast = (name) => {
-  toast(`Welcome back, ${name}!`, {
+  toast(`${greeting()}, ${name}!`, {
     draggablePercent: 60,
   });
 };
@@ -91,7 +92,6 @@ const Login = ({ pathHistoryProp }) => {
               setSubmitting(true);
               setLoading();
               login(values.email, values.password);
-              setSubmitting(false);
             }}
           >
             {(props) => (
@@ -163,7 +163,7 @@ const Login = ({ pathHistoryProp }) => {
                     type="submit"
                     className="mt-5 mb-3 p-3 h-12 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in"
                   >
-                    {loading ? (
+                    {props.isSubmitting ? (
                       <span className="flex justify-center animate-spin">
                         {loaderIcon}
                       </span>

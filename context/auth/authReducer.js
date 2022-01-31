@@ -44,10 +44,7 @@ const authReducer = (state, action) => {
         loading: false,
       };
     case REGISTER:
-      localStorage.setItem(
-        "__ros__listing__token",
-        action.payload.access_token
-      );
+      localStorage.setItem("__ros__listing__token", action.payload.token);
       cookie.set("__ros__listing__token", action.payload.token, {
         "path": "/",
         "maxAge": 24 * 60 * 60,
