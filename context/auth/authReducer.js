@@ -34,6 +34,7 @@ const authReducer = (state, action) => {
       cookie.set("__ros__listing__token", action.payload.access_token, {
         "path": "/",
         "sameSite": "Strict",
+        "maxAge": 24 * 60 * 60,
         "secure": process.env.NODE_ENV === "production",
       });
       return {
@@ -49,6 +50,7 @@ const authReducer = (state, action) => {
       );
       cookie.set("__ros__listing__token", action.payload.token, {
         "path": "/",
+        "maxAge": 24 * 60 * 60,
         "sameSite": "Strict",
         "secure": process.env.NODE_ENV === "production",
       });

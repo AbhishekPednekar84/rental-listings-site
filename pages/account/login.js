@@ -32,7 +32,7 @@ const LoginPage = ({ pathHistory }) => {
     typeof window !== "undefined" &&
     localStorage.getItem("__ros__listing__token")
   ) {
-    logoutToast();
+    setTimeout(() => logoutToast(), 500);
     setTimeout(() => router.push("/"), 2000);
 
     return null;

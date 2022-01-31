@@ -20,7 +20,7 @@ const RegisterPage = () => {
     typeof window !== "undefined" &&
     localStorage.getItem("__ros__listing__token")
   ) {
-    registerToast();
+    setTimeout(() => registerToast(), 500);
     setTimeout(() => router.push("/"), 2000);
 
     return null;
