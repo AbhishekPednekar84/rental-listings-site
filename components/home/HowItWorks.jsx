@@ -79,7 +79,7 @@ const HowItWorks = () => {
               <span className="mr-1 text-teal-600">{starIcon}</span> Create a
               listing
             </li>
-            <li className="flex items-center pb-5">
+            <li className="inline-flex pb-5">
               <span className="mr-1 text-teal-600">{starIcon}</span> Get
               contacted by a potential tenant/buyer
             </li>
@@ -127,7 +127,7 @@ const HowItWorks = () => {
               <span className="mr-1 text-teal-600">{starIcon}</span> Sign up to
               see full ad
             </li>
-            <li className="flex items-center pb-5">
+            <li className="inline-flex pb-5">
               <span className="mr-1 text-teal-600">{starIcon}</span> Contact the
               owner directly and finalize your dream home
             </li>

@@ -3,7 +3,7 @@ import SiteContext from "@/context/site/siteContext";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { editAlt, trashIconLg, viewIcon } from "@/utils/icons";
+import { editAlt, trashIconLg, viewIcon, loaderIcon } from "@/utils/icons";
 import { motion, AnimatePresence } from "framer-motion";
 import { sessionExpiredToast } from "@/utils/toasts";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
@@ -119,9 +119,9 @@ const UserAds = ({ listings, setListings, token, user }) => {
                       variants={variants}
                       whileTap="tap"
                       className="bg-teal-600 text-white p-2 rounded-md hover:bg-teal-800 transition-all duration-100 ease-in"
-                      onClick={() =>
-                        router.push(`/listings/modify/${ad.id}/${user.id}`)
-                      }
+                      onClick={() => {
+                        router.push(`/listings/modify/${ad.id}/${user.id}`);
+                      }}
                     >
                       {editAlt}
                     </motion.button>

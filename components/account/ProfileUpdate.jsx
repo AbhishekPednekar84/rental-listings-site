@@ -55,10 +55,7 @@ const ProfileUpdate = ({ user }) => {
         </h5>
 
         <div className="w-32 mb-10">
-          <div
-            dangerouslySetInnerHTML={{ __html: profileImage }}
-            className="border-2 border-teal-200 rounded-full p-1"
-          ></div>
+          <div dangerouslySetInnerHTML={{ __html: profileImage }}></div>
         </div>
 
         <Formik
