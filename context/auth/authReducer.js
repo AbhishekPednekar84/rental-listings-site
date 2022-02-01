@@ -18,8 +18,6 @@ const cookie = new Cookies();
 
 const authReducer = (state, action) => {
   switch (action.type) {
-    default:
-
     case USER_AUTH:
       return {
         ...state,
@@ -123,9 +121,8 @@ const authReducer = (state, action) => {
         ...state,
         loading: true,
       };
-      return {
-        ...state,
-      };
+    default:
+      return state;
   }
 };
 

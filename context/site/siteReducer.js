@@ -44,9 +44,7 @@ const siteReducer = (state, action) => {
         siteError: action.payload,
       };
     default:
-      return {
-        ...state,
-      };
+      return state;
   }
 };
 

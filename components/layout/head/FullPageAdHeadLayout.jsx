@@ -19,7 +19,7 @@ const FullPageAdHeadLayout = ({
         <meta name="description" content={adData.description} />
         <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Dashboard" />
+        <meta property="og:title" content={adData.title} />
         <meta property="og:description" content={adData.description} />
         <meta
           property="og:url"
