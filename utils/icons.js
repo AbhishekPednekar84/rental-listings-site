@@ -79,15 +79,15 @@ export const errorIcon = (
 
 export const loaderIcon = (
   <svg
-    class="w-6 h-6"
+    className="w-6 h-6"
     fill="currentColor"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fill-rule="evenodd"
+      fillRule="evenodd"
       d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-      clip-rule="evenodd"
+      clipRule="evenodd"
     ></path>
   </svg>
 );
@@ -109,16 +109,16 @@ export const checkIcon = (
 
 export const cancelIcon = (
   <svg
-    class="w-6 h-6"
+    className="w-6 h-6"
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       d="M6 18L18 6M6 6l12 12"
     ></path>
   </svg>
@@ -353,22 +353,22 @@ export const dangerIcon = (
 
 export const viewIcon = (
   <svg
-    class="w-6 h-6"
+    className="w-6 h-6"
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
     ></path>
     <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
     ></path>
   </svg>
@@ -394,15 +394,15 @@ export const searchIcon = (
 
 export const backIcon = (
   <svg
-    class="w-6 h-6"
+    className="w-6 h-6"
     fill="currentColor"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fill-rule="evenodd"
+      fillRule="evenodd"
       d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z"
-      clip-rule="evenodd"
+      clipRule="evenodd"
     ></path>
   </svg>
 );

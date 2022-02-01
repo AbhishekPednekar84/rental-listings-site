@@ -15,12 +15,12 @@ const ImageCarousel = ({ images }) => {
       >
         {images.map((img, index) => {
           const modifiedHeight =
-            img.height > img.width ? parseInt(img.height / 5) : img.height;
+            img.height > img.width ? parseInt(img.height) : img.height;
           const modifiedWidth =
-            img.height > img.width ? parseInt(img.width / 4) : img.width;
+            img.height > img.width ? parseInt(img.width) : img.width;
 
           return (
-            <div key={index}>
+            <div key={index} style={{ display: "block", minWidth: "100%" }}>
               <Image
                 src={img.image_url}
                 alt="image"

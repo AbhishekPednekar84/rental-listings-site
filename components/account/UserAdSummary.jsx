@@ -68,16 +68,15 @@ const UserAdSummary = ({ listings, user }) => {
 
             {uniqueApartments.map((apt, index) => {
               return (
-                <>
+                <div key={index}>
                   <p
-                    key={index}
                     className={`max-w-max ml-2 text-white p-1 rounded-md text-sm font-semibold mt-2 whitespace-nowrap ${
                       chipBackground[Math.floor(Math.random() * 10)]
                     }`}
                   >
                     {apt}
                   </p>
-                </>
+                </div>
               );
             })}
           </div>

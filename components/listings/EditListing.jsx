@@ -94,6 +94,10 @@ const EditListing = ({
   // });
 
   useEffect(() => {
+    window.scroll({ top: 1, left: 1, behavior: "smooth" });
+  });
+
+  useEffect(() => {
     if (siteError === "Token expired") {
       logout();
       sessionExpiredToast();
