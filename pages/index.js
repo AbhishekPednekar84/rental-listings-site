@@ -25,7 +25,7 @@ const index = ({ apartments }) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/apartments`);
 
   const apartments = res.data;
