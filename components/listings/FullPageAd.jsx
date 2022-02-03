@@ -135,7 +135,12 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
             <div className="p-2 pt-5 lg:p-5 print:max-w-xs block">
               {adData.images.length !== 0 ? (
                 <>
-                  <div className="cursor-pointer" onClick={() => openModal()}>
+                  <div
+                    className={`cursor-pointer print:max-h-[${
+                      adData.images[0].height / 4
+                    }] print:max-w-[${adData.images[0].width / 4}]`}
+                    onClick={() => openModal()}
+                  >
                     <Image
                       src={adData.images[0].image_url}
                       alt="Apartment image"
@@ -179,7 +184,7 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                 )}
               </div>
               <div className="flex justify-center">
-                <div className="grid grid-cols-2 lg:grid-cols-3 place-items-start gap-8 print:flex print:justify-evenly mb-7">
+                <div className="grid grid-cols-2 lg:grid-cols-3 place-items-start gap-8 print:grid-cols-3 mb-7">
                   <div className="text-left">
                     <span className="text-sm text-zinc-500">Bedrooms:</span>
                     <br />
@@ -243,8 +248,8 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
             <h3 className="pt-5 print:pt-1 px-3 pb-3 print:py-2 font-semibold">
               Contact details
             </h3>
-            <div className="flex justify-center">
-              <div className="pt-5 pb-10 print:py-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-2 print:gap-2 gap-5 lg:gap-x-14 place-items-start lg:place-items-center px-5">
+            <div className="flex justify-center print:block">
+              <div className="pt-5 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-x-14 place-items-start lg:place-items-center print:grid-cols-2 px-5">
                 <div className="flex items-center">
                   <span className="text-sm text-zinc-500">Owner:</span>
                   &nbsp;
@@ -285,7 +290,7 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                   )}
                 </div>
 
-                <div className="flex items-center print:mt-5 print:hidden">
+                <div className="flex items-center">
                   <span className="text-sm text-zinc-500">Posted On:</span>
                   &nbsp;
                   <span className="font-semibold">
@@ -294,12 +299,12 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                 </div>
               </div>
 
-              <div className="hidden print:flex print:justify-center print:items-center">
+              {/* <div className="hidden print:flex print:justify-center print:items-center">
                 <span className="text-sm text-zinc-500">Posted On:</span>&nbsp;
                 <span className="font-semibold">
                   {new Date(adData.date_created).toLocaleDateString()}
                 </span>
-              </div>
+              </div> */}
             </div>
           </div>
 
