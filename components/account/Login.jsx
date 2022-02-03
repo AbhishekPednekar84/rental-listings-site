@@ -92,6 +92,7 @@ const Login = ({ pathHistoryProp }) => {
               setSubmitting(true);
               setLoading();
               login(values.email, values.password);
+              setTimeout(() => setSubmitting(false), 1000);
             }}
           >
             {(props) => (
@@ -162,10 +163,12 @@ const Login = ({ pathHistoryProp }) => {
                   <button
                     type="submit"
                     className="mt-5 mb-3 p-3 h-12 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in"
+                    disabled={props.isSubmitting || isAuthenticated}
                   >
                     {props.isSubmitting ? (
-                      <span className="flex justify-center animate-spin">
-                        {loaderIcon}
+                      <span className="flex justify-center items-center">
+                        PLEASE WAIT
+                        <span className="animate-spin ml-1">{loaderIcon}</span>
                       </span>
                     ) : (
                       "LOGIN"

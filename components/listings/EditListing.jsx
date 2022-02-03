@@ -95,7 +95,7 @@ const EditListing = ({
 
   useEffect(() => {
     window.scroll({ top: 1, left: 1, behavior: "smooth" });
-  });
+  }, []);
 
   useEffect(() => {
     if (siteError === "Token expired") {
@@ -570,7 +570,9 @@ const EditListing = ({
                   {/* Mobile */}
                   <div
                     className={`relative mt-3 lg:mt-0 ${
-                      props.touched.mobile && props.errors.mobile && "mb-1"
+                      props.touched.mobile && props.errors.mobile
+                        ? "mb-1"
+                        : "mb-1"
                     }`}
                   >
                     <Field
@@ -590,7 +592,7 @@ const EditListing = ({
                     </label>
                   </div>
 
-                  <div className="mb-1 text-xxs inline-flex">
+                  <div className="mb-2 text-xxs inline-flex">
                     <span className="mr-1">{infoCircle}</span>
                     <span>
                       Your mobile number is visible to registered users only
@@ -695,8 +697,9 @@ const EditListing = ({
                   className="p-3 w-40 h-12 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in"
                 >
                   {props.isSubmitting ? (
-                    <span className="flex justify-center animate-spin">
-                      {loaderIcon}
+                    <span className="flex justify-center items-center">
+                      PLEASE WAIT
+                      <span className="animate-spin ml-1">{loaderIcon}</span>
                     </span>
                   ) : (
                     "UPDATE LISTING"

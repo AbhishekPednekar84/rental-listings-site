@@ -633,8 +633,9 @@ const AddListing = ({ apartments }) => {
                   onClick={() => setApartmentSelected(true)}
                 >
                   {props.isSubmitting ? (
-                    <span className="flex justify-center animate-spin">
-                      {loaderIcon}
+                    <span className="flex justify-center items-center">
+                      PLEASE WAIT
+                      <span className="animate-spin ml-1">{loaderIcon}</span>
                     </span>
                   ) : (
                     "CREATE LISTING"

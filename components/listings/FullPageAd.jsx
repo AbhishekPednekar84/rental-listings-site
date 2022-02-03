@@ -131,7 +131,7 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
         </div>
 
         <div className="p-3 text-center">
-          <div className="bg-white flex flex-col lg:flex-row justify-center items-center lg:justify-evenly ">
+          <div className="bg-white flex flex-col lg:flex-row justify-center items-center lg:justify-evenly lg:items-start">
             <div className="p-2 pt-5 lg:p-5 print:max-w-xs block">
               {adData.images.length !== 0 ? (
                 <>

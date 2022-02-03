@@ -59,11 +59,12 @@ const CTA = ({ apartments }) => {
               router.push(`/listings/${selectedValue}`);
             }
           }}
-          className="w-44 px-5 py-3 bg-teal-600 text-white hover:bg-teal-800 shadow-white transition-colors duration-200 ease-in-out text-lg font-semibold uppercase tracking-wide rounded-full focus:outline-none"
+          className="w-48 px-5 py-3 bg-teal-600 text-white hover:bg-teal-800 shadow-white transition-colors duration-200 ease-in-out text-lg font-semibold uppercase tracking-wide rounded-full focus:outline-none"
         >
           {selectedValue && ctaClicked ? (
-            <span className="animate-spin flex justify-center">
-              {loaderIcon}
+            <span className="flex justify-center items-center">
+              PLEASE WAIT
+              <span className="animate-spin ml-1">{loaderIcon}</span>
             </span>
           ) : (
             "See Listings"

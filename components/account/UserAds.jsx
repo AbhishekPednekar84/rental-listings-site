@@ -68,6 +68,7 @@ const UserAds = ({ listings, setListings, token, user }) => {
         >
           <Masonry gutter={50}>
             {listings.map((ad) => {
+              console.log(listings);
               return (
                 <div
                   key={ad.id}
