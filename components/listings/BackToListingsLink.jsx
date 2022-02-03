@@ -11,7 +11,7 @@ const variants = {
 
 const BackToListingsLink = ({ apartmentName }) => {
   return (
-    <div className="flex justify-center mb-10">
+    <div className="flex justify-center mb-10 print:hidden">
       <Link href={`/listings/${apartmentName}`}>
         <a className="inline-flex items-center text-xl font-semibold">
           <motion.span
