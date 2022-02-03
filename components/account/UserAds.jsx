@@ -18,6 +18,8 @@ const variants = {
 
 const UserAds = ({ listings, setListings, token, user }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [adId, setAdId] = useState(null);
+  const [adTitle, setAdTitle] = useState(null);
 
   const closeModal = () => setModalOpen(false);
   const openModal = () => setModalOpen(true);
@@ -68,7 +70,6 @@ const UserAds = ({ listings, setListings, token, user }) => {
         >
           <Masonry gutter={50}>
             {listings.map((ad) => {
-              console.log(listings);
               return (
                 <div
                   key={ad.id}
@@ -129,26 +130,35 @@ const UserAds = ({ listings, setListings, token, user }) => {
                     <motion.button
                       variants={variants}
                       whileTap="tap"
-                      onClick={() => (modalOpen ? closeModal() : openModal())}
+                      onClick={() => {
+                        setAdTitle(ad.title);
+                        setAdId(ad.id);
+                        setTimeout(
+                          () => (modalOpen ? closeModal() : openModal()),
+                          500
+                        );
+                      }}
                       className="bg-rose-600 text-white text-lg p-2 rounded-md hover:bg-rose-800 transition-all duration-100 ease-in"
                     >
                       {trashIconLg}
                     </motion.button>
                   </div>
-                  <AnimatePresence exitBeforeEnter>
-                    {modalOpen && (
-                      <DeleteAdModal
-                        handleDelete={handleDelete}
-                        handleClose={closeModal}
-                        id={ad.id}
-                      />
-                    )}
-                  </AnimatePresence>
                 </div>
               );
             })}
           </Masonry>
         </ResponsiveMasonry>
+
+        <AnimatePresence exitBeforeEnter>
+          {modalOpen && (
+            <DeleteAdModal
+              handleDelete={handleDelete}
+              handleClose={closeModal}
+              id={adId}
+              title={adTitle}
+            />
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

@@ -28,7 +28,7 @@ const variants = {
   },
 };
 
-const DeleteAdModal = ({ handleDelete, handleClose, id }) => {
+const DeleteAdModal = ({ handleDelete, handleClose, id, title }) => {
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
@@ -43,7 +43,8 @@ const DeleteAdModal = ({ handleDelete, handleClose, id }) => {
           <p className="text-xl">
             Are you sure you want to delete this listing?
           </p>
-          <div className="flex justify-evenly mt-10">
+          <p className="text-center text-lg mt-2 font-semibold">{title}</p>
+          <div className="flex justify-evenly mt-7">
             <motion.button
               variants={variants}
               whileTap="tap"
