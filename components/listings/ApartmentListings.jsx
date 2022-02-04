@@ -59,11 +59,13 @@ const ApartmentListings = ({ apartmentName }) => {
     return (
       <div className="mt-10 mb-20 lg:mt-16">
         {apartmentAds && apartmentAds.length === 0 && (
-          <div className="flex justify-center items-center mt-10">
-            {searchIcon}{" "}
-            <p className="ml-2 text-xl text-gray-500">
-              We looked high and low but found nothing :(
-            </p>
+          <div className="flex justify-center mt-10 px-5">
+            <div className="inline-flex">
+              <span>{searchIcon}</span>
+              <p className="ml-2 text-lg lg:text-xl text-gray-500">
+                We looked high and low but found nothing :(
+              </p>
+            </div>
           </div>
         )}
         <div className="mx-5 lg:mx-16">
