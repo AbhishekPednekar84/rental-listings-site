@@ -18,10 +18,10 @@ const PasswordChanged = () => {
   const router = useRouter();
 
   return (
-    <div className="flex justify-center items-center">
-      <div className="p-10 shadow-lg bg-white w-[80%] flex flex-col items-center">
+    <div className="flex items-center justify-center">
+      <div className="flex w-[80%] flex-col items-center bg-white p-10 shadow-lg">
         <svg
-          className="w-6 h-6"
+          className="h-6 w-6"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -38,14 +38,14 @@ const PasswordChanged = () => {
           ></motion.path>
         </svg>
 
-        <h4 className="text-center font-semibold mt-5">
+        <h4 className="mt-5 text-center font-semibold">
           Password changed successfully!
         </h4>
 
         <motion.button
           variants={variants}
           whileTap="tap"
-          className="mt-10 mb-3 p-3 h-12 w-32 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in uppercase"
+          className="mt-10 mb-3 h-12 w-32 rounded-full bg-teal-600 p-3 font-semibold uppercase text-white transition-colors duration-200 ease-in hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
           onClick={() => router.push("/account/login")}
         >
           Login

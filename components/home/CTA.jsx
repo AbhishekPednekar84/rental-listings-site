@@ -27,7 +27,7 @@ const CTA = ({ apartments }) => {
   return (
     <div>
       <div
-        className={`border-4 rounded-md ${
+        className={`rounded-md border-4 ${
           selectedValue
             ? "border-none"
             : ctaClicked
@@ -59,12 +59,12 @@ const CTA = ({ apartments }) => {
               router.push(`/listings/${selectedValue}`);
             }
           }}
-          className="w-48 px-5 py-3 bg-teal-600 text-white hover:bg-teal-800 shadow-white transition-colors duration-200 ease-in-out text-lg font-semibold uppercase tracking-wide rounded-full focus:outline-none"
+          className="w-48 rounded-full bg-teal-600 px-5 py-3 text-lg font-semibold uppercase tracking-wide text-white shadow-white transition-colors duration-200 ease-in-out hover:bg-teal-800 focus:outline-none"
         >
           {selectedValue && ctaClicked ? (
-            <span className="flex justify-center items-center">
+            <span className="flex items-center justify-center">
               PLEASE WAIT
-              <span className="animate-spin ml-1">{loaderIcon}</span>
+              <span className="ml-1 animate-spin">{loaderIcon}</span>
             </span>
           ) : (
             "See Listings"

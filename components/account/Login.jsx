@@ -56,9 +56,9 @@ const Login = ({ pathHistoryProp }) => {
   }, [user]);
 
   return (
-    <div className="min-h-screen bg-zinc-100 via-slate-50 to-white flex justify-center items-center pt-10">
-      <div className="w-[400px] bg-white overflow-hidden shadow-xl my-20 mx-5">
-        <div className="relative h-52 bg-loginHero bg-bottom rounded-bl-4xl">
+    <div className="flex min-h-screen items-center justify-center bg-zinc-100 via-slate-50 to-white pt-10">
+      <div className="my-20 mx-5 w-[400px] overflow-hidden bg-white shadow-xl">
+        <div className="rounded-bl-4xl relative h-52 bg-loginHero bg-bottom">
           <svg
             className="absolute -bottom-1"
             xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +72,7 @@ const Login = ({ pathHistoryProp }) => {
           </svg>
         </div>
 
-        <div className="px-2 lg:px-5 py-8 bg-white">
+        <div className="bg-white px-2 py-8 lg:px-5">
           <h1>
             <span className="heading-underline">We</span>
             lcome back!
@@ -112,25 +112,25 @@ const Login = ({ pathHistoryProp }) => {
                       placeholder="Email Address*"
                       maxLength="100"
                       autoComplete="off"
-                      className="remove-default-focus peer border-b-2 placeholder-shown:border-b-gray-400 border-b-teal-600 h-10 w-full p-0 placeholder-transparent"
+                      className="remove-default-focus peer h-10 w-full border-b-2 border-b-teal-600 p-0 placeholder-transparent placeholder-shown:border-b-gray-400"
                     />
                     <label
                       htmlFor="email"
-                      className="absolute left-0 -top-3.5 text-teal-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-teal-600 peer-focus:text-xs"
+                      className="absolute left-0 -top-3.5 text-xs text-teal-600 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-teal-600"
                     >
                       Email Address
                     </label>
                   </div>
 
                   {props.touched.email && props.errors.email && (
-                    <div className="mb-6 text-xs text-rose-600 flex items-center">
+                    <div className="mb-6 flex items-center text-xs text-rose-600">
                       <span className="mr-1">{errorIcon}</span>
                       {props.errors.email}
                     </div>
                   )}
 
                   <div
-                    className={`mt-2 relative ${
+                    className={`relative mt-2 ${
                       props.touched.password && props.errors.password
                         ? "mb-1"
                         : "mb-6"
@@ -143,18 +143,18 @@ const Login = ({ pathHistoryProp }) => {
                       placeholder="Password*"
                       maxLength="100"
                       autoComplete="off"
-                      className="remove-default-focus peer border-b-2 placeholder-shown:border-b-gray-400 border-b-teal-600 h-10 w-full p-0 placeholder-transparent"
+                      className="remove-default-focus peer h-10 w-full border-b-2 border-b-teal-600 p-0 placeholder-transparent placeholder-shown:border-b-gray-400"
                     />
                     <label
                       htmlFor="password"
-                      className="absolute left-0 -top-3.5 text-teal-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-teal-600 peer-focus:text-xs"
+                      className="absolute left-0 -top-3.5 text-xs text-teal-600 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-teal-600"
                     >
                       Password
                     </label>
                   </div>
 
                   {props.touched.password && props.errors.password && (
-                    <div className="mb-6 text-xs text-rose-600 flex items-center">
+                    <div className="mb-6 flex items-center text-xs text-rose-600">
                       <span className="mr-1">{errorIcon}</span>
                       {props.errors.password}
                     </div>
@@ -162,13 +162,13 @@ const Login = ({ pathHistoryProp }) => {
 
                   <button
                     type="submit"
-                    className="mt-5 mb-3 p-3 h-12 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in"
+                    className="mt-5 mb-3 h-12 rounded-full bg-teal-600 p-3 font-semibold text-white transition-colors duration-200 ease-in hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
                     disabled={props.isSubmitting || isAuthenticated}
                   >
                     {props.isSubmitting ? (
-                      <span className="flex justify-center items-center">
+                      <span className="flex items-center justify-center">
                         PLEASE WAIT
-                        <span className="animate-spin ml-1">{loaderIcon}</span>
+                        <span className="ml-1 animate-spin">{loaderIcon}</span>
                       </span>
                     ) : (
                       "LOGIN"
@@ -179,19 +179,19 @@ const Login = ({ pathHistoryProp }) => {
             )}
           </Formik>
           <div className="mt-3">
-            <p className="text-sm text-center">
+            <p className="text-center text-sm">
               <Link href="/forgotpassword">
-                <a className="text-teal-600 underline underline-offset-8 decoration-teal-600 decoration-2">
+                <a className="text-teal-600 underline decoration-teal-600 decoration-2 underline-offset-8">
                   Forgot Password?
                 </a>
               </Link>
             </p>
           </div>
           <div className="mt-7">
-            <p className="text-sm text-center">
+            <p className="text-center text-sm">
               Don't have an account?{" "}
               <Link href="/account/register">
-                <a className="text-cyan-600 underline underline-offset-8 decoration-cyan-600 decoration-2">
+                <a className="text-cyan-600 underline decoration-cyan-600 decoration-2 underline-offset-8">
                   Sign Up
                 </a>
               </Link>{" "}

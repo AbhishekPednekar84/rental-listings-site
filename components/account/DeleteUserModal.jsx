@@ -39,20 +39,20 @@ const DeleteUserModal = ({ handleDelete, handleClose, id, loading }) => {
         exit="exit"
       >
         <div className="bg-gradient-to-r from-zinc-100 via-slate-100 to-gray-100 p-10">
-          <div className="flex justify-center mb-5">{dangerIcon}</div>
-          <p className="text-xl text-center">
+          <div className="mb-5 flex justify-center">{dangerIcon}</div>
+          <p className="text-center text-xl">
             Are you sure you want to delete your user account? <br />
             This process is irreversible.
           </p>
-          <div className="flex justify-evenly mt-10">
+          <div className="mt-10 flex justify-evenly">
             <motion.button
               variants={variants}
               whileTap="tap"
-              className="bg-rose-600 rounded-full w-20 h-10 uppercase text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-600 transition-colors duration-200 ease-in-out"
+              className="h-10 w-20 rounded-full bg-rose-600 uppercase text-white transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2"
               onClick={() => handleDelete(id)}
             >
               {loading ? (
-                <span className="flex justify-center animate-spin">
+                <span className="flex animate-spin justify-center">
                   {loaderIcon}
                 </span>
               ) : (
@@ -61,7 +61,7 @@ const DeleteUserModal = ({ handleDelete, handleClose, id, loading }) => {
             </motion.button>
             <button
               onClick={handleClose}
-              className="text-teal-800 underline underline-offset-4 decoration-teal-800 decoration-2"
+              className="text-teal-800 underline decoration-teal-800 decoration-2 underline-offset-4"
             >
               I changed my mind
             </button>

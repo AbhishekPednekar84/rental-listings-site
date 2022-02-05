@@ -60,7 +60,7 @@ const EnterOtp = () => {
           <motion.div
             variants={variants}
             exit="exit"
-            className="p-10 shadow-lg bg-white w-[70%]"
+            className="w-[70%] bg-white p-10 shadow-lg"
           >
             <Formik
               initialValues={{ email: "" }}
@@ -74,9 +74,9 @@ const EnterOtp = () => {
             >
               {(props) => (
                 <Form autoComplete="off">
-                  <h5 className="text-center font-semibold mb-10">
+                  <h5 className="mb-10 text-center font-semibold">
                     Enter The OTP sent to{" "}
-                    <span className="text-teal-600 font-semibold">
+                    <span className="font-semibold text-teal-600">
                       {user && user.email}
                     </span>{" "}
                     along with your new password
@@ -84,7 +84,7 @@ const EnterOtp = () => {
                   <Alert />
                   <div>
                     <div
-                      className={`mt-2 relative ${
+                      className={`relative mt-2 ${
                         props.touched.otp && props.errors.otp ? "mb-1" : "mb-8"
                       }`}
                     >
@@ -95,18 +95,18 @@ const EnterOtp = () => {
                         placeholder="Otp*"
                         maxLength="6"
                         autoComplete="off"
-                        className="remove-default-focus peer border-b-2 placeholder-shown:border-b-gray-400 border-b-cyan-600 h-10 w-full p-0 placeholder-transparent"
+                        className="remove-default-focus peer h-10 w-full border-b-2 border-b-cyan-600 p-0 placeholder-transparent placeholder-shown:border-b-gray-400"
                       />
                       <label
                         htmlFor="otp"
-                        className="absolute left-0 -top-3.5 text-cyan-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-cyan-600 peer-focus:text-xs"
+                        className="absolute left-0 -top-3.5 text-xs text-cyan-600 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-cyan-600"
                       >
                         OTP
                       </label>
                     </div>
 
                     {props.touched.otp && props.errors.otp && (
-                      <div className="mb-6 text-xs text-rose-600 flex items-center">
+                      <div className="mb-6 flex items-center text-xs text-rose-600">
                         <span className="mr-1">{errorIcon}</span>
                         {props.errors.otp}
                       </div>
@@ -114,7 +114,7 @@ const EnterOtp = () => {
                   </div>
 
                   <div
-                    className={`mt-2 relative ${
+                    className={`relative mt-2 ${
                       props.touched.password && props.errors.password
                         ? "mb-1"
                         : "mb-6"
@@ -127,18 +127,18 @@ const EnterOtp = () => {
                       placeholder="Your New Password*"
                       maxLength="50"
                       autoComplete="off"
-                      className="remove-default-focus peer border-b-2 placeholder-shown:border-b-gray-400 border-b-cyan-600 h-10 w-full p-0 placeholder-transparent"
+                      className="remove-default-focus peer h-10 w-full border-b-2 border-b-cyan-600 p-0 placeholder-transparent placeholder-shown:border-b-gray-400"
                     />
                     <label
                       htmlFor="password"
-                      className="absolute left-0 -top-3.5 text-cyan-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-cyan-600 peer-focus:text-xs"
+                      className="absolute left-0 -top-3.5 text-xs text-cyan-600 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-cyan-600"
                     >
                       Your New Password
                     </label>
                   </div>
 
                   {props.touched.password && props.errors.password && (
-                    <div className="mb-6 text-xs text-rose-600 flex items-center">
+                    <div className="mb-6 flex items-center text-xs text-rose-600">
                       <span className="mr-1">{errorIcon}</span>
                       {props.errors.password}
                     </div>
@@ -149,10 +149,10 @@ const EnterOtp = () => {
                       variants={variants}
                       whileTap="tap"
                       type="submit"
-                      className="mt-5 mb-3 p-3 h-12 w-48 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in uppercase"
+                      className="mt-5 mb-3 h-12 w-48 rounded-full bg-teal-600 p-3 font-semibold uppercase text-white transition-colors duration-200 ease-in hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
                     >
                       {props.isSubmitting ? (
-                        <span className="flex justify-center animate-spin">
+                        <span className="flex animate-spin justify-center">
                           {loaderIcon}
                         </span>
                       ) : (

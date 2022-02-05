@@ -48,13 +48,13 @@ const ProfileUpdate = ({ user }) => {
 
   return (
     <div className="w-[300px] lg:w-[600px]">
-      <div className="flex flex-col justify-center items-center bg-white py-10 px-5 shadow-lg hover:shadow-xl">
-        <h5 className="mb-10 text-lg text-center">
+      <div className="flex flex-col items-center justify-center bg-white py-10 px-5 shadow-lg hover:shadow-xl">
+        <h5 className="mb-10 text-center text-lg">
           Your registered email:{" "}
-          <span className="text-teal-600 font-semibold">{user.email}</span>
+          <span className="font-semibold text-teal-600">{user.email}</span>
         </h5>
 
-        <div className="w-32 mb-10">
+        <div className="mb-10 w-32">
           <div dangerouslySetInnerHTML={{ __html: profileImage }}></div>
         </div>
 
@@ -94,20 +94,20 @@ const ProfileUpdate = ({ user }) => {
                     />
                     <label
                       htmlFor="name"
-                      className="absolute left-0 -top-3.5 text-cyan-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-cyan-600 peer-focus:text-xs"
+                      className="absolute left-0 -top-3.5 text-xs text-cyan-600 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-cyan-600"
                     >
                       Name
                     </label>
                   </div>
 
                   {editForm ? (
-                    <p className="flex text-xs items-center">
+                    <p className="flex items-center text-xs">
                       Update your name and click {checkIconAltSmall}
                     </p>
                   ) : null}
 
                   {props.touched.name && props.errors.name && (
-                    <div className="mt-2 text-xs text-rose-600 flex items-center">
+                    <div className="mt-2 flex items-center text-xs text-rose-600">
                       <span className="mr-1">{errorIcon}</span>
                       {props.errors.name}
                     </div>

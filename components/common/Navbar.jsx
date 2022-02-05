@@ -25,7 +25,7 @@ const variants = {
 
 const menu = (
   <svg
-    className="w-8 h-8"
+    className="h-8 w-8"
     fill="currentColor"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +40,7 @@ const menu = (
 
 const cancel = (
   <svg
-    className="w-6 h-6"
+    className="h-6 w-6"
     fill="currentColor"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
@@ -95,20 +95,20 @@ const Navbar = ({ textColor }) => {
   return (
     <header className="print:hidden">
       <nav className="relative">
-        <div className="h-[100] w-full py-5 pl-5 pr-0 flex justify-between items-center absolute z-30">
+        <div className="absolute z-30 flex h-[100] w-full items-center justify-between py-5 pl-5 pr-0">
           <Link href="/">
             <a>
               <Image src="/logo.png" alt="Logo" width={90} height={55} />
             </a>
           </Link>
           <div className="hidden md:block">
-            <ul className="md:flex justify-around items-center">
+            <ul className="items-center justify-around md:flex">
               {pathname === "/" && (
                 <>
-                  <li className="bg-black bg-opacity-50 px-3 py-2 hover:bg-black cursor-pointer transition-colors duration-200 ease-in-out">
+                  <li className="cursor-pointer bg-black bg-opacity-50 px-3 py-2 transition-colors duration-200 ease-in-out hover:bg-black">
                     <Link href="/listings/create">
                       <a
-                        className={`uppercase font-semibold tracking-wide text-lg md:text-sm lg:text-base ${
+                        className={`text-lg font-semibold uppercase tracking-wide md:text-sm lg:text-base ${
                           textColor ? "text-" + textColor : "text-white"
                         } hover:decoration-inherit`}
                       >
@@ -585,7 +585,7 @@ const Navbar = ({ textColor }) => {
           </div>
 
           {!showMenu && (
-            <div className="menu-icon bg-teal-50 -mt-2 mr-10">
+            <div className="menu-icon -mt-2 mr-10 bg-teal-50">
               <span onClick={() => setShowMenu(true)}>{menu}</span>
             </div>
           )}
@@ -599,13 +599,13 @@ const Navbar = ({ textColor }) => {
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                className="fixed h-screen w-2/3 bg-gradient-to-b from bg-zinc-200 via-slate-100 to-gray-50 top-0 right-0 px-5 py-10 md:hidden shadow-2xl z-30"
+                className="from fixed top-0 right-0 z-30 h-screen w-2/3 bg-zinc-200 bg-gradient-to-b via-slate-100 to-gray-50 px-5 py-10 shadow-2xl md:hidden"
               >
                 <div>
-                  <div className="flex justify-end items-center pr-5">
+                  <div className="flex items-center justify-end pr-5">
                     {/* <Image src="/logo.png" alt="Logo" width={90} height={55} /> */}
                     <div
-                      className="menu-icon bg-slate-700 -mt-2 -mr-5"
+                      className="menu-icon -mt-2 -mr-5 bg-slate-700"
                       onClick={() => setShowMenu(false)}
                     >
                       <span>{cancel}</span>
@@ -613,7 +613,7 @@ const Navbar = ({ textColor }) => {
                   </div>
                 </div>
 
-                <div className="text-center pt-6">
+                <div className="pt-6 text-center">
                   <Link href="/">
                     <a>
                       <Image

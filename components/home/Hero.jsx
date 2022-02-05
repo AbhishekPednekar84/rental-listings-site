@@ -60,21 +60,21 @@ const Hero = ({ apartments }) => {
         placeholder="blur"
         blurDataURL="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/d4c4344f3988a251_dYilqibMX.jpg/tr:bl-10"
       />
-      <div className="flex justify-center items-center">
-        <div className="flex flex-col justify-center items-center py-44 lg:py-56 h-full relative mx-5">
-          <div className="bg-gray-900 bg-opacity-70 px-4 py-7 md:px-5 text-white">
-            <h1 className="text-white text-2xl lg:text-4xl tracking-wide font-semibold text-center mb-6">
+      <div className="flex items-center justify-center">
+        <div className="relative mx-5 flex h-full flex-col items-center justify-center py-44 lg:py-56">
+          <div className="bg-gray-900 bg-opacity-70 px-4 py-7 text-white md:px-5">
+            <h1 className="mb-6 text-center text-2xl font-semibold tracking-wide text-white lg:text-4xl">
               Find flats for rent or sale in your dream apartment
             </h1>
             <div className="flex justify-center">
               <CTA apartments={apartments} />
             </div>
 
-            <div className="text-center mt-5">
+            <div className="mt-5 text-center">
               Don't see your apartment?{" "}
               <Link href="/">
                 <a
-                  className="text-white hover:text-teal-400 font-semibold underline underline-offset-4 decoration-teal-600 decoration-2"
+                  className="font-semibold text-white underline decoration-teal-600 decoration-2 underline-offset-4 hover:text-teal-400"
                   onClick={() => (modalOpen ? closeModal() : openModal())}
                 >
                   Add it here
@@ -88,7 +88,7 @@ const Hero = ({ apartments }) => {
               aria-label="Link to navigate to the next section"
             >
               <svg
-                className="motion-safe:animate-bounce w-16 h-16"
+                className="h-16 w-16 motion-safe:animate-bounce"
                 fill="none"
                 stroke="#FFFFFF"
                 viewBox="0 0 24 24"

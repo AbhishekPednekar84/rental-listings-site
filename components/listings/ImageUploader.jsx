@@ -28,7 +28,7 @@ const ImageUploader = ({ files, setFiles, imgList }) => {
               newFiles.splice(newFiles.indexOf(file), 1);
               setFiles(newFiles);
             }}
-            className="flex items-center text-xs pt-2 cursor-pointer text-brand-gray"
+            className="text-brand-gray flex cursor-pointer items-center pt-2 text-xs"
           >
             {trashIcon}
             Remove
@@ -39,7 +39,7 @@ const ImageUploader = ({ files, setFiles, imgList }) => {
   });
 
   return (
-    <div className="max-w-[400px] mt-8">
+    <div className="mt-8 max-w-[400px]">
       <h5 className="mb-5 font-medium">
         Upload images (
         {imgList.length > 0
@@ -57,28 +57,28 @@ const ImageUploader = ({ files, setFiles, imgList }) => {
             {newFiles.length < 7 ? (
               <div className="w-full">
                 {isDragReject && (
-                  <div className="text-xs text-rose-600 p-1 mb-2 flex items-center">
+                  <div className="mb-2 flex items-center p-1 text-xs text-rose-600">
                     {errorIcon}&nbsp;Accepted image formats - jpeg, webp and png
                   </div>
                 )}
                 <div
                   {...getRootProps()}
-                  className="flex flex-col items-center justify-center py-8 bg-stone-200 border-dashed border-teal-600 border-2 cursor-pointer focus:outline-none"
+                  className="flex cursor-pointer flex-col items-center justify-center border-2 border-dashed border-teal-600 bg-stone-200 py-8 focus:outline-none"
                 >
                   <input {...getInputProps()} />
                   {cameraIcon}
                 </div>
               </div>
             ) : (
-              <div className="flex flex-col items-center justify-center p-8 bg-stone-200 border-dashed border-rose-600 error-border border-2 cursor-not-allowed focus:outline-none">
+              <div className="error-border flex cursor-not-allowed flex-col items-center justify-center border-2 border-dashed border-rose-600 bg-stone-200 p-8 focus:outline-none">
                 {bannedIcon}
                 {files.length === 7 ? (
-                  <div className="text-xs error-text pt-2 text-center">
+                  <div className="error-text pt-2 text-center text-xs">
                     <p className="py-2">You have added 7 photos.</p>
                     <p>You can delete existing photos to upload new one's.</p>
                   </div>
                 ) : (
-                  <p className="text-xs error-text pt-2">
+                  <p className="error-text pt-2 text-xs">
                     {/* Sorry!{" "}
                       {!props.uploadedImages
                         ? "7"
@@ -90,7 +90,7 @@ const ImageUploader = ({ files, setFiles, imgList }) => {
               </div>
             )}
 
-            <div className="grid grid-cols-4 gap-3 mt-4 pt-2">
+            <div className="mt-4 grid grid-cols-4 gap-3 pt-2">
               {images.slice(0, 7)}
             </div>
           </section>

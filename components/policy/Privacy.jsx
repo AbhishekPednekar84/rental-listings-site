@@ -2,8 +2,8 @@ import React from "react";
 
 const Privacy = () => {
   return (
-    <div className="flex flex-col justify-center mb-20">
-      <h2 className="mb-10 text-4xl font-bold text-center">
+    <div className="mb-20 flex flex-col justify-center">
+      <h2 className="mb-10 text-center text-4xl font-bold">
         <span className="heading-underline">Pr</span>ivacy Policy
       </h2>
       <div className="px-5 lg:px-20">
@@ -24,7 +24,7 @@ const Privacy = () => {
         </div>
 
         <div className="mb-10">
-          <h4 className="font-semibold mb-3">Information Sharing</h4>
+          <h4 className="mb-3 font-semibold">Information Sharing</h4>
           <p>
             Your information is safe and private with us. It will never be
             shared (or sold) with anyone unless required by law.
@@ -32,17 +32,17 @@ const Privacy = () => {
         </div>
 
         <div className="mb-10">
-          <h4 className="font-semibold mb-3">Erasure</h4>
+          <h4 className="mb-3 font-semibold">Erasure</h4>
           <p>
             We make it simple to permanently delete your account and all the
             active listings associated with it. A{" "}
-            <span className="text-rose-600 font-semibold">Delete Account</span>{" "}
+            <span className="font-semibold text-rose-600">Delete Account</span>{" "}
             button is available on your dashboard page.
           </p>
         </div>
 
         <div>
-          <h4 className="font-semibold mb-3">Data Retention</h4>
+          <h4 className="mb-3 font-semibold">Data Retention</h4>
           <p>
             We retain your account information, ad and chat related data unless
             you explicitly delete your account as described above.

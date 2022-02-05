@@ -48,20 +48,20 @@ const UserAdSummary = ({ listings, user }) => {
 
   return (
     <div className="">
-      <div className="bg-white py-10 shadow-lg hover:shadow-xl w-[300px] lg:w-[400px] px-5">
-        <h5 className="text-center mb-10 text-xl font-semibold">Ad Summary</h5>
+      <div className="w-[300px] bg-white py-10 px-5 shadow-lg hover:shadow-xl lg:w-[400px]">
+        <h5 className="mb-10 text-center text-xl font-semibold">Ad Summary</h5>
 
-        <p className="text-sm lg:text-base flex items-center justify-start">
+        <p className="flex items-center justify-start text-sm lg:text-base">
           <span className="mr-1 text-teal-600">{starIcon}</span> Number of
           active ads:{" "}
-          <span className="bg-teal-600 px-2 py-1 text-white font-semibold ml-1 rounded-md">
+          <span className="ml-1 rounded-md bg-teal-600 px-2 py-1 font-semibold text-white">
             {listings.length}
           </span>
         </p>
 
         {listings.length > 0 && (
           <div>
-            <div className="text-sm lg:text-base mt-10 flex items-center justify-start ">
+            <div className="mt-10 flex items-center justify-start text-sm lg:text-base ">
               <span className="mr-1 text-teal-600">{starIcon}</span>
               <span>Apartments:</span>{" "}
             </div>
@@ -70,7 +70,7 @@ const UserAdSummary = ({ listings, user }) => {
               return (
                 <div key={index}>
                   <p
-                    className={`max-w-max ml-2 text-white p-1 rounded-md text-sm font-semibold mt-2 whitespace-nowrap ${
+                    className={`ml-2 mt-2 max-w-max whitespace-nowrap rounded-md p-1 text-sm font-semibold text-white ${
                       chipBackground[Math.floor(Math.random() * 10)]
                     }`}
                   >
@@ -83,12 +83,12 @@ const UserAdSummary = ({ listings, user }) => {
         )}
       </div>
 
-      <div className="mt-10 lg:mt-5 text-center bg-white py-10 px-3 shadow-lg hover:shadow-xl">
+      <div className="mt-10 bg-white py-10 px-3 text-center shadow-lg hover:shadow-xl lg:mt-5">
         <motion.button
           variants={variants}
           whileTap="tap"
           onClick={() => (modalOpen ? closeModal() : openModal())}
-          className="p-3 h-12 w-56 bg-rose-600 text-white font-semibold rounded-full focus:outline-none hover:bg-rose-800 focus:ring-2 focus:ring-offset-2 focus:ring-rose-600 transition-colors duration-200 ease-in uppercase"
+          className="h-12 w-56 rounded-full bg-rose-600 p-3 font-semibold uppercase text-white transition-colors duration-200 ease-in hover:bg-rose-800 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2"
         >
           Delete My Account
         </motion.button>

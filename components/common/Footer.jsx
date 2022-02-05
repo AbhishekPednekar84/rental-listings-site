@@ -32,7 +32,7 @@ const Footer = () => {
             : "from-teal-900 via-emerald-800 to-green-900"
         } text-white`}
       >
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col items-center justify-center">
           <div className="mt-7">
             <Image
               src="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/ros_mrUlsGF1T.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1642437129463"
@@ -41,17 +41,17 @@ const Footer = () => {
               width={200}
             />
           </div>
-          <h5 className="mt-5 mb-14 px-2 text-lg text-center">
+          <h5 className="mt-5 mb-14 px-2 text-center text-lg">
             &copy; {year} - rentorsale.apartments - All rights reserved
           </h5>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+          <div className="grid grid-cols-1 gap-20 lg:grid-cols-2">
             <div className="p-2">
-              <h5 className="font-semibold text-center text-2xl mb-7">
+              <h5 className="mb-7 text-center text-2xl font-semibold">
                 Quick Links
               </h5>
-              <div className="grid grid-cols-2 gap-10 place-items-center">
-                <ul className="flex flex-col gap-5 flex-start">
+              <div className="grid grid-cols-2 place-items-center gap-10">
+                <ul className="flex-start flex flex-col gap-5">
                   <li>
                     <Link href="/account/login">
                       <a className="nav-link font-medium">Login</a>
@@ -71,7 +71,7 @@ const Footer = () => {
                   </li>
                 </ul>
 
-                <ul className="flex flex-col gap-5 flex-start">
+                <ul className="flex-start flex flex-col gap-5">
                   <li>
                     <Link href="/policy/#terms">
                       <a className="nav-link font-medium">Terms of Use</a>
@@ -93,8 +93,8 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="p-2 flex flex-col items-center">
-              <h5 className="font-semibold text-2xl mb-7">Related Offering</h5>
+            <div className="flex flex-col items-center p-2">
+              <h5 className="mb-7 text-2xl font-semibold">Related Offering</h5>
               <p className="text-center">
                 Buy and sell preloved items in your apartment complex
                 <br /> with ease on{" "}
@@ -102,7 +102,7 @@ const Footer = () => {
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-medium underline underline-offset-4 decoration-white decoration-2"
+                    className="font-medium underline decoration-white decoration-2 underline-offset-4"
                   >
                     nxtdoordeals.com
                   </a>
@@ -111,7 +111,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <p className="flex items-center my-14">
+          <p className="my-14 flex items-center">
             Made with <span className="mx-1 text-rose-600">{heartIcon}</span>{" "}
             for all the home seekers
           </p>

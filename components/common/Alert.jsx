@@ -10,7 +10,7 @@ const Alert = () => {
     <Fragment>
       {authError && authError && (
         <p
-          className={`-mt-5 mb-7 bg-rose-100 p-2 px-3 text-rose-600 text-sm font-semibold ${
+          className={`-mt-5 mb-7 bg-rose-100 p-2 px-3 text-sm font-semibold text-rose-600 ${
             authError.length < 20 ? "text-center" : "text-left"
           }`}
         >

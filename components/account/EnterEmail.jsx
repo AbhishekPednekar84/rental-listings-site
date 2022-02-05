@@ -61,7 +61,7 @@ const EnterEmail = () => {
   }, [fpMessage]);
 
   return (
-    <div className="py-32 flex flex-col justify-center items-center bg-zinc-100 via-slate-50 to-white">
+    <div className="flex flex-col items-center justify-center bg-zinc-100 via-slate-50 to-white py-32">
       <div>
         <h1>
           <span className="heading-underline">Le</span>t's change your password
@@ -72,7 +72,7 @@ const EnterEmail = () => {
           <motion.div
             variants={variants}
             exit="exit"
-            className="p-10 shadow-lg bg-white w-[80%] lg:w-[30%]"
+            className="w-[80%] bg-white p-10 shadow-lg lg:w-[30%]"
           >
             <Formik
               initialValues={{ email: "" }}
@@ -86,13 +86,13 @@ const EnterEmail = () => {
             >
               {(props) => (
                 <Form autoComplete="off">
-                  <h4 className="text-center font-semibold mb-10">
+                  <h4 className="mb-10 text-center font-semibold">
                     Enter Your Registered Email
                   </h4>
                   <Alert />
                   <div>
                     <div
-                      className={`mt-2 relative ${
+                      className={`relative mt-2 ${
                         props.touched.email && props.errors.email
                           ? "mb-1"
                           : "mb-6"
@@ -105,18 +105,18 @@ const EnterEmail = () => {
                         placeholder="Your registered email*"
                         maxLength="100"
                         autoComplete="off"
-                        className="remove-default-focus peer border-b-2 placeholder-shown:border-b-gray-400 border-b-cyan-600 h-10 w-full p-0 placeholder-transparent"
+                        className="remove-default-focus peer h-10 w-full border-b-2 border-b-cyan-600 p-0 placeholder-transparent placeholder-shown:border-b-gray-400"
                       />
                       <label
                         htmlFor="email"
-                        className="absolute left-0 -top-3.5 text-cyan-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-cyan-600 peer-focus:text-xs"
+                        className="absolute left-0 -top-3.5 text-xs text-cyan-600 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-cyan-600"
                       >
                         Your registered email
                       </label>
                     </div>
 
                     {props.touched.email && props.errors.email && (
-                      <div className="mb-6 text-xs text-rose-600 flex items-center">
+                      <div className="mb-6 flex items-center text-xs text-rose-600">
                         <span className="mr-1">{errorIcon}</span>
                         {props.errors.email}
                       </div>
@@ -128,10 +128,10 @@ const EnterEmail = () => {
                       variants={variants}
                       whileTap="tap"
                       type="submit"
-                      className="mt-5 mb-3 p-3 h-12 w-36 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in uppercase"
+                      className="mt-5 mb-3 h-12 w-36 rounded-full bg-teal-600 p-3 font-semibold uppercase text-white transition-colors duration-200 ease-in hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
                     >
                       {props.isSubmitting ? (
-                        <span className="flex justify-center animate-spin">
+                        <span className="flex animate-spin justify-center">
                           {loaderIcon}
                         </span>
                       ) : (

@@ -11,13 +11,13 @@ const variants = {
 
 const BackToListingsLink = ({ apartmentName }) => {
   return (
-    <div className="flex justify-center mb-10 print:hidden">
+    <div className="mb-10 flex justify-center print:hidden">
       <Link href={`/listings/${apartmentName}`}>
         <a className="inline-flex items-center text-xl font-semibold">
           <motion.span
             variants={variants}
             whileHover="hover"
-            className="mr-2 p-2 bg-teal-600 rounded-full text-white"
+            className="mr-2 rounded-full bg-teal-600 p-2 text-white"
           >
             {backIcon}
           </motion.span>{" "}

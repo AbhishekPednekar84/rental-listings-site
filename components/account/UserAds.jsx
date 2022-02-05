@@ -50,14 +50,14 @@ const UserAds = ({ listings, setListings, token, user }) => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-zinc-50 via-neutral-100 to-slate-100 py-5 lg:py-10 mt-10">
-      <h3 className="mb-10 text-3xl font-semibold text-center">My Ads</h3>
+    <div className="mt-10 bg-gradient-to-b from-zinc-50 via-neutral-100 to-slate-100 py-5 lg:py-10">
+      <h3 className="mb-10 text-center text-3xl font-semibold">My Ads</h3>
 
       {listings.length === 0 && (
         <div className="text-center text-gray-800">
           Looks like you have not posted an ad recently. You can do that{" "}
           <Link href="/listings/create">
-            <a className="text-teal-600 underline underline-offset-4 decoration-teal-600 decoration-2">
+            <a className="text-teal-600 underline decoration-teal-600 decoration-2 underline-offset-4">
               here
             </a>
           </Link>
@@ -73,7 +73,7 @@ const UserAds = ({ listings, setListings, token, user }) => {
               return (
                 <div
                   key={ad.id}
-                  className="bg-white py-3 px-5 min-w-[300px] flex flex-col items-center shadow-lg hover:shadow-xl"
+                  className="flex min-w-[300px] flex-col items-center bg-white py-3 px-5 shadow-lg hover:shadow-xl"
                 >
                   {ad.images.length > 0 ? (
                     <img
@@ -90,11 +90,11 @@ const UserAds = ({ listings, setListings, token, user }) => {
                       width={225}
                     />
                   )}
-                  <h6 className="text-xl mt-5 font-semibold">{ad.title}</h6>
+                  <h6 className="mt-5 text-xl font-semibold">{ad.title}</h6>
                   <p className="mt-5">
                     Listing type:{" "}
                     <span
-                      className={`uppercase text-sm ad-card-listing-type ${
+                      className={`ad-card-listing-type text-sm uppercase ${
                         ad.listing_type === "sale"
                           ? "bg-orange-400"
                           : "bg-lime-600"
@@ -108,11 +108,11 @@ const UserAds = ({ listings, setListings, token, user }) => {
                     <span className="font-semibold">{ad.apartment}</span>
                   </p>
 
-                  <div className="flex justify-around w-full items-center my-5">
+                  <div className="my-5 flex w-full items-center justify-around">
                     <motion.button
                       variants={variants}
                       whileTap="tap"
-                      className="bg-fuchsia-600 text-white p-2 rounded-md hover:bg-fuchsia-800 transition-all duration-100 ease-in"
+                      className="rounded-md bg-fuchsia-600 p-2 text-white transition-all duration-100 ease-in hover:bg-fuchsia-800"
                       onClick={() => router.push(`/ad/${ad.id}`)}
                     >
                       {viewIcon}
@@ -120,7 +120,7 @@ const UserAds = ({ listings, setListings, token, user }) => {
                     <motion.button
                       variants={variants}
                       whileTap="tap"
-                      className="bg-teal-600 text-white p-2 rounded-md hover:bg-teal-800 transition-all duration-100 ease-in"
+                      className="rounded-md bg-teal-600 p-2 text-white transition-all duration-100 ease-in hover:bg-teal-800"
                       onClick={() => {
                         router.push(`/listings/modify/${ad.id}/${user.id}`);
                       }}
@@ -138,7 +138,7 @@ const UserAds = ({ listings, setListings, token, user }) => {
                           500
                         );
                       }}
-                      className="bg-rose-600 text-white text-lg p-2 rounded-md hover:bg-rose-800 transition-all duration-100 ease-in"
+                      className="rounded-md bg-rose-600 p-2 text-lg text-white transition-all duration-100 ease-in hover:bg-rose-800"
                     >
                       {trashIconLg}
                     </motion.button>

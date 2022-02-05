@@ -2,7 +2,7 @@ import React from "react";
 
 const locationMarker = (
   <svg
-    className="w-5 h-5"
+    className="h-5 w-5"
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -27,18 +27,18 @@ const locationMarker = (
 
 const Hero = ({ apartmentName, apartmentInfo }) => {
   return (
-    <div className="bg-listing1 bg-center md:bg-cover h-96 shadow-lg">
-      <div className="bg-black bg-opacity-60 h-96 shadow-lg">
-        <div className="flex justify-center items-center h-full">
-          <div className="bg-gray-900 bg-opacity-70 px-3 py-7 md:px-5 mx-2 mt-14">
-            <h1 className="text-2xl lg:text-4xl text-white font-bold text-center mb-4">
+    <div className="h-96 bg-listing1 bg-center shadow-lg md:bg-cover">
+      <div className="h-96 bg-black bg-opacity-60 shadow-lg">
+        <div className="flex h-full items-center justify-center">
+          <div className="mx-2 mt-14 bg-gray-900 bg-opacity-70 px-3 py-7 md:px-5">
+            <h1 className="mb-4 text-center text-2xl font-bold text-white lg:text-4xl">
               {apartmentName}
             </h1>
-            <p className="flex items-center text-white my-2">
+            <p className="my-2 flex items-center text-white">
               <span className="mr-2">{locationMarker}</span>{" "}
               {apartmentInfo.address1}, {apartmentInfo.address2}
             </p>
-            <p className="flex items-center text-white my-2">
+            <p className="my-2 flex items-center text-white">
               <span className="mr-2">{locationMarker}</span>{" "}
               {apartmentInfo.city} - {apartmentInfo.pincode},{" "}
               {apartmentInfo.state}

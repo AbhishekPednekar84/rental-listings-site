@@ -43,19 +43,19 @@ const DeleteAdModal = ({ handleDelete, handleClose, id, title }) => {
           <p className="text-xl">
             Are you sure you want to delete this listing?
           </p>
-          <p className="text-center text-lg mt-2 font-semibold">{title}</p>
-          <div className="flex justify-evenly mt-7">
+          <p className="mt-2 text-center text-lg font-semibold">{title}</p>
+          <div className="mt-7 flex justify-evenly">
             <motion.button
               variants={variants}
               whileTap="tap"
-              className="bg-rose-600 rounded-full w-20 h-10 uppercase text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-600 transition-colors duration-200 ease-in-out"
+              className="h-10 w-20 rounded-full bg-rose-600 uppercase text-white transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2"
               onClick={() => handleDelete(id)}
             >
               Delete
             </motion.button>
             <button
               onClick={handleClose}
-              className="text-teal-800 underline underline-offset-4 decoration-teal-800 decoration-2"
+              className="text-teal-800 underline decoration-teal-800 decoration-2 underline-offset-4"
             >
               I changed my mind
             </button>

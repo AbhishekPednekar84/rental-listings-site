@@ -29,22 +29,22 @@ const HowItWorks = () => {
   }, [controls, inView]);
 
   return (
-    <div className="pt-16 lg:pt-24 pb-20 bg-gradient-to-b from-zinc-300 via-slate-200 to-white">
-      <h2 className="text-center font-bold mb-16 mx-2">
+    <div className="bg-gradient-to-b from-zinc-300 via-slate-200 to-white pt-16 pb-20 lg:pt-24">
+      <h2 className="mx-2 mb-16 text-center font-bold">
         <span className="heading-underline">Th</span>ree steps. That's all!
       </h2>
       <motion.div
         ref={ref}
-        className="flex flex-col lg:flex-row justify-center lg:justify-evenly items-center "
+        className="flex flex-col items-center justify-center lg:flex-row lg:justify-evenly "
       >
         <motion.div
           custom={0.75}
           variants={variants}
           initial="hidden"
           animate={controls}
-          className="p-5 shadow-lg hover:shadow-2xl transition-shadow duration-150 ease-in-out max-w-[400px] bg-white mx-4 mb-16 lg:mb-0"
+          className="mx-4 mb-16 max-w-[400px] bg-white p-5 shadow-lg transition-shadow duration-150 ease-in-out hover:shadow-2xl lg:mb-0"
         >
-          <div className="flex flex-col justify-center relative">
+          <div className="relative flex flex-col justify-center">
             <Image
               src="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/hiw-2_p_d-ygIQA.jpg"
               alt="how it works seller"
@@ -66,7 +66,7 @@ const HowItWorks = () => {
             </svg>
           </div>
 
-          <h3 className="text-center font-bold mt-5 mb-10">
+          <h3 className="mt-5 mb-10 text-center font-bold">
             <span className="heading-underline">Ow</span>
             ners
           </h3>
@@ -90,9 +90,9 @@ const HowItWorks = () => {
           variants={variants}
           initial="hidden"
           animate={controls}
-          className="p-5 shadow-lg hover:shadow-2xl transition-shadow duration-150 ease-in-out max-w-[400px] bg-white mx-4"
+          className="mx-4 max-w-[400px] bg-white p-5 shadow-lg transition-shadow duration-150 ease-in-out hover:shadow-2xl"
         >
-          <div className="flex justify-center relative">
+          <div className="relative flex justify-center">
             <Image
               src="https://ik.imagekit.io/ykidmzssaww/Listings/site-images/hiw-1_A2_WuYNR3.jpg"
               alt="how it works - seeker"
@@ -114,7 +114,7 @@ const HowItWorks = () => {
               ></path>
             </svg>
           </div>
-          <h3 className="text-center font-bold mt-5 mb-10">
+          <h3 className="mt-5 mb-10 text-center font-bold">
             <span className="heading-underline">Se</span>
             ekers
           </h3>

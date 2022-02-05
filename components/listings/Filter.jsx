@@ -79,15 +79,15 @@ const Filter = ({ apartmentName }) => {
         autoComplete="off"
         className="flex justify-center"
       >
-        <div className="border-2 border-teal-600 md:w-[800px] mx-4 py-4 px-2">
-          <h3 className="font-semibold flex justify-center items-center mb-5">
+        <div className="mx-4 border-2 border-teal-600 py-4 px-2 md:w-[800px]">
+          <h3 className="mb-5 flex items-center justify-center font-semibold">
             {filterIcon}
           </h3>
-          <div className="flex flex-col md:flex-row justify-center items-center">
-            <div className="mb-7 lg:mb-0 flex justify-center items-center md:mr-16">
+          <div className="flex flex-col items-center justify-center md:flex-row">
+            <div className="mb-7 flex items-center justify-center md:mr-16 lg:mb-0">
               <h5 className="font-semibold">Type of listing:</h5>
 
-              <div className="flex justify-center items-center">
+              <div className="flex items-center justify-center">
                 <div className="mx-5 flex items-center">
                   <input
                     ref={checkRentRef}
@@ -95,7 +95,7 @@ const Filter = ({ apartmentName }) => {
                     name="rent"
                     type="checkbox"
                     value="rent"
-                    className="mr-2 radio-checkbox-style"
+                    className="radio-checkbox-style mr-2"
                     onChange={handleCheck}
                   />
                   <label htmlFor="check-rent">Rent</label>
@@ -109,20 +109,20 @@ const Filter = ({ apartmentName }) => {
                     type="checkbox"
                     value="sale"
                     onChange={handleCheck}
-                    className="mr-2 radio-checkbox-style"
+                    className="radio-checkbox-style mr-2"
                   />
                   <label htmlFor="check-sale">Sale</label>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col md:flex-row items-center justify-center">
-              <h5 className="pb-2 lg:pb-0 font-semibold">
+            <div className="flex flex-col items-center justify-center md:flex-row">
+              <h5 className="pb-2 font-semibold lg:pb-0">
                 Number of bedrooms:
               </h5>
 
               <div className="flex items-center justify-center">
-                <div className="flex items-center mx-5">
+                <div className="mx-5 flex items-center">
                   <input
                     ref={checkRadioOneRef}
                     id="one-bedroom"
@@ -130,12 +130,12 @@ const Filter = ({ apartmentName }) => {
                     type="radio"
                     value="1"
                     onChange={handleRadio}
-                    className="mr-2 radio-checkbox-style"
+                    className="radio-checkbox-style mr-2"
                   />
                   <label htmlFor="one-bedroom">1</label>
                 </div>
 
-                <div className="flex items-center mx-5">
+                <div className="mx-5 flex items-center">
                   <input
                     ref={checkRadioTwoRef}
                     id="two-bedrooms"
@@ -143,12 +143,12 @@ const Filter = ({ apartmentName }) => {
                     type="radio"
                     value="2"
                     onChange={handleRadio}
-                    className="mr-2 radio-checkbox-style"
+                    className="radio-checkbox-style mr-2"
                   />
                   <label htmlFor="two-bedrooms">2</label>
                 </div>
 
-                <div className="flex items-center mx-5">
+                <div className="mx-5 flex items-center">
                   <input
                     ref={checkRadioThreeRef}
                     id="three-bedrooms"
@@ -156,12 +156,12 @@ const Filter = ({ apartmentName }) => {
                     type="radio"
                     value="3"
                     onChange={handleRadio}
-                    className="mr-2 radio-checkbox-style"
+                    className="radio-checkbox-style mr-2"
                   />
                   <label htmlFor="three-bedrooms">3</label>
                 </div>
 
-                <div className="flex items-center mx-5">
+                <div className="mx-5 flex items-center">
                   <input
                     ref={checkRadioThreePlusRef}
                     id="three-plus-bedrooms"
@@ -169,7 +169,7 @@ const Filter = ({ apartmentName }) => {
                     type="radio"
                     value="3+"
                     onChange={handleRadio}
-                    className="mr-2 radio-checkbox-style"
+                    className="radio-checkbox-style mr-2"
                   />
                   <label htmlFor="three-plus-bedrooms">&gt;3</label>
                 </div>
@@ -183,7 +183,7 @@ const Filter = ({ apartmentName }) => {
               whileTap="tap"
               type="submit"
               disabled={!filter.rent && !filter.sale && !filter.bedrooms}
-              className={`bg-teal-600 rounded-full  px-5 py-2 h-10 uppercase text-white tracking-wide font-semibold hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in-out shadow-lg shadow-teal-100 ${
+              className={`h-10 rounded-full  bg-teal-600 px-5 py-2 font-semibold uppercase tracking-wide text-white shadow-lg shadow-teal-100 transition-colors duration-200 ease-in-out hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 ${
                 !filter.rent &&
                 !filter.sale &&
                 !filter.bedrooms &&
@@ -196,7 +196,7 @@ const Filter = ({ apartmentName }) => {
               variants={variants}
               whileTap="tap"
               disabled={!filter.rent && !filter.sale && !filter.bedrooms}
-              className={`bg-zinc-500 rounded-full focus:outline-none px-5 py-2 uppercase text-white tracking-wide font-semibold shadow-lg shadow-zinc-100 hover:bg-zinc-700 transition-colors duration-200 ease-in-out ml-5 ${
+              className={`ml-5 rounded-full bg-zinc-500 px-5 py-2 font-semibold uppercase tracking-wide text-white shadow-lg shadow-zinc-100 transition-colors duration-200 ease-in-out hover:bg-zinc-700 focus:outline-none ${
                 !filter.rent &&
                 !filter.sale &&
                 !filter.bedrooms &&

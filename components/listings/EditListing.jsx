@@ -43,7 +43,7 @@ const validationSchema = Yup.object({
 
 const infoCircle = (
   <svg
-    className="w-4 h-4"
+    className="h-4 w-4"
     fill="currentColor"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
@@ -114,9 +114,9 @@ const EditListing = ({
   availableFromDate = currYear + "-" + currMonth + "-" + currDate;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-zinc-50 via-slate-100 to-neutral-200 flex justify-center items-center">
-      <div className="bg-white overflow-hidden shadow-xl mt-32 mb-20 mx-5">
-        <div className="relative h-52 lg:h-64 bg-editListingHero bg-cover bg-center lg:bg-center">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-zinc-50 via-slate-100 to-neutral-200">
+      <div className="mx-5 mt-32 mb-20 overflow-hidden bg-white shadow-xl">
+        <div className="relative h-52 bg-editListingHero bg-cover bg-center lg:h-64 lg:bg-center">
           {/* <svg
             className="absolute -bottom-4"
             xmlns="http://www.w3.org/2000/svg"
@@ -140,8 +140,8 @@ const EditListing = ({
             ></path>
           </svg>
         </div>
-        <div className="px-2 lg:px-10 pt-8 bg-white">
-          <h1 className="font-bold mb-10 text-center leading-normal">
+        <div className="bg-white px-2 pt-8 lg:px-10">
+          <h1 className="mb-10 text-center font-bold leading-normal">
             <span className="heading-underline">Up</span>
             date your listing
           </h1>
@@ -191,7 +191,7 @@ const EditListing = ({
             <Form autoComplete="off">
               <p className="mb-16 text-center text-lg">
                 This ad is posted in{" "}
-                <span className="font-semibold underline underline-offset-4 decoration-teal-600 decoration-2">
+                <span className="font-semibold underline decoration-teal-600 decoration-2 underline-offset-4">
                   {selectedApartmentInfo}
                 </span>
               </p>
@@ -233,9 +233,9 @@ const EditListing = ({
                 )}
               </div> */}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 px-4 md:px-5 lg:px-10">
+              <div className="grid grid-cols-1 gap-0 px-4 md:grid-cols-2 md:gap-8 md:px-5 lg:px-10">
                 {/* Column1 */}
-                <div className="grid grid-cols-1 md:pr-10 md:border-r-2 md:border-teal-100">
+                <div className="grid grid-cols-1 md:border-r-2 md:border-teal-100 md:pr-10">
                   {/* Title */}
                   <div
                     className={`relative ${
@@ -252,18 +252,18 @@ const EditListing = ({
                       placeholder="Title for your ad*"
                       maxLength="100"
                       autoComplete="off"
-                      className="remove-default-focus peer border-b-2 placeholder-shown:border-b-gray-400 border-b-teal-600 h-10 w-full p-0 placeholder-transparent"
+                      className="remove-default-focus peer h-10 w-full border-b-2 border-b-teal-600 p-0 placeholder-transparent placeholder-shown:border-b-gray-400"
                     />
                     <label
                       htmlFor="title"
-                      className="absolute left-0 -top-3.5 text-teal-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-teal-600 peer-focus:text-xs"
+                      className="absolute left-0 -top-3.5 text-xs text-teal-600 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-teal-600"
                     >
                       Title*
                     </label>
                   </div>
 
                   {props.touched.title && props.errors.title && (
-                    <div className="mb-6 text-xs text-rose-600 flex items-center">
+                    <div className="mb-6 flex items-center text-xs text-rose-600">
                       <span className="mr-1">{errorIcon}</span>
                       {props.errors.title}
                     </div>
@@ -271,14 +271,14 @@ const EditListing = ({
 
                   {/* Listing Type */}
                   <div
-                    className={`flex mt-2 ${
+                    className={`mt-2 flex ${
                       props.touched.listingType && props.errors.listingType
                         ? "mb-1"
                         : "mb-6"
                     }`}
                   >
                     <div id="listingType-radio-group" className="mr-4">
-                      <span className="font-medium after:content-['*'] after:ml-0.5 after:text-rose-600">
+                      <span className="font-medium after:ml-0.5 after:text-rose-600 after:content-['*']">
                         Type of listing
                       </span>
                       :
@@ -289,7 +289,7 @@ const EditListing = ({
                       aria-labelledby="listingType-radio-group"
                       className="flex"
                     >
-                      <label className="flex items-center mr-4">
+                      <label className="mr-4 flex items-center">
                         <Field
                           type="radio"
                           name="listingType"
@@ -311,7 +311,7 @@ const EditListing = ({
                   </div>
 
                   {props.touched.listingType && props.errors.listingType && (
-                    <div className="mb-6 text-xs text-rose-600 flex items-center">
+                    <div className="mb-6 flex items-center text-xs text-rose-600">
                       <span className="mr-1">{errorIcon}</span>
                       {props.errors.listingType}
                     </div>
@@ -331,7 +331,7 @@ const EditListing = ({
                       dateFormat="dd/MM/yyyy"
                       selected={startDate}
                       onChange={(date) => setStartDate(date)}
-                      className="remove-default-focus w-28 border-b-2 border-b-gray-400 text-center text-base cursor-pointer focus:outline-none"
+                      className="remove-default-focus w-28 cursor-pointer border-b-2 border-b-gray-400 text-center text-base focus:outline-none"
                       aria-label="Pick the date from when the item will be available"
                       aria-labelledby="date-picker"
                     />
@@ -354,18 +354,18 @@ const EditListing = ({
                           placeholder="Number of bedrooms*"
                           maxLength="2"
                           autoComplete="off"
-                          className="remove-default-focus peer border-b-2 placeholder-shown:border-b-gray-400 border-b-teal-600 h-10 w-32 lg:w-40 p-0 placeholder-transparent"
+                          className="remove-default-focus peer h-10 w-32 border-b-2 border-b-teal-600 p-0 placeholder-transparent placeholder-shown:border-b-gray-400 lg:w-40"
                         />
                         <label
                           htmlFor="bedrooms"
-                          className="absolute left-0 -top-3.5 text-teal-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-teal-600 peer-focus:text-xs"
+                          className="absolute left-0 -top-3.5 text-xs text-teal-600 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-teal-600"
                         >
                           Bedrooms*
                         </label>
                       </div>
 
                       {props.touched.bedrooms && props.errors.bedrooms && (
-                        <div className="mb-6 text-xs text-rose-600 flex items-center">
+                        <div className="mb-6 flex items-center text-xs text-rose-600">
                           <span className="mr-1">{errorIcon}</span>
                           {props.errors.bedrooms}
                         </div>
@@ -388,18 +388,18 @@ const EditListing = ({
                           placeholder="Number of Bathrooms"
                           maxLength="2"
                           autoComplete="off"
-                          className="remove-default-focus peer border-b-2 placeholder-shown:border-b-gray-400 border-b-teal-600 h-10 w-32 lg:w-40 p-0 placeholder-transparent"
+                          className="remove-default-focus peer h-10 w-32 border-b-2 border-b-teal-600 p-0 placeholder-transparent placeholder-shown:border-b-gray-400 lg:w-40"
                         />
                         <label
                           htmlFor="bathrooms"
-                          className="absolute left-0 -top-3.5 text-teal-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-teal-600 peer-focus:text-xs"
+                          className="absolute left-0 -top-3.5 text-xs text-teal-600 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-teal-600"
                         >
                           Bathrooms
                         </label>
                       </div>
 
                       {props.touched.bathrooms && props.errors.bathrooms && (
-                        <div className="mb-6 text-xs text-rose-600 flex items-center">
+                        <div className="mb-6 flex items-center text-xs text-rose-600">
                           <span className="mr-1">{errorIcon}</span>
                           {props.errors.bathrooms}
                         </div>
@@ -407,11 +407,11 @@ const EditListing = ({
                     </div>
                   </div>
 
-                  <div className="flex justify-between items-center">
+                  <div className="flex items-center justify-between">
                     {/* Dedicated parking */}
                     <div className="mt-3 mb-6 flex items-center">
                       <div id="parking-group">
-                        <span className="font-medium text-sm lg:text-base">
+                        <span className="text-sm font-medium lg:text-base">
                           Parking available
                         </span>
                         :
@@ -419,7 +419,7 @@ const EditListing = ({
                       <div
                         role="group"
                         aria-labelledby="parking-group"
-                        className="flex items-center ml-2"
+                        className="ml-2 flex items-center"
                       >
                         <Field
                           type="checkbox"
@@ -430,9 +430,9 @@ const EditListing = ({
                     </div>
 
                     {/* Pets Allowed */}
-                    <div className="mt-3 mb-6 flex items-center w-32 lg:w-40">
+                    <div className="mt-3 mb-6 flex w-32 items-center lg:w-40">
                       <div id="pets-allowed">
-                        <span className="font-medium text-sm lg:text-base">
+                        <span className="text-sm font-medium lg:text-base">
                           Pet Friendly
                         </span>
                         :
@@ -440,7 +440,7 @@ const EditListing = ({
                       <div
                         role="group"
                         aria-labelledby="pets-allowed"
-                        className="flex items-center ml-2"
+                        className="ml-2 flex items-center"
                       >
                         <Field
                           type="checkbox"
@@ -451,7 +451,7 @@ const EditListing = ({
                     </div>
                   </div>
 
-                  <div className="flex justify-between mt-2 mb-6">
+                  <div className="mt-2 mb-6 flex justify-between">
                     {/* Total Area */}
                     <div>
                       <div
@@ -468,18 +468,18 @@ const EditListing = ({
                           placeholder="Area (sq ft.)*"
                           maxLength="5"
                           autoComplete="off"
-                          className="remove-default-focus peer border-b-2 placeholder-shown:border-b-gray-400 border-b-teal-600 h-10 w-32 lg:w-40 p-0 placeholder-transparent"
+                          className="remove-default-focus peer h-10 w-32 border-b-2 border-b-teal-600 p-0 placeholder-transparent placeholder-shown:border-b-gray-400 lg:w-40"
                         />
                         <label
                           htmlFor="totalArea"
-                          className="absolute left-0 -top-3.5 text-teal-600 text-xs peer-placeholder-shown:text-xs peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-teal-600 peer-focus:text-xs"
+                          className="absolute left-0 -top-3.5 text-xs text-teal-600 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-xs peer-placeholder-shown:text-zinc-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-teal-600"
                         >
                           Total Area (Sq ft.)
                         </label>
                       </div>
 
                       {props.touched.totalArea && props.errors.totalArea && (
-                        <div className="mb-6 text-xs text-rose-600 flex items-center">
+                        <div className="mb-6 flex items-center text-xs text-rose-600">
                           <span className="mr-1">{errorIcon}</span>
                           {props.errors.totalArea}
                         </div>
@@ -502,18 +502,18 @@ const EditListing = ({
                           placeholder="Floor on which the unit is located"
                           maxLength="3"
                           autoComplete="off"
-                          className="remove-default-focus peer border-b-2 placeholder-shown:border-b-gray-400 border-b-teal-600 h-10 w-32 lg:w-40 p-0 placeholder-transparent"
+                          className="remove-default-focus peer h-10 w-32 border-b-2 border-b-teal-600 p-0 placeholder-transparent placeholder-shown:border-b-gray-400 lg:w-40"
                         />
                         <label
                           htmlFor="floor"
-                          className="absolute left-0 -top-3.5 text-teal-600 text-xs peer-placeholder-shown:text-xs peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-teal-600 peer-focus:text-xs"
+                          className="absolute left-0 -top-3.5 text-xs text-teal-600 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-xs peer-placeholder-shown:text-zinc-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-teal-600"
                         >
                           On which floor is the unit?
                         </label>
                       </div>
 
                       {props.touched.floor && props.errors.floor && (
-                        <div className="mb-6 text-xs text-rose-600 flex items-center">
+                        <div className="mb-6 flex items-center text-xs text-rose-600">
                           <span className="mr-1">{errorIcon}</span>
                           {props.errors.floor}
                         </div>
@@ -539,17 +539,17 @@ const EditListing = ({
                       rows="7"
                       maxLength="2000"
                       autoComplete="off"
-                      className="remove-default-focus-textarea peer border-2 placeholder-shown:border-gray-400 border-teal-600 w-full p-1 placeholder-transparent"
+                      className="remove-default-focus-textarea peer w-full border-2 border-teal-600 p-1 placeholder-transparent placeholder-shown:border-gray-400"
                     />
                     <label
                       htmlFor="description"
-                      className="absolute left-0 -top-5 text-teal-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-5 peer-focus:text-teal-600 peer-focus:text-xs"
+                      className="absolute left-0 -top-5 text-xs text-teal-600 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-focus:-top-5 peer-focus:text-xs peer-focus:text-teal-600"
                     >
                       Describe your unit*
                     </label>
                   </div>
 
-                  <div className="mb-2 text-xxs inline-flex">
+                  <div className="mb-2 inline-flex text-xxs">
                     <span className="mr-1">{infoCircle}</span>
                     <span>
                       Mention tenant preferences - family, bachelors,
@@ -558,7 +558,7 @@ const EditListing = ({
                   </div>
 
                   {props.touched.description && props.errors.description && (
-                    <div className="mb-6 text-xs text-rose-600 flex items-center">
+                    <div className="mb-6 flex items-center text-xs text-rose-600">
                       <span className="mr-1">{errorIcon}</span>
                       {props.errors.description}
                     </div>
@@ -582,17 +582,17 @@ const EditListing = ({
                       placeholder="Your mobile number*"
                       maxLength="13"
                       autoComplete="off"
-                      className="remove-default-focus peer border-b-2 placeholder-shown:border-b-gray-400 border-b-teal-600 h-10 w-full p-0 placeholder-transparent"
+                      className="remove-default-focus peer h-10 w-full border-b-2 border-b-teal-600 p-0 placeholder-transparent placeholder-shown:border-b-gray-400"
                     />
                     <label
                       htmlFor="mobile"
-                      className="absolute left-0 -top-3.5 text-teal-600 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-teal-600 peer-focus:text-xs"
+                      className="absolute left-0 -top-3.5 text-xs text-teal-600 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-teal-600"
                     >
                       Your mobile number*
                     </label>
                   </div>
 
-                  <div className="mb-2 text-xxs inline-flex">
+                  <div className="mb-2 inline-flex text-xxs">
                     <span className="mr-1">{infoCircle}</span>
                     <span>
                       Your mobile number is visible to registered users only
@@ -600,7 +600,7 @@ const EditListing = ({
                   </div>
 
                   {props.touched.mobile && props.errors.mobile && (
-                    <div className="mb-6 text-xs text-rose-600 flex items-center">
+                    <div className="mb-6 flex items-center text-xs text-rose-600">
                       <span className="mr-1">{errorIcon}</span>
                       {props.errors.mobile}
                     </div>
@@ -623,7 +623,7 @@ const EditListing = ({
                     </div>
                     <div
                       aria-labelledby="whatsapp-group"
-                      className="flex items-center ml-3"
+                      className="ml-3 flex items-center"
                     >
                       <Field
                         type="checkbox"
@@ -640,7 +640,7 @@ const EditListing = ({
                     </div>
                     <div
                       aria-labelledby="brokersExcuse-group"
-                      className="flex items-center ml-3"
+                      className="ml-3 flex items-center"
                     >
                       <Field
                         type="checkbox"
@@ -670,7 +670,7 @@ const EditListing = ({
                                   );
                                   deleteImageFromImageKit(image.ik_file_id);
                                 }}
-                                className="mt-1 cursor-pointer flex justify-center items-center text-xs"
+                                className="mt-1 flex cursor-pointer items-center justify-center text-xs"
                               >
                                 {trashIcon} Delete
                               </div>
@@ -694,12 +694,12 @@ const EditListing = ({
                   variants={variants}
                   whileTap="tap"
                   type="submit"
-                  className="p-3 w-40 h-12 bg-teal-600 text-white font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in"
+                  className="h-12 w-40 rounded-full bg-teal-600 p-3 font-semibold text-white transition-colors duration-200 ease-in hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
                 >
                   {props.isSubmitting ? (
-                    <span className="flex justify-center items-center">
+                    <span className="flex items-center justify-center">
                       PLEASE WAIT
-                      <span className="animate-spin ml-1">{loaderIcon}</span>
+                      <span className="ml-1 animate-spin">{loaderIcon}</span>
                     </span>
                   ) : (
                     "UPDATE LISTING"

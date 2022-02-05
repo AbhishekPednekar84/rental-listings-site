@@ -45,7 +45,7 @@ const ApartmentListings = ({ apartmentName }) => {
 
   if (loading) {
     return (
-      <div className="flex justify-center my-20">
+      <div className="my-20 flex justify-center">
         <Image
           src="/loader.svg"
           alt="Loading..."
@@ -59,10 +59,10 @@ const ApartmentListings = ({ apartmentName }) => {
     return (
       <div className="mt-10 mb-20 lg:mt-16">
         {apartmentAds && apartmentAds.length === 0 && (
-          <div className="flex justify-center mt-10 px-5">
+          <div className="mt-10 flex justify-center px-5">
             <div className="inline-flex">
               <span>{searchIcon}</span>
-              <p className="ml-2 text-lg lg:text-xl text-gray-500">
+              <p className="ml-2 text-lg text-gray-500 lg:text-xl">
                 We looked high and low but found nothing :(
               </p>
             </div>
@@ -83,7 +83,7 @@ const ApartmentListings = ({ apartmentName }) => {
                       variants={variants}
                       initial="initial"
                       animate={controls}
-                      className="shadow-sm hover:shadow-xl transition-shadow duration-200 ease-in relative border-2 border-teal-100 p-2"
+                      className="relative border-2 border-teal-100 p-2 shadow-sm transition-shadow duration-200 ease-in hover:shadow-xl"
                     >
                       <div className="absolute -top-2 -right-2 z-10">
                         <span
@@ -96,7 +96,7 @@ const ApartmentListings = ({ apartmentName }) => {
                           {ad.listing_type.toUpperCase()}
                         </span>
                       </div>
-                      <div className="w-full flex justify-center mb-10">
+                      <div className="mb-10 flex w-full justify-center">
                         {ad.images.length !== 0 ? (
                           <Image
                             src={ad.images[0].image_url}
@@ -115,12 +115,12 @@ const ApartmentListings = ({ apartmentName }) => {
                           />
                         )}
                       </div>
-                      <div className="flex flex-col items-center justify-center w-full md:mt-0">
-                        <h3 className="pb-3 font-semibold px-2">{ad.title}</h3>
-                        <p className="pb-5 text-sm text-gray-600 px-2">
+                      <div className="flex w-full flex-col items-center justify-center md:mt-0">
+                        <h3 className="px-2 pb-3 font-semibold">{ad.title}</h3>
+                        <p className="px-2 pb-5 text-sm text-gray-600">
                           {ad.description.slice(0, 75)}...
                         </p>
-                        <div className="flex justify-around items-center w-full">
+                        <div className="flex w-full items-center justify-around">
                           <p className="text-sm lg:text-base">
                             <span className="ad-card-underline">Bedrooms</span>:{" "}
                             <span className="font-semibold">{ad.bedrooms}</span>
@@ -152,7 +152,7 @@ const ApartmentListings = ({ apartmentName }) => {
                           variants={variants}
                           whileTap="tap"
                           onClick={() => router.push(`/ad/${ad.id}`)}
-                          className="mt-7 mb-4 px-3 py-2 h-10 bg-teal-600 text-white uppercase font-semibold rounded-full text-sm shadow-md focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in-out"
+                          className="mt-7 mb-4 h-10 rounded-full bg-teal-600 px-3 py-2 text-sm font-semibold uppercase text-white shadow-md transition-colors duration-200 ease-in-out hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
                         >
                           See Full Ad
                         </motion.button>

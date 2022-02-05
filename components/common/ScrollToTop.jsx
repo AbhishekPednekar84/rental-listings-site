@@ -30,7 +30,7 @@ const ScrollToTop = () => {
     return (
       <div
         onClick={scrollToTop}
-        className="print:hidden fixed bottom-5 right-5 bg-teal-500 hover:bg-teal-700 text-white p-2 rounded-full cursor-pointer shadow-xl z-20 hover:scale-105 transition duration-200 ease-in"
+        className="fixed bottom-5 right-5 z-20 cursor-pointer rounded-full bg-teal-500 p-2 text-white shadow-xl transition duration-200 ease-in hover:scale-105 hover:bg-teal-700 print:hidden"
       >
         {scrollToTopIcon}
       </div>

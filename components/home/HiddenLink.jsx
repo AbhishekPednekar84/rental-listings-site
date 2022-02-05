@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const HiddenLink = () => {
   return (
-    <div className="absolute transform -translate-y-[200%] focus-within:translate-y-0 z-[999] transition-transform duration-300 ease-in">
+    <div className="absolute z-[999] -translate-y-[200%] transform transition-transform duration-300 ease-in focus-within:translate-y-0">
       <Link href="#main">
-        <a className="p-2 bg-white text-gray-800 bg-opacity-30 font-semibold">
+        <a className="bg-white bg-opacity-30 p-2 font-semibold text-gray-800">
           Skip to main content
         </a>
       </Link>

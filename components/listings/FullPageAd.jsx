@@ -60,7 +60,7 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
   };
 
   return (
-    <div className="print:pt-0 pt-36 mb-20">
+    <div className="mb-20 pt-36 print:pt-0">
       <BackToListingsLink apartmentName={apartmentName} />
 
       <div itemScope itemType="https://schema.org/Apartment">
@@ -103,36 +103,36 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
         />
       </div>
 
-      <p className="flex justify-center items-center mb-5 print:hidden">
+      <p className="mb-5 flex items-center justify-center print:hidden">
         <span className="hidden lg:mr-1 lg:block lg:font-semibold">
           This unit is located in
         </span>
-        <span className="ml-1 font-semibold text-lg before:block before:absolute before:-inset-1 before:-skew-y-2 before:bg-rose-400 p-1.5 relative inline-block">
-          <span className="text-white relative">{apartmentName}</span>
+        <span className="relative ml-1 inline-block p-1.5 text-lg font-semibold before:absolute before:-inset-1 before:block before:-skew-y-2 before:bg-rose-400">
+          <span className="relative text-white">{apartmentName}</span>
         </span>
       </p>
-      <div className="bg-zinc-200 mx-3 md:mx-20 print:mx-1">
+      <div className="mx-3 bg-zinc-200 print:mx-1 md:mx-20">
         <div className="p-3 text-center">
-          <p className="hidden print:block bg-white pt-10 print:pt-3 px-3 pb-3 text-gray">
-            <span className="bg-lime-300 p-2 rounded-md text-sm font-semibold">
+          <p className="text-gray hidden bg-white px-3 pt-10 pb-3 print:block print:pt-3">
+            <span className="rounded-md bg-lime-300 p-2 text-sm font-semibold">
               {apartmentName}
             </span>
           </p>
-          <h1 className="bg-white px-3 font-bold py-5 print:py-2 mb-6">
+          <h1 className="mb-6 bg-white px-3 py-5 font-bold print:py-2">
             {adData.title}
           </h1>
           <p
             className={`bg-white ${
-              adData.description.length < 100 ? "text-center" : "text-left"
-            } text-gray-700 px-3 py-5 print:text-sm print:py-2`}
+              adData.description.length < 25 ? "text-center" : "text-left"
+            } px-3 py-5 text-gray-700 print:py-2 print:text-sm`}
           >
             {adData.description}
           </p>
         </div>
 
         <div className="p-3 text-center">
-          <div className="bg-white flex flex-col lg:flex-row justify-center items-center lg:justify-evenly lg:items-start">
-            <div className="p-2 pt-5 lg:p-5 print:max-w-xs block">
+          <div className="flex flex-col items-center justify-center bg-white lg:flex-row lg:items-start lg:justify-evenly">
+            <div className="block p-2 pt-5 print:max-w-xs lg:w-1/2 lg:p-5">
               {adData.images.length !== 0 ? (
                 <>
                   <div
@@ -146,8 +146,8 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                       alt="Apartment image"
                       placeholder="blur"
                       blurDataURL={adData.images[0].image_url + "/tr:bl-10"}
-                      height={adData.images[0].height / 2}
-                      width={adData.images[0].width / 2}
+                      height={adData.images[0].height / 3}
+                      width={adData.images[0].width / 3}
                     />
                   </div>
                   <p className="pt-2 text-sm print:hidden">
@@ -163,28 +163,28 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                 />
               )}
             </div>
-            <div className="px-2 mt-5 print:mt-1 w-full lg:w-1/2">
-              <div className="mt-2 mb-7 text-center print:text-center leading-8 ">
+            <div className="mt-5 w-full px-2 print:mt-1 lg:w-1/2">
+              <div className="mt-2 mb-7 text-center leading-8 print:text-center ">
                 This unit is for{" "}
-                <span className="bg-teal-100 p-1 rounded-md font-semibold">
+                <span className="rounded-md bg-teal-100 p-1 font-semibold">
                   {adData.listing_type.toUpperCase()}
                 </span>{" "}
                 <span>and is available </span>
                 {availability === "immediately" ? (
-                  <span className="underline underline-offset-4 decoration-2 decoration-teal-600 font-semibold">
+                  <span className="font-semibold underline decoration-teal-600 decoration-2 underline-offset-4">
                     {availability}
                   </span>
                 ) : (
                   <span>
                     from{" "}
-                    <span className="underline underline-offset-4 decoration-2 decoration-teal-600 font-semibold">
+                    <span className="font-semibold underline decoration-teal-600 decoration-2 underline-offset-4">
                       {availability}
                     </span>
                   </span>
                 )}
               </div>
               <div className="flex justify-center">
-                <div className="grid grid-cols-2 lg:grid-cols-3 place-items-start gap-8 print:grid-cols-3 mb-7">
+                <div className="mb-7 grid grid-cols-2 place-items-start gap-8 print:grid-cols-3 lg:grid-cols-3">
                   <div className="text-left">
                     <span className="text-sm text-zinc-500">Bedrooms:</span>
                     <br />
@@ -205,7 +205,7 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                     <span className="font-semibold">
                       {adData.total_area ? adData.total_area : "Not specified"}
                     </span>
-                    <span className="ml-1 text-zinc-500 text-sm">sq ft.</span>
+                    <span className="ml-1 text-sm text-zinc-500">sq ft.</span>
                   </div>
 
                   <div className="text-left">
@@ -216,7 +216,7 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                     </span>
                   </div>
 
-                  <div className="flex items-center lg:pt-5 print:mb-2">
+                  <div className="flex items-center print:mb-2 lg:pt-5">
                     Parking{" "}
                     {adData.parking_available ? (
                       <span className="ml-1 text-teal-600">{checkIcon}</span>
@@ -224,7 +224,7 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                       <span className="ml-1 text-rose-600">{cancelIcon}</span>
                     )}
                   </div>
-                  <div className="flex items-center lg:pt-5 print:mb-2">
+                  <div className="flex items-center print:mb-2 lg:pt-5">
                     Pets Allowed{" "}
                     {adData.pets_allowed ? (
                       <span className="ml-1 text-teal-600">{checkIcon}</span>
@@ -245,11 +245,11 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
           </div>
 
           <div className="mt-6 bg-white">
-            <h3 className="pt-5 print:pt-1 px-3 pb-3 print:py-2 font-semibold">
+            <h3 className="px-3 pt-5 pb-3 font-semibold print:py-2 print:pt-1">
               Contact details
             </h3>
             <div className="flex justify-center print:block">
-              <div className="pt-5 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-x-14 place-items-start lg:place-items-center print:grid-cols-2 px-5">
+              <div className="grid grid-cols-1 place-items-start gap-5 px-5 pt-5 pb-10 print:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 lg:place-items-center lg:gap-x-14">
                 <div className="flex items-center">
                   <span className="text-sm text-zinc-500">Owner:</span>
                   &nbsp;
@@ -260,7 +260,7 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                   <div className="flex items-center">
                     <span className="text-sm text-zinc-500">Contact:</span>
                     &nbsp;
-                    <span className="font-semibold flex items-center">
+                    <span className="flex items-center font-semibold">
                       {user && user
                         ? adData.mobile_number
                         : adData.mobile_number.slice(0, 4) + "XXXXXXX"}{" "}
@@ -279,9 +279,9 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                     </span>
                   </div>
                   {!user && (
-                    <div className="text-xs text-zinc-500 text-left pt-2 print:hidden">
+                    <div className="pt-2 text-left text-xs text-zinc-500 print:hidden">
                       <Link href="/account/login">
-                        <a className="underline decoration-2 underline-offset-4 decoration-teal-600 text-teal-600">
+                        <a className="text-teal-600 underline decoration-teal-600 decoration-2 underline-offset-4">
                           Login
                         </a>
                       </Link>{" "}
@@ -308,12 +308,12 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
             </div>
           </div>
 
-          <div className="flex justify-around items-center my-5 print:hidden">
+          <div className="my-5 flex items-center justify-around print:hidden">
             <motion.button
               variants={variants}
               whileTap="tap"
               onClick={() => handleLinkCopy()}
-              className="w-36 md:w-40 h-14 bg-cyan-600 p-2 text-white uppercase font-semibold rounded-full focus:outline-none hover:bg-cyan-800 focus:ring-2 focus:ring-offset-2 focus:ring-cyan-600 transition-colors duration-200 ease-in-out flex justify-evenly items-center"
+              className="flex h-14 w-36 items-center justify-evenly rounded-full bg-cyan-600 p-2 font-semibold uppercase text-white transition-colors duration-200 ease-in-out hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2 md:w-40"
             >
               Copy ad link {copyIcon}
             </motion.button>
@@ -322,7 +322,7 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                 variants={variants}
                 whileTap="tap"
                 onClick={() => window.print()}
-                className="w-36 md:w-40 h-14 bg-teal-600 p-2 text-white uppercase font-semibold rounded-full focus:outline-none hover:bg-teal-800 focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-colors duration-200 ease-in-out flex justify-evenly items-center"
+                className="flex h-14 w-36 items-center justify-evenly rounded-full bg-teal-600 p-2 font-semibold uppercase text-white transition-colors duration-200 ease-in-out hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 md:w-40"
               >
                 Print ad {printIcon}
               </motion.button>

@@ -31,7 +31,7 @@ const ImageModal = ({ handleClose, images }) => {
   return (
     <Backdrop onClick={handleClose}>
       <div
-        className="absolute right-2 top-2 lg:top-5 lg:right-5 text-white font-bold cursor-pointer z-50"
+        className="absolute right-2 top-2 z-50 cursor-pointer font-bold text-white lg:top-5 lg:right-5"
         onClick={handleClose}
       >
         {cancelIcon}
