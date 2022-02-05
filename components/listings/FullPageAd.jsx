@@ -123,7 +123,9 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
           </h1>
           <p
             className={`bg-white ${
-              adData.description.length < 25 ? "text-center" : "text-left"
+              adData.description.length < 50
+                ? "text-left lg:text-center"
+                : "text-left"
             } px-3 py-5 text-gray-700 print:py-2 print:text-sm`}
           >
             {adData.description}

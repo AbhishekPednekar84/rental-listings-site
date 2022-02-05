@@ -43,10 +43,10 @@ const Login = ({ pathHistoryProp }) => {
 
   useEffect(() => {
     if (user) {
+      loginToast(user.name);
       if (pathHistoryProp) {
         setTimeout(() => router.push(`${pathHistoryProp}`), 1000);
       } else {
-        loginToast(user.name);
         setTimeout(
           () => router.push(`/account/dashboard/${user && user.id}`),
           1000
