@@ -10,7 +10,6 @@ const ImageCarousel = ({ images }) => {
         dynamicHeight
         showArrows={false}
         showThumbs={false}
-        infiniteLoop
         emulateTouch
       >
         {images.map((img, index) => {
