@@ -23,6 +23,7 @@ const contextClass = {
 function MyApp({ Component, pageProps, router }) {
   const pathHistory = useRef(null);
   const disablePrint = useRef(null);
+  const mobileBrowser = useRef(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -36,6 +37,8 @@ function MyApp({ Component, pageProps, router }) {
     if (userAgent.match(/firefox|fxios/i) && userAgent.match(/android/i)) {
       disablePrint.current = true;
     }
+
+    if (userAgent.mobile) mobileBrowser.current = true;
   }, []);
 
   return (
@@ -51,6 +54,7 @@ function MyApp({ Component, pageProps, router }) {
             {...pageProps}
             pathHistory={pathHistory}
             disablePrint={disablePrint}
+            mobileBrowser={mobileBrowser}
           />
           <ToastContainer
             position="top-center"

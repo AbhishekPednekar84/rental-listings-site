@@ -89,16 +89,29 @@ const SiteState = ({ children }) => {
     availableFrom,
     bedrooms,
     bathrooms,
-    parking,
-    pets,
     totalArea,
     floor,
+    totalFloors,
+    rent,
+    maintenanceIncluded,
+    rentNegotiable,
+    deposit,
+    maintenance,
+    saleAmount,
+    saleAmountValue,
+    saleNegotiable,
+    facingDirection,
     description,
+    tenantPreference,
+    parking,
+    pets,
+    nonVeg,
     mobile,
     whatsapp,
-    excuse,
-    apartment,
+    call,
+    text,
     user,
+    apartment,
     images
   ) => {
     setAuthToken();
@@ -109,14 +122,39 @@ const SiteState = ({ children }) => {
     formData.set("available_from", availableFrom);
     formData.set("bedrooms", parseInt(bedrooms));
     formData.set("bathrooms", bathrooms ? parseInt(bathrooms) : 0);
-    formData.set("parking_available", parking || false);
-    formData.set("pets_allowed", pets || false);
-    formData.set("total_area", totalArea ? parseInt(totalArea) : 0);
+    formData.set("total_area", totalArea ? totalArea : 0);
     formData.set("floors", floor ? parseInt(floor) : 0);
-    formData.set("description", description);
+    formData.set("total_floors", totalFloors ? parseInt(totalFloors) : 0);
+    formData.set("rent_amount", rent ? parseFloat(rent) : 0);
+    formData.set(
+      "maintenance_included_in_rent",
+      maintenanceIncluded ? maintenanceIncluded : false
+    );
+    formData.set(
+      "rent_amount_negotiable",
+      rentNegotiable ? rentNegotiable : false
+    );
+    formData.set("deposit_amount", deposit ? parseFloat(deposit) : 0);
+    formData.set(
+      "maintenance_amount",
+      maintenance ? parseFloat(maintenance) : 0
+    );
+    formData.set("sale_amount", saleAmount ? parseFloat(saleAmount) : 0);
+    formData.set("sale_amount_value", saleAmountValue || "Lakhs");
+    formData.set(
+      "sale_amount_negotiable",
+      saleNegotiable ? saleNegotiable : false
+    );
+    formData.set("facing_direction", facingDirection || "");
+    formData.set("description", description || "");
+    formData.set("parking_available", parking || false);
+    formData.set("tenant_preference", tenantPreference || "");
+    formData.set("pets_allowed", pets || false);
+    formData.set("non_vegetarians", nonVeg || false);
     formData.set("mobile_number", mobile);
     formData.set("whatsapp_number", whatsapp || false);
-    formData.set("brokers_excuse", excuse || false);
+    formData.set("prefers_call", call || false);
+    formData.set("prefers_text", text || false);
     formData.set("apartment_id", apartment);
     formData.set("user_id", user);
     images !== []
@@ -152,14 +190,27 @@ const SiteState = ({ children }) => {
     availableFrom,
     bedrooms,
     bathrooms,
-    parking,
-    pets,
     totalArea,
     floor,
+    totalFloors,
+    rent,
+    maintenanceIncluded,
+    rentNegotiable,
+    deposit,
+    maintenance,
+    saleAmount,
+    saleAmountValue,
+    saleNegotiable,
+    facingDirection,
     description,
+    tenantPreference,
+    parking,
+    pets,
+    nonVeg,
     mobile,
     whatsapp,
-    excuse,
+    call,
+    text,
     images
   ) => {
     setAuthToken();
@@ -171,14 +222,36 @@ const SiteState = ({ children }) => {
     formData.set("available_from", availableFrom);
     formData.set("bedrooms", parseInt(bedrooms));
     formData.set("bathrooms", bathrooms ? parseInt(bathrooms) : 0);
-    formData.set("parking_available", parking || false);
-    formData.set("pets_allowed", pets || false);
-    formData.set("total_area", totalArea ? parseInt(totalArea) : 0);
+    formData.set("total_area", totalArea ? totalArea : 0);
     formData.set("floors", floor ? parseInt(floor) : 0);
-    formData.set("description", description);
+    formData.set("total_floors", totalFloors ? parseInt(totalFloors) : 0);
+    formData.set("rent_amount", rent ? parseInt(rent) : 0);
+    formData.set(
+      "maintenance_included_in_rent",
+      maintenanceIncluded ? maintenanceIncluded : false
+    );
+    formData.set(
+      "rent_amount_negotiable",
+      rentNegotiable ? rentNegotiable : false
+    );
+    formData.set("deposit_amount", deposit ? parseInt(deposit) : 0);
+    formData.set("maintenance_amount", maintenance ? parseInt(maintenance) : 0);
+    formData.set("sale_amount", saleAmount ? parseInt(saleAmount) : 0);
+    formData.set("sale_amount_value", saleAmountValue);
+    formData.set(
+      "sale_amount_negotiable",
+      saleNegotiable ? saleNegotiable : false
+    );
+    formData.set("facing_direction", facingDirection || "");
+    formData.set("description", description || "");
+    formData.set("parking_available", parking || false);
+    formData.set("tenant_preference", tenantPreference || "");
+    formData.set("pets_allowed", pets || false);
+    formData.set("non_vegetarians", nonVeg || false);
     formData.set("mobile_number", mobile);
     formData.set("whatsapp_number", whatsapp || false);
-    formData.set("brokers_excuse", excuse || false);
+    formData.set("prefers_call", call || false);
+    formData.set("prefers_text", text || false);
     images !== []
       ? images.forEach((image) => formData.append("images", image))
       : formData.set("images", images);
@@ -211,8 +284,6 @@ const SiteState = ({ children }) => {
     const res = await axios.delete(
       `${process.env.NEXT_PUBLIC_API_URL}/listing/${listingId}`
     );
-
-    console.log(res);
   };
 
   const deleteImageFromImageKit = async (fileId) => {

@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 // Component imports
 import EnterEmail from "@/components/account/EnterEmail";
 import Layout from "@/components/layout/Layout";
-import ChangePasswordHeadLayout from "@/components/listings/ChangePasswordHeadLayout";
+import ChangePasswordHeadLayout from "@/components/layout/head/ChangePasswordHeadLayout";
 
 const logoutToast = () => {
   toast("Looks like you are already logged in", {

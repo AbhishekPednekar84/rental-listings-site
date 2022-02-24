@@ -39,13 +39,16 @@ const ImageUploader = ({ files, setFiles, imgList }) => {
   });
 
   return (
-    <div className="mt-8 max-w-[400px]">
-      <h5 className="mb-5 font-medium">
+    <div className="max-w-[400px]">
+      <h5 className="mb-5 text-xs font-medium text-teal-600 ">
         Upload images (
-        {imgList.length > 0
-          ? 7 - imgList.length - newFiles.length
-          : 7 - newFiles.length}{" "}
-        remaining):
+        <span className="font-semibold">
+          {imgList.length > 0
+            ? 7 - imgList.length - newFiles.length
+            : 7 - newFiles.length}{" "}
+          remaining
+        </span>
+        ):
       </h5>
       <Dropzone
         accept="image/jpg, image/jpeg, image/png, image/webp"
@@ -63,7 +66,7 @@ const ImageUploader = ({ files, setFiles, imgList }) => {
                 )}
                 <div
                   {...getRootProps()}
-                  className="flex cursor-pointer flex-col items-center justify-center border-2 border-dashed border-teal-600 bg-stone-200 py-8 focus:outline-none"
+                  className="flex cursor-pointer flex-col items-center justify-center border-2  border-teal-900 bg-gradient-to-br from-teal-50 via-teal-100 to-teal-200 py-8 focus:outline-none"
                 >
                   <input {...getInputProps()} />
                   {cameraIcon}

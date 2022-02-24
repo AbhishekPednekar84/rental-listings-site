@@ -10,7 +10,7 @@ const variants = {
 };
 
 const Filter = ({ apartmentName }) => {
-  const [filter, setFilter] = useState({ rent: "", sale: "", bedrooms: "" });
+  const [filter, setFilter] = useState({ typeOfListing: "", bedrooms: "" });
   const checkRentRef = useRef("");
   const checkSaleRef = useRef("");
   const checkRadioOneRef = useRef("");
@@ -36,17 +36,17 @@ const Filter = ({ apartmentName }) => {
     }
   }, []);
 
-  const handleCheck = (e) => {
-    const updatedValue = {};
+  // const handleRosRadio = (e) => {
+  //   const updatedValue = {};
 
-    if (e.target.name === "rent")
-      updatedValue[e.target.name] = checkRentRef.current.checked;
+  //   if (e.target.name === "rent") updatedValue[e.target.name] = e.target.value;
 
-    if (e.target.name === "sale")
-      updatedValue[e.target.name] = checkSaleRef.current.checked;
+  //   if (e.target.name === "sale") updatedValue[e.target.name] = e.target.value;
 
-    setFilter({ ...filter, ...updatedValue });
-  };
+  //   setFilter({ ...filter, ...updatedValue });
+
+  //   console.log(filter);
+  // };
 
   const handleRadio = (e) => {
     const updatedValue = {};
@@ -92,32 +92,32 @@ const Filter = ({ apartmentName }) => {
                   <input
                     ref={checkRentRef}
                     id="rent"
-                    name="rent"
-                    type="checkbox"
+                    name="typeOfListing"
+                    type="radio"
                     value="rent"
                     className="radio-checkbox-style mr-2"
-                    onChange={handleCheck}
+                    onChange={handleRadio}
                   />
-                  <label htmlFor="check-rent">Rent</label>
+                  <label htmlFor="rent">Rent</label>
                 </div>
 
                 <div className="flex items-center">
                   <input
                     ref={checkSaleRef}
                     id="sale"
-                    name="sale"
-                    type="checkbox"
+                    name="typeOfListing"
+                    type="radio"
                     value="sale"
-                    onChange={handleCheck}
+                    onChange={handleRadio}
                     className="radio-checkbox-style mr-2"
                   />
-                  <label htmlFor="check-sale">Sale</label>
+                  <label htmlFor="sale">Sale</label>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col items-center justify-center md:flex-row">
-              <h5 className="pb-2 font-semibold lg:pb-0">
+            <div className="flex flex-col items-start md:flex-row md:items-center md:justify-center">
+              <h5 className="pb-2 pl-3 font-semibold md:pl-0 lg:pb-0">
                 Number of bedrooms:
               </h5>
 
@@ -182,10 +182,9 @@ const Filter = ({ apartmentName }) => {
               variants={variants}
               whileTap="tap"
               type="submit"
-              disabled={!filter.rent && !filter.sale && !filter.bedrooms}
+              disabled={!filter.typeOfListing && !filter.bedrooms}
               className={`h-10 rounded-full  bg-teal-600 px-5 py-2 font-semibold uppercase tracking-wide text-white shadow-lg shadow-teal-100 transition-colors duration-200 ease-in-out hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 ${
-                !filter.rent &&
-                !filter.sale &&
+                !filter.typeOfListing &&
                 !filter.bedrooms &&
                 "cursor-not-allowed"
               }`}
@@ -195,10 +194,9 @@ const Filter = ({ apartmentName }) => {
             <motion.button
               variants={variants}
               whileTap="tap"
-              disabled={!filter.rent && !filter.sale && !filter.bedrooms}
+              disabled={!filter.typeOfListing && !filter.bedrooms}
               className={`ml-5 rounded-full bg-zinc-500 px-5 py-2 font-semibold uppercase tracking-wide text-white shadow-lg shadow-zinc-100 transition-colors duration-200 ease-in-out hover:bg-zinc-700 focus:outline-none ${
-                !filter.rent &&
-                !filter.sale &&
+                !filter.typeOfListing &&
                 !filter.bedrooms &&
                 "cursor-not-allowed"
               }`}

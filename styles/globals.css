@@ -30,7 +30,7 @@ html::-webkit-scrollbar-track {
 
 @layer base {
   h1 {
-    @apply text-4xl font-bold mb-12 text-center leading-normal;
+    @apply mb-12 text-center text-4xl font-bold leading-normal;
   }
   h2 {
     @apply text-3xl;
@@ -54,28 +54,31 @@ html::-webkit-scrollbar-track {
 
 @layer components {
   .nav-link {
-    @apply hover:underline hover:underline-offset-8 hover:decoration-2 font-semibold cursor-pointer tracking-wide text-lg transition-all duration-200 md:text-sm lg:text-base md:px-5 lg:px-7;
+    @apply cursor-pointer text-lg font-semibold tracking-wide transition-all duration-200 hover:underline hover:decoration-2 hover:underline-offset-8 md:px-5 md:text-sm lg:px-7 lg:text-base;
   }
   .menu-icon {
-    @apply flex justify-center items-center bg-opacity-50 h-10 w-10 rounded-full shadow-xl md:hidden cursor-pointer;
+    @apply flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-opacity-50 shadow-xl md:hidden;
   }
   .radio-checkbox-style {
     @apply border-teal-600 text-teal-600 focus:ring-teal-600;
   }
   .ad-card-underline {
-    @apply underline underline-offset-4 decoration-teal-400;
+    @apply underline decoration-teal-400 underline-offset-4;
   }
   .ad-card-listing-type {
-    @apply py-1 px-2 rounded-full text-white font-semibold text-sm lg:text-base;
+    @apply rounded-full py-1 px-2 text-sm font-semibold text-white lg:text-base;
   }
   .remove-default-focus {
-    @apply border-transparent focus:border-t-transparent focus:border-r-transparent focus:border-l-transparent focus:border-teal-600 focus:ring-0 focus-within:outline-none;
+    @apply border-transparent focus-within:outline-none focus:border-teal-600 focus:border-t-transparent focus:border-r-transparent focus:border-l-transparent focus:ring-0;
   }
   .remove-default-focus-textarea {
-    @apply focus:border-teal-600 focus:ring-0 focus-within:outline-none;
+    @apply focus-within:outline-none focus:border-teal-600 focus:ring-0;
   }
   .heading-underline {
-    @apply underline underline-offset-8 decoration-teal-600 decoration-4;
+    @apply underline decoration-teal-600 decoration-4 underline-offset-8;
+  }
+  .required-style {
+    @apply after:ml-0.5 after:font-bold after:text-rose-600 after:content-['*'];
   }
 }
 

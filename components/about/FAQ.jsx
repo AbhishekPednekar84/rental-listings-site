@@ -22,7 +22,17 @@ const FAQ = () => {
                 : "flex-col lg:flex-row-reverse lg:hover:rotate-1"
             } w-11/12 items-center justify-around border-2 border-zinc-50 bg-white p-4 shadow-lg transition-all duration-200 ease-in-out hover:shadow-xl lg:w-2/3 lg:p-3 lg:hover:scale-105`}
           >
-            <img src={item.image} alt="faq-image" />
+            <div className="relative h-[200px] w-full overflow-hidden">
+              <Image
+                src={item.image}
+                alt="faq-image"
+                placeholder="blur"
+                blurDataURL={item.image + "/tr:bl-10"}
+                layout="fill"
+                objectFit="cover"
+                className="transition hover:scale-105"
+              />
+            </div>
             <div
               itemScope
               itemProp="mainEntity"

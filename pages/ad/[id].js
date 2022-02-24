@@ -13,6 +13,7 @@ const AdPage = ({
   username,
   pathHistory,
   disablePrint,
+  mobileBrowser,
 }) => {
   useEffect(() => {
     window.scroll({
@@ -31,13 +32,14 @@ const AdPage = ({
       apartmentName={apartmentName}
       username={username}
     >
-      <div className="bg-gradient-to-br from bg-zinc-100 via-slate-50 to-white">
+      <div className="from bg-zinc-100 bg-gradient-to-br via-slate-50 to-white">
         <Layout textColor="blue-200">
           <FullPageAd
             adData={adData}
             apartmentName={apartmentName}
             username={username}
             disablePrint={disablePrint}
+            mobileBrowser={mobileBrowser}
           />
         </Layout>
       </div>

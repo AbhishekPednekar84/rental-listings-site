@@ -55,7 +55,7 @@ const UserAds = ({ listings, setListings, token, user }) => {
 
       {listings.length === 0 && (
         <div className="text-center text-gray-800">
-          Looks like you have not posted an ad recently. You can do that{" "}
+          Looks like you have not created a listing recently. You can do that{" "}
           <Link href="/listings/create">
             <a className="text-teal-600 underline decoration-teal-600 decoration-2 underline-offset-4">
               here
