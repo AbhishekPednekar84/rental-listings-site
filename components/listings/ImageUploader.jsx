@@ -40,7 +40,7 @@ const ImageUploader = ({ files, setFiles, imgList }) => {
 
   return (
     <div className="max-w-[400px]">
-      <h5 className="mb-5 text-xs font-medium text-teal-600 ">
+      <h5 className="mb-5 text-sm font-medium text-teal-600 ">
         Upload images (
         <span className="font-semibold">
           {imgList.length > 0

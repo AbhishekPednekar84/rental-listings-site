@@ -1002,7 +1002,7 @@ const AddListing = ({ apartments }) => {
                         {/* Dedicated parking */}
                         <div className="mb-12 flex items-center">
                           <div id="parking-group">
-                            <span className="text-sm font-medium lg:text-base">
+                            <span className="text-base font-medium">
                               Parking available
                             </span>
                             :
@@ -1057,7 +1057,7 @@ const AddListing = ({ apartments }) => {
                         {/* Pets Allowed */}
                         <div className="mb-12 flex w-32 items-center justify-start lg:w-40">
                           <div id="pets-allowed">
-                            <span className="text-sm font-medium lg:text-base">
+                            <span className="text-base font-medium">
                               Pet friendly
                             </span>
                             :
@@ -1078,7 +1078,7 @@ const AddListing = ({ apartments }) => {
                         {/* Non vegetarians Allowed */}
                         <div className="mb-12 flex w-64 items-center justify-start ">
                           <div id="nonVeg-allowed">
-                            <span className="text-sm font-medium lg:text-base">
+                            <span className="text-base font-medium">
                               Non-vegetarians
                             </span>
                             :
@@ -1197,10 +1197,7 @@ const AddListing = ({ apartments }) => {
                       <div className="mt-3 mb-10 flex">
                         <div className="mr-5 flex items-center">
                           <div id="call-group">
-                            <span className="text-sm font-medium lg:text-base">
-                              Call
-                            </span>
-                            :
+                            <span className="text-base font-medium">Call</span>:
                           </div>
                           <div
                             role="group"
@@ -1217,10 +1214,7 @@ const AddListing = ({ apartments }) => {
 
                         <div className="flex items-center">
                           <div id="text-group">
-                            <span className="text-sm font-medium lg:text-base">
-                              Text
-                            </span>
-                            :
+                            <span className="text-base font-medium">Text</span>:
                           </div>
                           <div
                             role="group"
@@ -1244,7 +1238,7 @@ const AddListing = ({ apartments }) => {
                 className={`mb-5 w-full pt-5 ${
                   activeStep === 0
                     ? "grid grid-cols-1 place-items-center"
-                    : "flex justify-around md:grid md:grid-cols-2 md:place-items-center"
+                    : "flex justify-between md:grid md:grid-cols-2 md:place-items-center md:justify-around"
                 }`}
               >
                 {activeStep > 0 && (

@@ -984,7 +984,7 @@ const EditListing = ({
                         {/* Dedicated parking */}
                         <div className="mb-12 flex items-center">
                           <div id="parking-group">
-                            <span className="text-sm font-medium lg:text-base">
+                            <span className="text-base font-medium">
                               Parking available
                             </span>
                             :
@@ -1039,7 +1039,7 @@ const EditListing = ({
                         {/* Pets Allowed */}
                         <div className="mb-12 flex w-32 items-center justify-start lg:w-40">
                           <div id="pets-allowed">
-                            <span className="text-sm font-medium lg:text-base">
+                            <span className="text-base font-medium">
                               Pet friendly
                             </span>
                             :
@@ -1060,7 +1060,7 @@ const EditListing = ({
                         {/* Non vegetarians Allowed */}
                         <div className="mb-12 flex w-64 items-center justify-start ">
                           <div id="nonVeg-allowed">
-                            <span className="text-sm font-medium lg:text-base">
+                            <span className="text-base font-medium">
                               Non-vegetarians
                             </span>
                             :
@@ -1210,10 +1210,7 @@ const EditListing = ({
                       <div className="mt-3 mb-10 flex">
                         <div className="mr-5 flex items-center">
                           <div id="call-group">
-                            <span className="text-sm font-medium lg:text-base">
-                              Call
-                            </span>
-                            :
+                            <span className="text-base font-medium">Call</span>:
                           </div>
                           <div
                             role="group"
@@ -1230,10 +1227,7 @@ const EditListing = ({
 
                         <div className="flex items-center">
                           <div id="text-group">
-                            <span className="text-sm font-medium lg:text-base">
-                              Text
-                            </span>
-                            :
+                            <span className="text-base font-medium">Text</span>:
                           </div>
                           <div
                             role="group"
@@ -1265,7 +1259,9 @@ const EditListing = ({
                     variants={variants}
                     whileTap="tap"
                     type="button"
-                    className="h-12 w-28 rounded-full bg-rose-600 p-3 font-semibold text-white transition-colors duration-200 ease-in hover:bg-rose-800 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2"
+                    className={`h-12 w-28 rounded-full bg-rose-600 p-3 font-semibold text-white transition-colors duration-200 ease-in hover:bg-rose-800 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2 ${
+                      isLastStep && "-ml-5 md:ml-0"
+                    }`}
                     //disabled={props.isSubmitting.toString()}
                     onClick={handleBack}
                   >

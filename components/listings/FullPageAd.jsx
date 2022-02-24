@@ -135,11 +135,11 @@ const FullPageAd = ({
         />
       </div>
 
-      <p className="mb-5 flex items-center justify-center print:hidden">
+      <p className="mb-5 flex items-center justify-center  print:hidden">
         <span className="hidden lg:mr-1 lg:block lg:font-semibold">
           This unit is located in
         </span>
-        <span className="relative ml-1 inline-block p-1.5 text-lg font-semibold before:absolute before:-inset-1 before:block before:-skew-y-2 before:bg-rose-400">
+        <span className="relative ml-1 inline-block p-1.5 text-base font-semibold before:absolute before:-inset-1 before:block before:-skew-y-2 before:bg-rose-400 md:text-lg">
           <span className="relative text-white">{apartmentName}</span>
         </span>
       </p>
@@ -148,9 +148,9 @@ const FullPageAd = ({
         <div className="mx-3 bg-zinc-200 print:mx-1 md:mx-20 md:w-[800px] lg:w-[1000px]">
           <div className="relative p-3 text-center">
             <div
-              className={`bg-teal- absolute top-5 right-5 mb-3 rounded-full ${
+              className={`tracing-wide absolute left-0 -rotate-45 transform ${
                 adData.listing_type === "rent" ? "bg-amber-600" : "bg-red-600"
-              } px-2 py-1 text-sm font-semibold text-white`}
+              } px-2 py-1 text-sm font-semibold text-white md:text-base`}
             >
               {adData.listing_type.toUpperCase()}
             </div>
@@ -163,16 +163,15 @@ const FullPageAd = ({
               <h1 className="m-0 px-3 pt-7 pb-5 font-bold print:py-2 lg:py-5">
                 {adData.title}
               </h1>
-              <div className="flex items-center justify-center pb-3 text-zinc-600">
+              <div className="mb-5 flex items-center justify-center text-zinc-600">
                 <span className="text-sm">
-                  Posted by <span className="font-semibold">{username}</span> on
-                </span>
-                &nbsp;
-                <span className="text-sm font-semibold">
-                  {new Date(adData.date_created).toLocaleDateString()}
+                  Posted by <span className="font-semibold">{username}</span> on{" "}
+                  <span className="font-semibold">
+                    {new Date(adData.date_created).toLocaleDateString()}
+                  </span>
                 </span>
               </div>
-              <div className="mx-10 flex items-center justify-center pb-3 print:hidden">
+              <div className="mx-2 flex items-center justify-center pb-3 print:hidden">
                 <p className="mr-2 text-sm text-zinc-600">
                   Share this listing:
                 </p>
@@ -203,12 +202,14 @@ const FullPageAd = ({
             </div>
             <div
               className={`bg-white ${
-                adData.description && adData.description.length < 100
-                  ? "text-center"
-                  : "text-left lg:text-center"
+                adData.description &&
+                adData.description.length < 100 &&
+                "text-left lg:text-center"
               } px-3 py-5 text-gray-700 print:py-2 print:text-sm`}
             >
-              {adData.description && <p>{adData.description}</p>}
+              {adData.description && (
+                <p className="mb-5">{adData.description}</p>
+              )}
 
               {adData.listing_type === "rent" && (
                 <div className="w-full">
@@ -288,38 +289,38 @@ const FullPageAd = ({
                 <div className="flex justify-center">
                   {adData.listing_type === "rent" && (
                     <div
-                      className={`mx-3 mb-10 grid gap-3 print:my-5 print:gap-2 lg:gap-7 ${
+                      className={`mx-1 mb-10 grid gap-5 print:my-5 print:gap-2 lg:gap-7 ${
                         adData.maintenance_in_rent &&
-                        "grid-cols-2 print:grid-cols-2 lg:grid-cols-1 lg:place-items-center"
+                        "grid-cols-1 print:grid-cols-2 lg:place-items-center"
                       } ${
                         !adData.maintenance_in_rent &&
-                        "grid-cols-2 print:grid-cols-3 lg:grid-cols-1 lg:place-items-center"
+                        "grid-cols-1 print:grid-cols-3 lg:place-items-center"
                       }`}
                     >
-                      <div className="w-40 rounded-sm bg-gradient-to-r from-teal-100 to-teal-200 py-3 px-1 text-center shadow-md md:w-60 lg:bg-gradient-to-b">
+                      <div className="w-56 rounded-sm bg-gradient-to-b from-emerald-100 to-emerald-200 py-3 px-1 text-center shadow-md md:w-60">
                         <h5 className="mb-2 text-sm md:text-base">
                           Rent {adData.rent_negotiable && "(negotiable)"}
                         </h5>
-                        <p className="flex items-center justify-center text-lg font-bold">
+                        <p className="flex items-center justify-center text-xl font-bold">
                           <span className="mr-0.5 fill-black">{rupeeIcon}</span>
                           {formatCurrency(adData.rent)}
                         </p>
                       </div>
 
-                      <div className="w-40 bg-gradient-to-r from-teal-200 to-teal-100 py-3 px-1 text-center shadow-md md:w-60">
+                      <div className="w-56 bg-gradient-to-r from-emerald-200 to-emerald-100 py-3 px-1 text-center shadow-md md:w-60">
                         <h5 className="mb-2 text-sm md:text-base">Deposit</h5>
-                        <p className="flex items-center justify-center text-lg font-bold">
+                        <p className="flex items-center justify-center text-xl font-bold">
                           <span className="mr-0.5 fill-black">{rupeeIcon}</span>
                           {formatCurrency(adData.deposit)}
                         </p>
                       </div>
 
                       {!adData.maintenance_in_rent && adData.maintenance > 0 && (
-                        <div className="w-40 bg-gradient-to-r from-teal-100 to-teal-200 py-3 px-1 text-center shadow-md md:w-60">
+                        <div className="w-56 bg-gradient-to-r from-emerald-100 to-emerald-200 py-3 px-1 text-center shadow-md md:w-60">
                           <h5 className="mb-2 text-sm md:text-base">
                             Maintenance
                           </h5>
-                          <p className="flex items-center justify-center text-lg font-bold">
+                          <p className="flex items-center justify-center text-xl font-bold">
                             <span className="mr-0.5 fill-black">
                               {rupeeIcon}
                             </span>
@@ -337,7 +338,7 @@ const FullPageAd = ({
                       <h5 className="mb-2 text-sm md:text-base">
                         Quoted amount {adData.sale_negotiable && "(negotiable)"}
                       </h5>
-                      <p className="pt-2 text-lg font-bold lg:text-xl">
+                      <p className="pt-2 text-xl font-bold">
                         ₹{" "}
                         {formatCurrency(adData.sale) +
                           " " +
@@ -357,10 +358,10 @@ const FullPageAd = ({
             </div>
 
             <div className="my-6 bg-white">
-              <h3 className="px-3 pt-5 pb-3 font-semibold print:py-2 print:pt-1">
+              <h3 className="px-3 pt-5 font-semibold print:py-2 print:pt-1">
                 Listing details
               </h3>
-              <div className="flex justify-center">
+              <div className="flex justify-center px-2">
                 <div className="my-10 grid grid-cols-2 place-items-start gap-8 print:m-5 print:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-16">
                   <div className="text-left">
                     <span className="flex items-center text-sm text-zinc-500 md:text-base">
@@ -413,10 +414,10 @@ const FullPageAd = ({
                     )}
                   </div>
                   <div className="text-left">
-                    <span className="flex items-center text-sm text-zinc-500 md:text-base">
-                      {directionIcon}&nbsp;Facing Direction:
+                    <span className="inline-flex items-center text-sm text-zinc-500 md:text-base">
+                      {directionIcon}&nbsp;Facing:
                     </span>
-
+                    <br />
                     <span className="font-semibold md:text-lg">
                       {adData.facing_direction
                         ? adData.facing_direction
@@ -431,7 +432,7 @@ const FullPageAd = ({
               <h3 className="px-3 pt-5 pb-3 font-semibold print:py-2 print:pt-1">
                 Contact details
               </h3>
-              <div className="flex justify-center print:block">
+              <div className="flex justify-start print:block lg:justify-center">
                 <div
                   className={`grid place-items-start gap-5 px-5 pt-5 pb-10 print:grid-cols-2 print:gap-3 print:pb-5 ${
                     adData.prefer_call || adData.prefer_text
@@ -440,14 +441,18 @@ const FullPageAd = ({
                   } lg:place-items-center lg:gap-x-1`}
                 >
                   <div className="flex items-center">
-                    <span className="text-sm text-zinc-500">Owner:</span>
+                    <span className="text-sm text-zinc-500 lg:text-base">
+                      Owner:
+                    </span>
                     &nbsp;
                     <span className="font-semibold">{username}</span>
                   </div>
 
                   <div>
-                    <div className="flex items-center">
-                      <span className="text-sm text-zinc-500">Contact:</span>
+                    <div className="flex items-center lg:text-base">
+                      <span className="text-sm text-zinc-500 lg:text-base">
+                        Contact:
+                      </span>
                       &nbsp;
                       <span className="flex items-center font-semibold">
                         {user && user
@@ -466,7 +471,7 @@ const FullPageAd = ({
                       )}
                     </div>
                     {!user && (
-                      <div className="pt-2 text-left text-xs text-zinc-500 print:hidden">
+                      <div className="pt-2 text-left text-xs text-zinc-500 print:hidden lg:text-base">
                         <Link href="/account/login">
                           <a className="text-teal-600 underline decoration-teal-600 decoration-2 underline-offset-4">
                             Login
@@ -477,8 +482,8 @@ const FullPageAd = ({
                     )}
                   </div>
                   {(adData.prefer_call || adData.prefer_text) && (
-                    <div className="flex items-center justify-center print:flex-row print:items-center lg:flex-row">
-                      <span className="pr-0.5 text-sm text-zinc-500">
+                    <div className="print:flex-row print:items-center lg:flex lg:items-center">
+                      <span className="pr-0.5 text-sm text-zinc-500 lg:text-base">
                         Preferred Mode of Contact:
                       </span>
                       <div className="flex items-center gap-1 print:ml-1">

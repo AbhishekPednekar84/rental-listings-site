@@ -23,9 +23,9 @@ const Tags = ({ tenantPreference, petsAllowed, nonVegetarians }) => {
   const nvTag = nonVegetarians ? `Non Vegetarians` : "Vegetarians Only";
 
   return (
-    <div className="mx-4 mt-5 grid grid-cols-1 items-start ">
+    <div className="mx-2 grid grid-cols-1 items-start ">
       <div
-        className={`grid gap-4 lg:gap-7 ${
+        className={`grid gap-2 lg:gap-7 ${
           tenantPreference === "Anyone"
             ? "grid-cols-2 print:grid-cols-3 md:grid-cols-3 lg:grid-cols-5"
             : tenantPreference === "BB"
@@ -43,7 +43,7 @@ const Tags = ({ tenantPreference, petsAllowed, nonVegetarians }) => {
                   : tenant === "Bachelorette's"
                   ? "bg-fuchsia-100"
                   : "bg-sky-100"
-              } flex h-12 items-center justify-center gap-2 p-2 text-xs font-semibold text-black lg:text-sm`}
+              } flex h-12 items-center justify-center gap-1 p-2 text-xs font-semibold text-black lg:text-sm`}
             >
               {tenant === "Bachelors" && maleIcon}
               {tenant === "Bachelorette's" && femaleIcon}
@@ -51,22 +51,23 @@ const Tags = ({ tenantPreference, petsAllowed, nonVegetarians }) => {
             </span>
           ))
         ) : (
-          <span className="flex h-12 items-center justify-center gap-2 bg-cyan-100 p-2 text-xs font-semibold text-black lg:text-sm">
+          <span className="flex h-12 items-center justify-center gap-1 bg-cyan-100 p-2 text-xs font-semibold text-black lg:text-sm">
             {tenantPreference === "Bachelors" && maleIcon}
             {tenantPreference === "Bachelorette's" && femaleIcon}
             {tenantPreference === "Families" && familyIcon} {tenantTag}
           </span>
         )}
 
-        <div className="flex h-12 items-center justify-center gap-1 bg-lime-100 p-2 text-xs font-semibold text-black lg:text-sm">
+        <div className="flex h-12 items-center justify-center gap-0 bg-lime-100 p-2 text-xs font-semibold text-black md:gap-1 lg:text-sm">
           {petsAllowed && petIcon} {petsTag} {!petsAllowed && prayingHandsIcon}
         </div>
         <div
           className={`${
             nvTag.startsWith("Non") ? "bg-amber-100" : "bg-green-100"
-          } flex h-12 items-center justify-center gap-1 p-2 text-xs font-semibold text-black lg:text-sm`}
+          } flex h-12 items-center justify-center gap-0 p-2 text-xs font-semibold text-black lg:text-sm`}
         >
-          {nvTag} {nonVegetarians && thumbsUpIcon}
+          {nvTag}
+          {nonVegetarians && " OK!!"}
         </div>
       </div>
     </div>
