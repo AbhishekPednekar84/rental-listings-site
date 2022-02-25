@@ -96,8 +96,8 @@ const UserAds = ({ listings, setListings, token, user }) => {
                     <span
                       className={`ad-card-listing-type text-sm uppercase ${
                         ad.listing_type === "sale"
-                          ? "bg-orange-400"
-                          : "bg-lime-600"
+                          ? "bg-rose-400"
+                          : "bg-amber-600"
                       }`}
                     >
                       {ad.listing_type}
