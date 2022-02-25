@@ -56,7 +56,7 @@ const EnterEmail = () => {
   // }, [authError]);
 
   useEffect(() => {
-    if (fpMessage && fpMessage.message === "Otp generated" && user && user)
+    if (fpMessage && fpMessage === "Otp generated" && user && user)
       sendOtpEmail(user && user.email);
   }, [fpMessage]);
 

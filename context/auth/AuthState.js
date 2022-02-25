@@ -1,10 +1,11 @@
-import { useReducer, useEffect } from "react";
+import { useState, useReducer, useEffect } from "react";
 import AuthContext from "@/context/auth/authContext";
 import authReducer from "@/context/auth/authReducer";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import axios from "axios";
 import setAuthToken from "@/utils/setToken";
+import emailjs from "@emailjs/browser";
 
 import {
   LOGIN,
@@ -40,6 +41,7 @@ const accountUpdateToast = () => {
 };
 
 const AuthState = ({ children }) => {
+  const [pwToken, setPwToken] = useState(null);
   const router = useRouter();
 
   const initialState = {
@@ -258,8 +260,10 @@ const AuthState = ({ children }) => {
 
       const data = res.data;
 
+      setPwToken(res.data.token);
+
       if (res.statusText == "Created") {
-        dispatch({ type: FORGOT_PASSWORD_OTP, payload: data });
+        dispatch({ type: FORGOT_PASSWORD_OTP, payload: data.message });
       }
     } catch (err) {
       dispatch({ type: AUTH_ERROR, payload: err.response.data.detail });
@@ -268,26 +272,48 @@ const AuthState = ({ children }) => {
   };
 
   const sendOtpEmail = async (email) => {
-    try {
-      const payload = { email: email };
+    // const payload = { email: email };
 
-      const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/email/send_otp`,
-        payload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
+    // const res = await axios.post(
+    //   `${process.env.NEXT_PUBLIC_API_URL}/email/send_otp`,
+    //   payload,
+    //   {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   }
+    // );
+
+    // if (res.status === 201) {
+    //   dispatch({ type: PASSWORD_RESET_EMAIL });
+    // }
+
+    var templateParams = {
+      recipient_email: email,
+      otp: pwToken,
+    };
+
+    emailjs
+      .send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_OTP_TEMPLATE_ID,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+      )
+      .then(
+        (response) => {
+          setPwToken(null);
+          dispatch({ type: PASSWORD_RESET_EMAIL });
+        },
+        (error) => {
+          dispatch({
+            type: AUTH_ERROR,
+            payload:
+              "Oops! Looks like there was some problem. Please try submitting again.",
+          });
+          setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
         }
       );
-
-      if (res.status === 201) {
-        dispatch({ type: PASSWORD_RESET_EMAIL });
-      }
-    } catch (err) {
-      dispatch({ type: AUTH_ERROR, payload: err.response.data.detail });
-      setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
-    }
   };
 
   const validateOtp = async (id, password, otp) => {
