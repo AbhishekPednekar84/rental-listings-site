@@ -30,10 +30,10 @@ const authReducer = (state, action) => {
         action.payload.access_token
       );
       cookie.set("__ros__listing__token", action.payload.access_token, {
-        "path": "/",
-        "sameSite": "Strict",
-        "maxAge": 24 * 60 * 60,
-        "secure": process.env.NODE_ENV === "production",
+        path: "/",
+        sameSite: "Strict",
+        maxAge: 24 * 60 * 60 * 10,
+        secure: process.env.NODE_ENV === "production",
       });
       return {
         ...state,
@@ -44,10 +44,10 @@ const authReducer = (state, action) => {
     case REGISTER:
       localStorage.setItem("__ros__listing__token", action.payload.token);
       cookie.set("__ros__listing__token", action.payload.token, {
-        "path": "/",
-        "maxAge": 24 * 60 * 60,
-        "sameSite": "Strict",
-        "secure": process.env.NODE_ENV === "production",
+        path: "/",
+        maxAge: 24 * 60 * 60 * 10,
+        sameSite: "Strict",
+        secure: process.env.NODE_ENV === "production",
       });
       return {
         ...state,
