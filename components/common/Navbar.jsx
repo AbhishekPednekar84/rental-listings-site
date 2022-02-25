@@ -88,7 +88,7 @@ const Navbar = ({ textColor }) => {
     if (authError === "Sorry! We could not validate those credentials") {
       logout();
       sessionExpiredToast();
-      setTimeout(() => router.push("/account/login"), 2000);
+      setTimeout(() => router.push("/account/login"), 3000);
     }
   }, [authError]);
 

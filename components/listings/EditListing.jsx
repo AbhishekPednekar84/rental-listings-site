@@ -196,7 +196,7 @@ const EditListing = ({
     if (siteError === "Token expired") {
       logout();
       sessionExpiredToast();
-      setTimeout(() => router.push("/account/login"), 1500);
+      setTimeout(() => router.push("/account/login"), 3000);
     }
   }, [siteError]);
 

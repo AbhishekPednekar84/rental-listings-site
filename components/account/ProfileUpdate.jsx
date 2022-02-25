@@ -42,7 +42,7 @@ const ProfileUpdate = ({ user }) => {
     if (authError === "Token expired") {
       logout();
       sessionExpiredToast();
-      setTimeout(() => router.push("/account/login"), 1500);
+      setTimeout(() => router.push("/account/login"), 3000);
     }
   }, [authError]);
 
