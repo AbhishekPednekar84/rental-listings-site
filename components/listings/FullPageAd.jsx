@@ -135,7 +135,7 @@ const FullPageAd = ({
         />
       </div>
 
-      <p className="mb-5 flex items-center justify-center  print:hidden">
+      <p className="mb-10 flex items-center justify-center  print:hidden">
         <span className="hidden lg:mr-1 lg:block lg:font-semibold">
           This unit is located in
         </span>
@@ -146,9 +146,9 @@ const FullPageAd = ({
 
       <div className="flex justify-center">
         <div className="mx-3 bg-zinc-200 print:mx-1 md:mx-20 md:w-[800px] lg:w-[1000px]">
-          <div className="relative p-3 text-center">
+          <div className="relative overflow-hidden p-3 text-center">
             <div
-              className={`tracing-wide absolute left-0 -rotate-45 transform ${
+              className={`absolute top-6 -left-12 w-40 -rotate-45 transform tracking-wide md:-left-10 ${
                 adData.listing_type === "rent" ? "bg-amber-600" : "bg-red-600"
               } px-2 py-1 text-sm font-semibold text-white md:text-base`}
             >
@@ -235,16 +235,18 @@ const FullPageAd = ({
                       onClick={() => openModal()}
                     > */}
                     <div
-                      className="relative h-[400px] cursor-pointer overflow-hidden"
+                      className="cursor-pointer overflow-hidden bg-zinc-100 p-0"
                       onClick={() => openModal()}
                     >
                       <Image
                         src={adData.images[0].image_url}
                         alt="Apartment image"
-                        layout="fill"
+                        // layout="fill"
+                        height={400}
+                        width={500}
                         placeholder="blur"
                         blurDataURL={adData.images[0].image_url + "/tr:bl-10"}
-                        objectFit="cover"
+                        objectFit="contain"
                         objectPosition="center"
                         className="transition hover:scale-105"
                         //height={adData.images[0].height / 3}
