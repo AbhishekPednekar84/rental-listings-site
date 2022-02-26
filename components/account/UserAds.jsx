@@ -94,10 +94,10 @@ const UserAds = ({ listings, setListings, token, user }) => {
                   <p className="mt-5">
                     Listing type:{" "}
                     <span
-                      className={`ad-card-listing-type text-sm uppercase ${
+                      className={`ad-card-listing-type ml-1 text-sm uppercase ${
                         ad.listing_type === "sale"
-                          ? "bg-rose-400"
-                          : "bg-amber-600"
+                          ? "bg-rose-600 ring-2 ring-rose-600 ring-offset-2"
+                          : "bg-amber-600 ring-2 ring-amber-600 ring-offset-2"
                       }`}
                     >
                       {ad.listing_type}
@@ -112,7 +112,7 @@ const UserAds = ({ listings, setListings, token, user }) => {
                     <motion.button
                       variants={variants}
                       whileTap="tap"
-                      className="rounded-md bg-fuchsia-600 p-2 text-white transition-all duration-100 ease-in hover:bg-fuchsia-800"
+                      className="rounded-md bg-amber-600 p-2 text-white transition-all duration-100 ease-in hover:bg-amber-800"
                       onClick={() => router.push(`/ad/${ad.id}`)}
                     >
                       {viewIcon}

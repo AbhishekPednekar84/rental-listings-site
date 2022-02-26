@@ -60,10 +60,10 @@ const EnterOtp = () => {
           <motion.div
             variants={variants}
             exit="exit"
-            className="w-[70%] bg-white p-10 shadow-lg"
+            className="w-[80%] bg-white p-5 shadow-lg md:w-[70%] lg:p-10"
           >
             <Formik
-              initialValues={{ email: "" }}
+              initialValues={{ email: "", opt: "" }}
               validationSchema={validationSchema}
               onSubmit={(values, { setSubmitting }) => {
                 setSubmitting(true);
