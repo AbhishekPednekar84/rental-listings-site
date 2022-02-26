@@ -241,7 +241,7 @@ const FullPageAd = ({
                       <Image
                         src={adData.images[0].image_url}
                         alt="Apartment image"
-                        // layout="fill"
+                        layout="responsive"
                         height={400}
                         width={500}
                         placeholder="blur"
