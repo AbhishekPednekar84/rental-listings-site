@@ -4,7 +4,7 @@ import Link from "next/link";
 const Declaration = ({ message }) => {
   return (
     <div className="mt-3 text-sm text-gray-800">
-      By {message} you agree to our{" "}
+      By {message}, you agree to our{" "}
       <Link href="/policy/#terms">
         <a
           target="_blank"
