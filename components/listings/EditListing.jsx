@@ -215,7 +215,6 @@ const EditListing = ({
   };
 
   const handleSubmit = (values, actions) => {
-    console.log(actions);
     actions.setSubmitting(true);
     actions.setTouched({});
 

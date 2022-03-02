@@ -280,7 +280,11 @@ const AddApartment = ({ apartments }) => {
                   className="mt-10 mb-3 h-12 w-36 rounded-full bg-teal-600 p-3 font-semibold text-white transition-colors duration-200 ease-in hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
                   onClick={() => {
                     selectedApartment &&
-                      router.push(`/listings/create/${selectedApartment}`);
+                      localStorage.setItem(
+                        "_selectedApartment",
+                        selectedApartment
+                      );
+                    router.push(`/listings/create/${selectedApartment}`);
                   }}
                 >
                   NEXT

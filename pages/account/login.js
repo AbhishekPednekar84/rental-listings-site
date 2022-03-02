@@ -22,9 +22,14 @@ const logoutToast = () => {
 const LoginPage = ({ pathHistory }) => {
   const router = useRouter();
 
-  const pathHistoryProp = pathHistory.current;
+  var pathHistoryProp = pathHistory.current;
 
-  if (pathHistoryProp === "/listings/create") {
+  if (pathHistoryProp.includes("/listings/create")) {
+    const apartmentId =
+      typeof window !== "undefined" &&
+      localStorage.getItem("_selectedApartment");
+
+    pathHistoryProp = `/listings/create/${apartmentId}`;
     setTimeout(() => createListingToast(), 500);
   }
 
@@ -40,7 +45,13 @@ const LoginPage = ({ pathHistory }) => {
     return (
       <LoginHeadLayout>
         <Layout textColor="gray-700">
-          <Login pathHistoryProp={pathHistory.current} />
+          <Login
+            pathHistoryProp={
+              pathHistoryProp.includes("/listings/create")
+                ? pathHistoryProp
+                : pathHistory.current
+            }
+          />
         </Layout>
       </LoginHeadLayout>
     );
