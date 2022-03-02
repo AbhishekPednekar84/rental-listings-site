@@ -283,15 +283,14 @@ const Navbar = ({ textColor }) => {
                   </li>
 
                   <li>
-                    <Link href="/listings/create">
-                      <a
-                        className={`nav-link uppercase ${
-                          textColor ? "text-" + textColor : "text-white"
-                        } hover:decoration-inherit`}
-                      >
-                        Create Free Listing
-                      </a>
-                    </Link>
+                    <div
+                      className={`text-lg font-semibold uppercase tracking-wide md:text-sm lg:text-base ${
+                        textColor ? "text-" + textColor : "text-white"
+                      } hover:decoration-inherit`}
+                      onClick={() => (modalOpen ? closeModal() : openModal())}
+                    >
+                      Create Free Listing
+                    </div>
                   </li>
                   <li>
                     <Link href="#">
@@ -434,15 +433,14 @@ const Navbar = ({ textColor }) => {
                   </li>
                   <li>
                     {loggedInState && loggedInState ? (
-                      <Link href="/listings/create">
-                        <a
-                          className={`nav-link uppercase ${
-                            textColor ? "text-" + textColor : "text-white"
-                          } hover:decoration-inherit`}
-                        >
-                          Create Free Listing
-                        </a>
-                      </Link>
+                      <div
+                        className={`text-lg font-semibold uppercase tracking-wide md:text-sm lg:text-base ${
+                          textColor ? "text-" + textColor : "text-white"
+                        } hover:decoration-inherit`}
+                        onClick={() => (modalOpen ? closeModal() : openModal())}
+                      >
+                        Create Free Listing
+                      </div>
                     ) : (
                       <Link href="/account/register">
                         <a
@@ -572,15 +570,14 @@ const Navbar = ({ textColor }) => {
                   </li>
                   <li>
                     {loggedInState && loggedInState ? (
-                      <Link href="/listings/create">
-                        <a
-                          className={`nav-link uppercase ${
-                            textColor ? "text-" + textColor : "text-white"
-                          } hover:decoration-inherit`}
-                        >
-                          Create Free Listing
-                        </a>
-                      </Link>
+                      <div
+                        className={`text-lg font-semibold uppercase tracking-wide md:text-sm lg:text-base ${
+                          textColor ? "text-" + textColor : "text-white"
+                        } hover:decoration-inherit`}
+                        onClick={() => (modalOpen ? closeModal() : openModal())}
+                      >
+                        Create Free Listing
+                      </div>
                     ) : (
                       <Link href="/account/register">
                         <a
@@ -644,6 +641,18 @@ const Navbar = ({ textColor }) => {
                   {pathname === "/" && (
                     <>
                       <li className="my-7">
+                        <div
+                          className={`nav-link uppercase ${
+                            textColor ? "text-" + textColor : "text-gray-900"
+                          } hover:text-teal-600`}
+                          onClick={() =>
+                            modalOpen ? closeModal() : openModal()
+                          }
+                        >
+                          Create Free Listing
+                        </div>
+                      </li>
+                      <li className="my-7">
                         <Link href="#how-it-works">
                           <a
                             className={`nav-link uppercase ${
@@ -695,15 +704,16 @@ const Navbar = ({ textColor }) => {
                       </li>
                       <li className="my-7">
                         {loggedInState && loggedInState ? (
-                          <Link href="/listings/create">
+                          <Link href="#">
                             <a
                               className={`nav-link uppercase ${
                                 textColor
                                   ? "text-" + textColor
                                   : "text-gray-900"
                               } hover:text-teal-600`}
+                              onClick={() => handleLogout()}
                             >
-                              Create Free Listing
+                              Logout
                             </a>
                           </Link>
                         ) : (
@@ -716,22 +726,6 @@ const Navbar = ({ textColor }) => {
                               } hover:text-teal-600`}
                             >
                               Sign Up
-                            </a>
-                          </Link>
-                        )}
-                      </li>
-                      <li>
-                        {loggedInState && loggedInState && (
-                          <Link href="#">
-                            <a
-                              className={`nav-link uppercase ${
-                                textColor
-                                  ? "text-" + textColor
-                                  : "text-gray-900"
-                              } hover:text-teal-600`}
-                              onClick={() => handleLogout()}
-                            >
-                              Logout
                             </a>
                           </Link>
                         )}
@@ -766,15 +760,16 @@ const Navbar = ({ textColor }) => {
                       </li>
 
                       <li className="my-7">
-                        <Link href="/listings/create">
-                          <a
-                            className={`nav-link uppercase ${
-                              textColor ? "text-" + textColor : "text-gray-900"
-                            } hover:text-teal-600`}
-                          >
-                            Create Free Listing
-                          </a>
-                        </Link>
+                        <div
+                          className={`nav-link uppercase ${
+                            textColor ? "text-" + textColor : "text-gray-900"
+                          } hover:text-teal-600`}
+                          onClick={() =>
+                            modalOpen ? closeModal() : openModal()
+                          }
+                        >
+                          Create Free Listing
+                        </div>
                       </li>
                       <li>
                         <Link href="#">
@@ -977,17 +972,16 @@ const Navbar = ({ textColor }) => {
                       </li>
                       <li className="my-7">
                         {loggedInState && loggedInState ? (
-                          <Link href="/listings/create">
-                            <a
-                              className={`nav-link uppercase ${
-                                textColor
-                                  ? "text-" + textColor
-                                  : "text-gray-900"
-                              } hover:text-teal-600`}
-                            >
-                              Create Free Listing
-                            </a>
-                          </Link>
+                          <div
+                            className={`nav-link uppercase ${
+                              textColor ? "text-" + textColor : "text-gray-900"
+                            } hover:text-teal-600`}
+                            onClick={() =>
+                              modalOpen ? closeModal() : openModal()
+                            }
+                          >
+                            Create Free Listing
+                          </div>
                         ) : (
                           <Link href="/account/register">
                             <a
@@ -1127,17 +1121,16 @@ const Navbar = ({ textColor }) => {
                       </li>
                       <li className="my-7">
                         {loggedInState && loggedInState ? (
-                          <Link href="/listings/create">
-                            <a
-                              className={`nav-link uppercase ${
-                                textColor
-                                  ? "text-" + textColor
-                                  : "text-gray-900"
-                              } hover:text-teal-600`}
-                            >
-                              Create Free Listing
-                            </a>
-                          </Link>
+                          <div
+                            className={`nav-link uppercase ${
+                              textColor ? "text-" + textColor : "text-gray-900"
+                            } hover:text-teal-600`}
+                            onClick={() =>
+                              modalOpen ? closeModal() : openModal()
+                            }
+                          >
+                            Create Free Listing
+                          </div>
                         ) : (
                           <Link href="/account/register">
                             <a

@@ -24,7 +24,7 @@ const LoginPage = ({ pathHistory }) => {
 
   var pathHistoryProp = pathHistory.current;
 
-  if (pathHistoryProp.includes("/listings/create")) {
+  if (pathHistoryProp && pathHistoryProp.includes("/listings/create")) {
     const apartmentId =
       typeof window !== "undefined" &&
       localStorage.getItem("_selectedApartment");
@@ -47,7 +47,7 @@ const LoginPage = ({ pathHistory }) => {
         <Layout textColor="gray-700">
           <Login
             pathHistoryProp={
-              pathHistoryProp.includes("/listings/create")
+              pathHistoryProp && pathHistoryProp.includes("/listings/create")
                 ? pathHistoryProp
                 : pathHistory.current
             }

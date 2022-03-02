@@ -66,7 +66,7 @@ const Hero = ({ apartments }) => {
             <h1 className="mb-6 text-center text-2xl font-semibold tracking-wide text-white lg:text-4xl">
               Find flats for rent or sale in your dream apartment
             </h1>
-            <p className="mb-6 text-center text-base lg:text-lg">
+            <p className="mb-6 text-left text-base lg:text-center lg:text-lg">
               Have an apartment complex in mind for your next home? Search by
               the apartment name and see what's for rent or sale.
             </p>
