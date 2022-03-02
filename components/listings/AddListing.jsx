@@ -15,6 +15,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Component import
 import ImageUploader from "@/components/listings/ImageUploader";
+import Declaration from "../common/Declaration";
 
 const validationSchema = [
   Yup.object({
@@ -1224,8 +1225,10 @@ const AddListing = ({ apartment }) => {
                 )}
               </AnimatePresence>
 
+              {isLastStep && <Declaration message="creating a listing" />}
+
               <div
-                className={`mb-5 w-full pt-5 ${
+                className={`mb-5 mt-1 w-full pt-5 ${
                   activeStep === 0
                     ? "grid grid-cols-1 place-items-center"
                     : "flex justify-between md:grid md:grid-cols-2 md:place-items-center md:justify-around"

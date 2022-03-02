@@ -8,6 +8,7 @@ import { errorIcon, loaderIcon } from "@/utils/icons";
 
 // Component imports
 import Alert from "@/components/common/Alert";
+import Declaration from "../common/Declaration";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Name is required").trim(),
@@ -166,6 +167,8 @@ const Register = () => {
                       {props.errors.password}
                     </div>
                   )}
+
+                  <Declaration message="signing up" />
 
                   <button
                     type="submit"
