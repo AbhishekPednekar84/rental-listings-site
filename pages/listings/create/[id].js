@@ -7,8 +7,14 @@ import Layout from "@/components/layout/Layout";
 import AddListing from "@/components/listings/AddListing";
 import CreateListingHeadLayout from "@/components/layout/head/CreateListingHeadLayout";
 
-const CreateListing = ({ apartments, pathHistory }) => {
+const CreateListing = ({ apartment, pathHistory }) => {
   const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("_searchedApartment");
+    }
+  }, []);
 
   if (
     typeof window !== "undefined" &&
@@ -26,20 +32,22 @@ const CreateListing = ({ apartments, pathHistory }) => {
   return (
     <CreateListingHeadLayout>
       <Layout textColor="gray-700">
-        <AddListing apartments={apartments} />
+        <AddListing apartment={apartment} />
       </Layout>
     </CreateListingHeadLayout>
   );
 };
 
-export const getServerSideProps = async ({ req }) => {
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/apartments`);
+export const getServerSideProps = async ({ req, params }) => {
+  const res = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/apartment/id/${params.id}`
+  );
 
-  const apartments = res.data;
+  const apartment = res.data;
 
   return {
     props: {
-      apartments,
+      apartment,
     },
   };
 };

@@ -14,6 +14,10 @@ import {
   CREATE_LISTING,
   USER_LISTINGS,
   LOADING,
+  FETCH_APARTMENTS,
+  SEARCH_APARTMENTS,
+  CLEAR_SEARCH,
+  CREATE_APARTMENT,
 } from "../Types";
 
 const imageDeletedToast = () => {
@@ -22,18 +26,76 @@ const imageDeletedToast = () => {
   });
 };
 
+const apartmentCreationToast = (name) => {
+  toast(`Thanks for adding ${name}`, {
+    draggablePercent: 60,
+  });
+};
+
 const SiteState = ({ children }) => {
   const initialState = {
     apartmentAds: "",
+    searchResults: null,
     siteError: "",
     userListings: [],
     listingCreated: false,
     loading: false,
+    apartments: [],
+    createdApartment: null,
   };
 
   const router = useRouter();
 
   const [state, dispatch] = useReducer(siteReducer, initialState);
+
+  const createApartment = async (name, pincode) => {
+    try {
+      const jsonPayload = { name: name, pincode: pincode };
+
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/apartment`,
+        jsonPayload
+      );
+
+      if (res.status === 201) {
+        setTimeout(() => apartmentCreationToast(res.data.name), 2000);
+        dispatch({ type: CREATE_APARTMENT, payload: res.data });
+      }
+    } catch (err) {
+      dispatch({ type: SITE_ERROR, payload: err.response.data.detail });
+    }
+  };
+
+  const getAllApartments = async () => {
+    try {
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/apartments`
+      );
+
+      dispatch({ type: FETCH_APARTMENTS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: SITE_ERROR, payload: err.response.data.detail });
+    }
+  };
+
+  const searchApartments = async (name, pincode) => {
+    try {
+      const res = await axios.get(
+        `${
+          process.env.NEXT_PUBLIC_API_URL
+        }/search/apartment?name=${name}&pincode=${pincode.toString()}`
+      );
+
+      if (res.status === 200)
+        dispatch({ type: SEARCH_APARTMENTS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: SITE_ERROR, payload: err.response.data.detail });
+    }
+  };
+
+  const clearApartmentSearch = async () => {
+    dispatch({ type: CLEAR_SEARCH });
+  };
 
   const fetchAdsForApartment = async (apartmentName) => {
     try {
@@ -310,6 +372,12 @@ const SiteState = ({ children }) => {
         loading: state.loading,
         listingCreated: state.listingCreated,
         userListings: state.userListings,
+        apartments: state.apartments,
+        searchResults: state.searchResults,
+        createdApartment: state.createdApartment,
+        getAllApartments,
+        searchApartments,
+        clearApartmentSearch,
         fetchAdsForApartment,
         filterAdsForApartment,
         fetchUserListings,
@@ -318,6 +386,7 @@ const SiteState = ({ children }) => {
         deleteListing,
         deleteImageFromImageKit,
         setLoading,
+        createApartment,
       }}
     >
       {children}

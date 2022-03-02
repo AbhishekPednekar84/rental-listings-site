@@ -135,13 +135,17 @@ const FullPageAd = ({
         />
       </div>
 
-      <p className="mb-10 flex items-center justify-center  print:hidden">
+      {/* <p className="mb-10 flex items-center justify-center  print:hidden">
         <span className="hidden lg:mr-1 lg:block lg:font-semibold">
           This unit is located in
         </span>
         <span className="relative ml-1 inline-block p-1.5 text-base font-semibold before:absolute before:-inset-1 before:block before:-skew-y-2 before:bg-rose-400 md:text-lg">
           <span className="relative text-white">{apartmentName}</span>
         </span>
+      </p> */}
+
+      <p className="mb-6 flex items-center justify-center text-2xl font-bold text-gray-800 print:hidden">
+        {apartmentName}
       </p>
 
       <div className="flex justify-center">
@@ -202,9 +206,9 @@ const FullPageAd = ({
             </div>
             <div
               className={`bg-white ${
-                adData.description &&
-                adData.description.length < 100 &&
-                "text-left lg:text-center"
+                adData.description && adData.description.length > 100
+                  ? "tet-left"
+                  : "text-center"
               } px-3 py-5 text-gray-700 print:py-2 print:text-sm`}
             >
               {adData.description && (
@@ -293,14 +297,18 @@ const FullPageAd = ({
                     <div
                       className={`mx-1 mb-10 grid gap-5 print:my-5 print:gap-2 lg:gap-7 ${
                         adData.maintenance_in_rent &&
-                        "grid-cols-1 print:grid-cols-2 lg:place-items-center"
+                        "grid-cols-1 print:grid-cols-2 print:place-items-center lg:place-items-center"
                       } ${
                         !adData.maintenance_in_rent &&
-                        "grid-cols-1 print:grid-cols-3 lg:place-items-center"
+                        "grid-cols-1 print:place-items-center lg:place-items-center"
+                      } ${
+                        adData.maintenance
+                          ? "print:grid-cols-3"
+                          : "print:grid-cols-2"
                       }`}
                     >
-                      <div className="w-56 rounded-sm bg-gradient-to-b from-emerald-100 to-emerald-200 py-3 px-1 text-center shadow-md md:w-60">
-                        <h5 className="mb-2 text-sm md:text-base">
+                      <div className="w-56 rounded-sm bg-gradient-to-b from-emerald-100 to-emerald-200 py-3 px-1 text-center shadow-md print:h-24 print:w-52 md:w-60">
+                        <h5 className="mb-2 text-sm print:text-lg md:text-base">
                           Rent {adData.rent_negotiable && "(negotiable)"}
                         </h5>
                         <p className="flex items-center justify-center text-xl font-bold">
@@ -309,8 +317,10 @@ const FullPageAd = ({
                         </p>
                       </div>
 
-                      <div className="w-56 bg-gradient-to-r from-emerald-200 to-emerald-100 py-3 px-1 text-center shadow-md md:w-60">
-                        <h5 className="mb-2 text-sm md:text-base">Deposit</h5>
+                      <div className="w-56 bg-gradient-to-r from-emerald-200 to-emerald-100 py-3 px-1 text-center shadow-md print:h-24 print:w-52 md:w-60">
+                        <h5 className="mb-2 text-sm print:text-lg md:text-base">
+                          Deposit
+                        </h5>
                         <p className="flex items-center justify-center text-xl font-bold">
                           <span className="mr-0.5 fill-black">{rupeeIcon}</span>
                           {formatCurrency(adData.deposit)}
@@ -318,8 +328,8 @@ const FullPageAd = ({
                       </div>
 
                       {!adData.maintenance_in_rent && adData.maintenance > 0 && (
-                        <div className="w-56 bg-gradient-to-r from-emerald-100 to-emerald-200 py-3 px-1 text-center shadow-md md:w-60">
-                          <h5 className="mb-2 text-sm md:text-base">
+                        <div className="w-56 bg-gradient-to-r from-emerald-100 to-emerald-200 py-3 px-1 text-center shadow-md print:h-24 print:w-52 md:w-60">
+                          <h5 className="mb-2 text-sm print:text-lg md:text-base">
                             Maintenance
                           </h5>
                           <p className="flex items-center justify-center text-xl font-bold">
@@ -336,8 +346,8 @@ const FullPageAd = ({
 
                 {adData.listing_type === "sale" && (
                   <div className="mx-3 mb-10 grid place-items-center print:mb-5 lg:h-[250px]">
-                    <div className="flex h-36 w-72 flex-col items-center justify-center rounded-sm bg-gradient-to-r from-yellow-100 to-yellow-200 shadow-md">
-                      <h5 className="mb-2 text-sm md:text-base">
+                    <div className="flex h-36 w-72 flex-col items-center justify-center rounded-sm bg-gradient-to-r from-yellow-100 to-yellow-200 shadow-md print:h-24 print:w-52">
+                      <h5 className="mb-2 text-sm print:text-lg md:text-base">
                         Quoted amount {adData.sale_negotiable && "(negotiable)"}
                       </h5>
                       <p className="pt-2 text-xl font-bold">

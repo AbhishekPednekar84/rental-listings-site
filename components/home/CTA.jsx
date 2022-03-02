@@ -20,7 +20,7 @@ const CTA = ({ apartments }) => {
     return {
       value: apartment.name,
       label:
-        apartment.name + " - " + apartment.address1 + " - " + apartment.city,
+        apartment.name + " - " + apartment.city + " - " + apartment.pincode,
     };
   });
 
@@ -45,7 +45,7 @@ const CTA = ({ apartments }) => {
             setSelectedValue(o.value);
             setCtaClicked(false);
           }}
-          className="text-lg"
+          className="text-base lg:text-lg"
         />
       </div>
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import AuthContext from "@/context/auth/authContext";
+import SiteContext from "@/context/site/siteContext";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,6 +10,7 @@ import { sessionExpiredToast } from "@/utils/toasts";
 
 // Component imports
 import Backdrop from "@/components/common/Backdrop";
+import ApartmentModal from "@/components/apartment/ApartmentModal";
 
 const variants = {
   initial: { x: "100vw" },
@@ -61,6 +63,7 @@ const logoutToast = () => {
 };
 
 const Navbar = ({ textColor }) => {
+  const [modalOpen, setModalOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [loggedInState, setLoggedInState] = useState(
     typeof window !== "undefined" &&
@@ -71,8 +74,10 @@ const Navbar = ({ textColor }) => {
   const pathname = router.pathname;
 
   const authContext = useContext(AuthContext);
+  const siteContext = useContext(SiteContext);
 
   const { logout, getCurrentUser, user, authError } = authContext;
+  const { apartments, getAllApartments, clearApartmentSearch } = siteContext;
 
   const handleLogout = () => {
     logoutToast();
@@ -83,6 +88,10 @@ const Navbar = ({ textColor }) => {
     if (loggedInState) getCurrentUser();
   }, []);
 
+  useEffect(() => {
+    getAllApartments();
+  }, []);
+
   // Check for an invalid / expired token
   useEffect(() => {
     if (authError === "Sorry! We could not validate those credentials") {
@@ -91,6 +100,12 @@ const Navbar = ({ textColor }) => {
       setTimeout(() => router.push("/account/login"), 3000);
     }
   }, [authError]);
+
+  const closeModal = () => {
+    setModalOpen(false);
+    clearApartmentSearch();
+  };
+  const openModal = () => setModalOpen(true);
 
   return (
     <header className="print:hidden">
@@ -106,15 +121,14 @@ const Navbar = ({ textColor }) => {
               {pathname === "/" && (
                 <>
                   <li className="cursor-pointer bg-black bg-opacity-50 px-3 py-2 transition-colors duration-200 ease-in-out hover:bg-black">
-                    <Link href="/listings/create">
-                      <a
-                        className={`text-lg font-semibold uppercase tracking-wide md:text-sm lg:text-base ${
-                          textColor ? "text-" + textColor : "text-white"
-                        } hover:decoration-inherit`}
-                      >
-                        Create Free Listing
-                      </a>
-                    </Link>
+                    <div
+                      className={`text-lg font-semibold uppercase tracking-wide md:text-sm lg:text-base ${
+                        textColor ? "text-" + textColor : "text-white"
+                      } hover:decoration-inherit`}
+                      onClick={() => (modalOpen ? closeModal() : openModal())}
+                    >
+                      Create Free Listing
+                    </div>
                   </li>
                   <li>
                     <Link href="#how-it-works">
@@ -192,7 +206,7 @@ const Navbar = ({ textColor }) => {
               )}
 
               {(pathname.includes("/listings/modify") ||
-                pathname === "/listings/create") && (
+                pathname.includes("/listings/create")) && (
                 <>
                   <li>
                     <Link href="/">
@@ -856,7 +870,7 @@ const Navbar = ({ textColor }) => {
                   )}
 
                   {(pathname.includes("/listings/modify") ||
-                    pathname === "/listings/create") && (
+                    pathname.includes("/listings/create")) && (
                     <>
                       <li className="my-7">
                         <Link href="/">
@@ -1143,6 +1157,15 @@ const Navbar = ({ textColor }) => {
                 </ul>
               </motion.div>
             </Backdrop>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence exitBeforeEnter>
+          {modalOpen && (
+            <ApartmentModal
+              handleClose={closeModal}
+              apartments={apartments && apartments}
+            />
           )}
         </AnimatePresence>
       </nav>

@@ -14,19 +14,19 @@ const faqs = [
       "https://ik.imagekit.io/ykidmzssaww/Listings/site-images/about/about3_vpsp1SJrjSep.jpg/tr:w-350",
   },
   {
+    question: "I don't see my apartment listed. What now?",
+    answer:
+      "You can add an apartment at the time of creating a listing. The first step during the creation of a new listing is to select an existing apartment from the list. If you don't see your apartment, you have an option to add it. Just provide the apartment name and pincode and we'll do the rest!",
+    image:
+      "https://ik.imagekit.io/ykidmzssaww/Listings/site-images/about/about1_SaJLmUJAhQ.jpg/tr:w-350",
+  },
+  {
     question: "Should I create an account?",
     answer:
       "Owners need an account if they want to create a listing. Seekers need an account to view the contact number of the owner. No account is required to browse through the listings.",
     image:
       "https://ik.imagekit.io/ykidmzssaww/Listings/site-images/about/about4_2Zw7H8Y3wf.jpg/tr:w-350",
   },
-  // {
-  //   "question": "Do I need to pay to access any features?",
-  //   "answer":
-  //     "At this moment, the site is entirely free with no cap on the listings.",
-  //   "image":
-  //     "https://ik.imagekit.io/ykidmzssaww/Listings/site-images/about/about1_SaJLmUJAhQ.jpg/tr:w-350",
-  // },
 ];
 
 export default faqs;

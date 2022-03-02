@@ -27,7 +27,7 @@ const variants = {
   },
 };
 
-const ApartmentModal = ({ handleClose, message, setMessage }) => {
+const ApartmentModal = ({ handleClose, apartments }) => {
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
@@ -45,7 +45,7 @@ const ApartmentModal = ({ handleClose, message, setMessage }) => {
           >
             {closeIcon}
           </div>
-          <AddApartment message={message} setMessage={setMessage} />
+          <AddApartment apartments={apartments} />
         </div>
       </motion.div>
     </Backdrop>

@@ -9,8 +9,6 @@ import {
 } from "@/utils/icons";
 
 const Tags = ({ tenantPreference, petsAllowed, nonVegetarians }) => {
-  console.log(nonVegetarians);
-
   const tenantTag =
     tenantPreference === "Anyone" || tenantPreference === null
       ? "Families Bachelors Bachelorette's"

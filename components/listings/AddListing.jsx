@@ -117,11 +117,9 @@ const steps = [
   "Contact Information",
 ];
 
-const AddListing = ({ apartments }) => {
+const AddListing = ({ apartment }) => {
   const [startDate, setStartDate] = useState(new Date());
-  const [selectedValue, setSelectedValue] = useState(null);
   const [facingDirection, setFacingDirection] = useState(null);
-  const [apartmentSelected, setApartmentSelected] = useState(false);
   const [saleAmountValue, setSaleAmountValue] = useState(null);
   const [tenantPreference, setTenantPreference] = useState(null);
   const [files, setFiles] = useState([]);
@@ -137,14 +135,6 @@ const AddListing = ({ apartments }) => {
 
   const { user, getCurrentUser, logout } = authContext;
   const { createNewListing, loading, setLoading, siteError } = siteContext;
-
-  const options = apartments.map((apartment) => {
-    return {
-      value: apartment.id,
-      label:
-        apartment.name + " - " + apartment.address1 + " - " + apartment.city,
-    };
-  });
 
   const facingOptions = [
     { value: "North", label: "North" },
@@ -199,11 +189,8 @@ const AddListing = ({ apartments }) => {
   const handleSubmit = (values, action) => {
     action.setTouched({});
     action.setSubmitting(true);
-    if (activeStep == 0) {
-      setApartmentSelected(true);
-    }
 
-    if (!isLastStep && selectedValue) {
+    if (!isLastStep) {
       setActiveStep(activeStep + 1);
     }
 
@@ -237,7 +224,7 @@ const AddListing = ({ apartments }) => {
         values.call,
         values.text,
         user && user.id,
-        selectedValue,
+        apartment.id,
         files
       );
     }
@@ -328,7 +315,10 @@ const AddListing = ({ apartments }) => {
                     animate="animate"
                     exit="exit"
                   >
-                    <div className="flex flex-col items-start justify-center">
+                    <p className="mb-12 text-center text-xl font-semibold text-teal-600">
+                      {apartment.name}
+                    </p>
+                    {/* <div className="flex flex-col items-start justify-center">
                       <div
                         className={`w-72 md:w-80 ${
                           selectedValue
@@ -362,7 +352,7 @@ const AddListing = ({ apartments }) => {
                           Please select an apartment
                         </div>
                       )}
-                    </div>
+                    </div> */}
 
                     {/* Title */}
                     <div

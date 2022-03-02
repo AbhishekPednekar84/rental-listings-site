@@ -32,7 +32,7 @@ const Hero = ({ apartments }) => {
 
   return (
     <div
-      className="relative"
+      className="relative h-[100vh]"
       //className={`${
       //  mounted ? "bg-heroSmall lg:bg-hero" : "bg-heroSmallBlur lg:bg-heroBlur"
       //} bg-center md:bg-right-bottom lg:bg-center bg-cover`}
@@ -62,15 +62,19 @@ const Hero = ({ apartments }) => {
       />
       <div className="flex items-center justify-center">
         <div className="relative mx-5 flex h-full flex-col items-center justify-center py-44 lg:py-56">
-          <div className="bg-gray-900 bg-opacity-70 px-4 py-7 text-white md:px-5">
+          <div className="bg-gray-900 bg-opacity-70 px-4 py-7 text-white md:px-5 lg:w-[90%]">
             <h1 className="mb-6 text-center text-2xl font-semibold tracking-wide text-white lg:text-4xl">
               Find flats for rent or sale in your dream apartment
             </h1>
+            <p className="mb-6 text-center text-base lg:text-lg">
+              Have an apartment complex in mind for your next home? Search by
+              the apartment name and see what's for rent or sale.
+            </p>
             <div className="flex justify-center">
               <CTA apartments={apartments} />
             </div>
 
-            <div className="mt-5 text-center">
+            {/* <div className="mt-5 text-center">
               Don't see your apartment?{" "}
               <Link href="/">
                 <a
@@ -80,7 +84,7 @@ const Hero = ({ apartments }) => {
                   Add it here
                 </a>
               </Link>
-            </div>
+            </div> */}
           </div>
           <Link href="#how-it-works">
             <a

@@ -23,8 +23,22 @@ export const customSelectStyles = {
   }),
   menu: (base) => ({
     ...base,
-    maxHeight: "250px",
-    overflowY: "scroll",
+    maxHeight: "200px",
+    overflow: "hidden",
+  }),
+  menuList: (base) => ({
+    ...base,
+
+    "::-webkit-scrollbar": {
+      width: "5px",
+      height: "0px",
+    },
+    "::-webkit-scrollbar-track": {
+      background: "#f1f1f1",
+    },
+    "::-webkit-scrollbar-thumb": {
+      background: "#0d9488",
+    },
   }),
   container: (styles) => ({
     ...styles,
@@ -64,8 +78,21 @@ export const listingSelectStyles = {
   }),
   menu: (base) => ({
     ...base,
-    maxHeight: "250px",
-    overflowY: "scroll",
+    height: "min-content",
+  }),
+  menuList: (base) => ({
+    ...base,
+
+    "::-webkit-scrollbar": {
+      width: "5px",
+      height: "0px",
+    },
+    "::-webkit-scrollbar-track": {
+      background: "#f1f1f1",
+    },
+    "::-webkit-scrollbar-thumb": {
+      background: "#0d9488",
+    },
   }),
   input: (base) => ({
     ...base,

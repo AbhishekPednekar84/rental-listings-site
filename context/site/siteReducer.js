@@ -5,10 +5,38 @@ import {
   LOADING,
   USER_LISTINGS,
   CREATE_LISTING,
+  FETCH_APARTMENTS,
+  SEARCH_APARTMENTS,
+  CLEAR_SEARCH,
+  CREATE_APARTMENT,
 } from "../Types";
 
 const siteReducer = (state, action) => {
   switch (action.type) {
+    case CREATE_APARTMENT:
+      return {
+        ...state,
+        createdApartment: action.payload,
+        loading: false,
+      };
+
+    case FETCH_APARTMENTS:
+      return {
+        ...state,
+        apartments: action.payload,
+        loading: false,
+      };
+    case SEARCH_APARTMENTS:
+      return {
+        ...state,
+        searchResults: action.payload,
+        loading: false,
+      };
+    case CLEAR_SEARCH:
+      return {
+        ...state,
+        searchResults: null,
+      };
     case LOAD_ADS:
       return {
         ...state,
