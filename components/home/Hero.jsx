@@ -62,11 +62,11 @@ const Hero = ({ apartments }) => {
       />
       <div className="flex items-center justify-center">
         <div className="relative mx-5 flex h-full flex-col items-center justify-center py-44 lg:py-56">
-          <div className="bg-gray-900 bg-opacity-70 px-4 py-7 text-white md:px-5 lg:w-[90%]">
-            <h1 className="mb-6 text-center text-2xl font-semibold tracking-wide text-white lg:text-4xl">
+          <div className="bg-gray-900 bg-opacity-70 px-4 py-7 text-white md:px-5 lg:w-[80%]">
+            <h1 className="mb-6 text-center text-2xl font-semibold tracking-wide text-white lg:text-3xl">
               Find flats for rent or sale in your dream apartment
             </h1>
-            <p className="mb-6 text-left text-base lg:text-center lg:text-lg">
+            <p className="mb-7 text-left text-base lg:text-lg">
               Have an apartment complex in mind for your next home? Search by
               the apartment name and see what's for rent or sale.
             </p>

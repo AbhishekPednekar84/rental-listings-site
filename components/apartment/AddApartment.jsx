@@ -277,17 +277,29 @@ const AddApartment = ({ apartments }) => {
               {selectedApartment && (
                 <button
                   type="button"
-                  className="mt-10 mb-3 h-12 w-36 rounded-full bg-teal-600 p-3 font-semibold text-white transition-colors duration-200 ease-in hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
+                  className="mt-10 mb-3 h-12 w-52 rounded-full bg-teal-600 p-3 font-semibold text-white transition-colors duration-200 ease-in hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
                   onClick={() => {
+                    setLoading();
                     selectedApartment &&
                       localStorage.setItem(
                         "_selectedApartment",
                         selectedApartment
                       );
-                    router.push(`/listings/create/${selectedApartment}`);
+                    setTimeout(
+                      () =>
+                        router.push(`/listings/create/${selectedApartment}`),
+                      1000
+                    );
                   }}
                 >
-                  NEXT
+                  {loading ? (
+                    <span className="flex items-center justify-center gap-2 text-white">
+                      PLEASE WAIT{" "}
+                      <span className="animate-spin">{loaderIcon}</span>
+                    </span>
+                  ) : (
+                    "NEXT"
+                  )}
                 </button>
               )}
 
