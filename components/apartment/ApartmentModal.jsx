@@ -38,9 +38,9 @@ const ApartmentModal = ({ handleClose, apartments }) => {
         animate="visible"
         exit="exit"
       >
-        <div className="relative bg-white p-10">
+        <div className="relative bg-white pt-10 pb-6">
           <div
-            className="absolute top-2 right-2 cursor-pointer"
+            className="absolute top-2 right-1 cursor-pointer"
             onClick={handleClose}
           >
             {closeIcon}

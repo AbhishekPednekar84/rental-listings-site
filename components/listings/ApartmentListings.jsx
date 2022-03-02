@@ -73,7 +73,8 @@ const ApartmentListings = ({ apartmentName }) => {
             <div className="inline-flex">
               <span>{searchIcon}</span>
               <p className="ml-2 text-lg text-gray-500 lg:text-xl">
-                We looked high and low but found nothing :(
+                We looked high and low but did not find any listings for{" "}
+                {apartmentName} :(
               </p>
             </div>
           </div>

@@ -121,11 +121,11 @@ const HowItWorks = () => {
           <ul className="ml-5 lg:ml-10">
             <li className="flex items-center pb-5">
               <span className="mr-1 text-teal-600">{starIcon}</span> Search
-              listings
+              listings in a specific apartment
             </li>
             <li className="flex items-center pb-5">
               <span className="mr-1 text-teal-600">{starIcon}</span> Sign up to
-              see full ad
+              see the full ad
             </li>
             <li className="inline-flex pb-5">
               <span className="mr-1 text-teal-600">{starIcon}</span> Contact the

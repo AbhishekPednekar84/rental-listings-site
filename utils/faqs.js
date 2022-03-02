@@ -9,7 +9,7 @@ const faqs = [
   {
     question: "Are the listings verified in some way?",
     answer:
-      "No, the listings are <span class='font-semibold text-rose-600 decoration-2 decoration-rose-600 underline underline-offset-4'>not verified</span>. The site serves as a directory by consolidating listings within an apartment complex, making them easy to find. While we do not control the listings, we may, however, take listings down without prior notice. Home seekers should do their due diligence as they would in any other house hunting scenario.",
+      "No, the listings are <span class='font-semibold text-rose-600 decoration-2 decoration-rose-600 underline underline-offset-4'>not verified</span>. The site serves as a directory by consolidating listings within an apartment complex, making them easy to find. While we do not control the listings, we may, however, take listings down without prior notice if they violate our <a target='_blank' class='font-semibold text-teal-600 decoration-2 decoration-teal-600 underline underline-offset-4' href='/policy/#terms'>terms of use</a>. Home seekers should do their due diligence as they would in any other house hunting scenario.",
     image:
       "https://ik.imagekit.io/ykidmzssaww/Listings/site-images/about/about3_vpsp1SJrjSep.jpg/tr:w-350",
   },

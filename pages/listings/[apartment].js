@@ -8,7 +8,8 @@ import Filter from "@/components/listings/Filter";
 import ApartmentListings from "@/components/listings/ApartmentListings";
 import ApartmentListingsHeadLayout from "@/components/layout/head/ApartmentListingsHeadLayout";
 
-const Listings = ({ apartmentName, apartmentInfo }) => {
+const Listings = ({ apartmentName, apartmentInfo, listingCount }) => {
+  console.log(apartmentInfo);
   return (
     <ApartmentListingsHeadLayout
       apartmentName={apartmentName}
@@ -16,7 +17,7 @@ const Listings = ({ apartmentName, apartmentInfo }) => {
     >
       <Layout>
         <Hero apartmentName={apartmentName} apartmentInfo={apartmentInfo} />
-        <Filter apartmentName={apartmentName} />
+        {listingCount > 0 && <Filter apartmentName={apartmentName} />}
         <ApartmentListings apartmentName={apartmentName} />
       </Layout>
     </ApartmentListingsHeadLayout>
@@ -30,10 +31,15 @@ export const getServerSideProps = async ({ params }) => {
 
   const apartmentData = res.data;
 
+  const listings = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/listings/apartment/${params.apartment}`
+  );
+
   return {
     props: {
       apartmentName: params.apartment,
       apartmentInfo: apartmentData,
+      listingCount: listings.data.length,
     },
   };
 };

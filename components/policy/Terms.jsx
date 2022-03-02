@@ -67,10 +67,22 @@ const Terms = () => {
             </span>{" "}
             will not receive any percentage of the transaction amount.
           </p>
+          <p className="mb-5">
+            {" "}
+            <span className="font-semibold text-teal-600">
+              rentorsale.apartments
+            </span>{" "}
+            will never call home owners or seekers about any listings on the
+            website. We do not and will never authorize any brokers or
+            individuals to contact home owners or seekers for any reason on our
+            behalf. Therefore, any contact by such parties should always be
+            deemed as fraudulent.
+          </p>
           <p>
-            Listings posted by registered users should be relevant and keep in
-            line with the underlying idea of the website. Any listings deemed
-            inappropriate will be taken down without any prior notice.
+            Listings posted by registered users should be relevant and must
+            pertain to renting out or selling a residential property. Any
+            listings deemed inappropriate will be taken down without any prior
+            notice.
           </p>
         </div>
 

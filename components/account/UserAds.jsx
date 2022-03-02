@@ -8,7 +8,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { sessionExpiredToast } from "@/utils/toasts";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
+// Component imports
 import DeleteAdModal from "@/components/listings/DeleteAdModal";
+import ApartmentModal from "../apartment/ApartmentModal";
 
 const variants = {
   tap: {
@@ -18,16 +20,25 @@ const variants = {
 
 const UserAds = ({ listings, setListings, token, user }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [apartmentModalOpen, setApartmentModalOpen] = useState(false);
   const [adId, setAdId] = useState(null);
   const [adTitle, setAdTitle] = useState(null);
 
   const closeModal = () => setModalOpen(false);
   const openModal = () => setModalOpen(true);
 
+  const closeApartmentModal = () => setApartmentModalOpen(false);
+  const openApartmentModal = () => setApartmentModalOpen(true);
+
   const siteContext = useContext(SiteContext);
   const router = useRouter();
 
-  const { deleteListing, siteError } = siteContext;
+  const { deleteListing, siteError, apartments, getAllApartments } =
+    siteContext;
+
+  useEffect(() => {
+    getAllApartments();
+  }, []);
 
   useEffect(() => {
     if (siteError === "Token expired") {
@@ -56,11 +67,12 @@ const UserAds = ({ listings, setListings, token, user }) => {
       {listings.length === 0 && (
         <div className="text-center text-gray-800">
           Looks like you have not created a listing recently. You can do that{" "}
-          <Link href="/listings/create">
-            <a className="text-teal-600 underline decoration-teal-600 decoration-2 underline-offset-4">
-              here
-            </a>
-          </Link>
+          <span
+            className="cursor-pointer text-teal-600 underline decoration-teal-600 decoration-2 underline-offset-4"
+            onClick={() => openApartmentModal()}
+          >
+            here
+          </span>
         </div>
       )}
 
@@ -156,6 +168,15 @@ const UserAds = ({ listings, setListings, token, user }) => {
               handleClose={closeModal}
               id={adId}
               title={adTitle}
+            />
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence exitBeforeEnter>
+          {apartmentModalOpen && (
+            <ApartmentModal
+              handleClose={closeApartmentModal}
+              apartments={apartments && apartments}
             />
           )}
         </AnimatePresence>

@@ -25,6 +25,7 @@ export const customSelectStyles = {
     ...base,
     maxHeight: "200px",
     overflow: "hidden",
+    marginBottom: "10px",
   }),
   menuList: (base) => ({
     ...base,

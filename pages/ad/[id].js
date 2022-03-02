@@ -13,7 +13,6 @@ const AdPage = ({
   username,
   pathHistory,
   disablePrint,
-  mobileBrowser,
 }) => {
   useEffect(() => {
     window.scroll({
@@ -39,7 +38,6 @@ const AdPage = ({
             apartmentName={apartmentName}
             username={username}
             disablePrint={disablePrint}
-            mobileBrowser={mobileBrowser}
           />
         </Layout>
       </div>

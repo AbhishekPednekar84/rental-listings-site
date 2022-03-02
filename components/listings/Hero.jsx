@@ -34,14 +34,15 @@ const Hero = ({ apartmentName, apartmentInfo }) => {
             <h1 className="mb-4 text-center text-2xl font-bold text-white lg:text-4xl">
               {apartmentName}
             </h1>
+            {apartmentInfo.address1 && (
+              <p className="my-2 flex items-center text-white">
+                <span className="mr-2">{locationMarker}</span>{" "}
+                {apartmentInfo.address1}, {apartmentInfo.address2}
+              </p>
+            )}
             <p className="my-2 flex items-center text-white">
               <span className="mr-2">{locationMarker}</span>{" "}
-              {apartmentInfo.address1}, {apartmentInfo.address2}
-            </p>
-            <p className="my-2 flex items-center text-white">
-              <span className="mr-2">{locationMarker}</span>{" "}
-              {apartmentInfo.city} - {apartmentInfo.pincode},{" "}
-              {apartmentInfo.state}
+              {apartmentInfo.city} - {apartmentInfo.pincode}
             </p>
           </div>
         </div>

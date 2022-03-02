@@ -284,7 +284,7 @@ const Navbar = ({ textColor }) => {
 
                   <li>
                     <div
-                      className={`text-lg font-semibold uppercase tracking-wide md:text-sm lg:text-base ${
+                      className={`nav-link uppercase ${
                         textColor ? "text-" + textColor : "text-white"
                       } hover:decoration-inherit`}
                       onClick={() => (modalOpen ? closeModal() : openModal())}
@@ -434,7 +434,7 @@ const Navbar = ({ textColor }) => {
                   <li>
                     {loggedInState && loggedInState ? (
                       <div
-                        className={`text-lg font-semibold uppercase tracking-wide md:text-sm lg:text-base ${
+                        className={`nav-link uppercase ${
                           textColor ? "text-" + textColor : "text-white"
                         } hover:decoration-inherit`}
                         onClick={() => (modalOpen ? closeModal() : openModal())}
@@ -571,7 +571,7 @@ const Navbar = ({ textColor }) => {
                   <li>
                     {loggedInState && loggedInState ? (
                       <div
-                        className={`text-lg font-semibold uppercase tracking-wide md:text-sm lg:text-base ${
+                        className={`nav-link uppercase ${
                           textColor ? "text-" + textColor : "text-white"
                         } hover:decoration-inherit`}
                         onClick={() => (modalOpen ? closeModal() : openModal())}

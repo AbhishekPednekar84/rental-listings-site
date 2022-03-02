@@ -88,13 +88,19 @@ const ApartmentListingsHeadLayout = ({
                 "@address": {
                   "@type": "PostalAddress",
                   "streetAddress": ${
-                    '"' + apartmentInfo.address1 + apartmentInfo.address2 + '"'
-                      ? " " + '"' + apartmentInfo.address2 + '"'
+                    '"' + apartmentInfo &&
+                    apartmentInfo.address1 + apartmentInfo &&
+                    apartmentInfo.address2 + '"'
+                      ? " " + '"' + apartmentInfo &&
+                        apartmentInfo.address2 + '"'
                       : null
                   },
-                  "addressLocality": ${'"' + apartmentInfo.city + '"'} ,
-                  "addressRegion": ${'"' + apartmentInfo.state + '"'},
-                  "postalCode": ${'"' + apartmentInfo.pincode + '"'}
+                  "addressLocality": ${
+                    '"' + apartmentInfo && apartmentInfo.city + '"'
+                  } ,
+                  "postalCode": ${
+                    '"' + apartmentInfo && apartmentInfo.pincode + '"'
+                  }
                 }
               }
             ]`,

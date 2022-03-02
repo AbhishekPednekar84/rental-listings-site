@@ -32,7 +32,7 @@ const Hero = ({ apartments }) => {
 
   return (
     <div
-      className="relative h-[100vh]"
+      className="relative min-h-[100vh]"
       //className={`${
       //  mounted ? "bg-heroSmall lg:bg-hero" : "bg-heroSmallBlur lg:bg-heroBlur"
       //} bg-center md:bg-right-bottom lg:bg-center bg-cover`}

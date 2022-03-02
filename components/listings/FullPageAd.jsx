@@ -41,14 +41,9 @@ const variants = {
   tap: { y: "2px" },
 };
 
-const FullPageAd = ({
-  adData,
-  apartmentName,
-  username,
-  disablePrint,
-  mobileBrowser,
-}) => {
+const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [mobileBrowser, setMobileBrowser] = useState(false);
 
   const closeModal = () => setModalOpen(false);
   const openModal = () => setModalOpen(true);
@@ -62,6 +57,16 @@ const FullPageAd = ({
 
   const formattedDateIn =
     splitDate[2] + "/" + splitDate[1] + "/" + splitDate[0];
+
+  useEffect(() => {
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      setMobileBrowser(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (
@@ -144,7 +149,7 @@ const FullPageAd = ({
         </span>
       </p> */}
 
-      <p className="mb-6 flex items-center justify-center text-2xl font-bold text-gray-800 print:hidden">
+      <p className="mx-5 mb-6 text-center text-2xl font-bold text-gray-800 print:hidden">
         {apartmentName}
       </p>
 
@@ -211,12 +216,10 @@ const FullPageAd = ({
                   : "text-center"
               } px-3 py-5 text-gray-700 print:py-2 print:text-sm`}
             >
-              {adData.description && (
-                <p className="mb-5">{adData.description}</p>
-              )}
+              {adData.description && <p>{adData.description}</p>}
 
               {adData.listing_type === "rent" && (
-                <div className="w-full">
+                <div className="mt-5 w-full">
                   <Tags
                     tenantPreference={adData.tenant_preference}
                     petsAllowed={adData.pets_allowed}
@@ -471,15 +474,16 @@ const FullPageAd = ({
                           ? adData.mobile_number
                           : adData.mobile_number.slice(0, 4) + "XXXXXXX"}{" "}
                       </span>
-                      {user && mobileBrowser.current && (
-                        <Link href={`tel:${adData.mobile_number}`}>
-                          <motion.a
-                            whileTap={{ y: "2px" }}
-                            className="ml-2 cursor-pointer bg-teal-600 py-1 px-1.5 text-sm font-semibold uppercase text-white shadow-md print:hidden"
-                          >
-                            Call
-                          </motion.a>
-                        </Link>
+                      {user && user && mobileBrowser && (
+                        <motion.div
+                          whileTap={{ y: "2px" }}
+                          className="ml-2 cursor-pointer bg-teal-600 py-1 px-1.5 text-sm font-semibold uppercase text-white shadow-md print:hidden"
+                          onClick={() =>
+                            window.open(`tel:+91${adData.mobile_number}`)
+                          }
+                        >
+                          Call
+                        </motion.div>
                       )}
                     </div>
                     {!user && (
