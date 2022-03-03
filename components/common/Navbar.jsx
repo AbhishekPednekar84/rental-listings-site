@@ -521,7 +521,9 @@ const Navbar = ({ textColor }) => {
                 </>
               )}
 
-              {(pathname === "/policy" || pathname === "/faqs") && (
+              {(pathname === "/policy" ||
+                pathname === "/faqs" ||
+                pathname.includes("/verify")) && (
                 <>
                   <li>
                     <Link href="/">

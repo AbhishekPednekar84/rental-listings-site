@@ -9,7 +9,6 @@ import ApartmentListings from "@/components/listings/ApartmentListings";
 import ApartmentListingsHeadLayout from "@/components/layout/head/ApartmentListingsHeadLayout";
 
 const Listings = ({ apartmentName, apartmentInfo, listingCount }) => {
-  console.log(apartmentInfo);
   return (
     <ApartmentListingsHeadLayout
       apartmentName={apartmentName}

@@ -1,10 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, createRef } from "react";
 import AuthContext from "@/context/auth/authContext";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { errorIcon, loaderIcon } from "@/utils/icons";
+import ReCAPTCHA from "react-google-recaptcha";
 
 // Component imports
 import Alert from "@/components/common/Alert";
@@ -24,6 +25,7 @@ const validationSchema = Yup.object({
 
 const Register = () => {
   const authContext = useContext(AuthContext);
+  const recaptchaRef = createRef();
   const { register, loading, setLoading, isAuthenticated } = authContext;
   const router = useRouter();
 
@@ -69,6 +71,7 @@ const Register = () => {
             validationSchema={validationSchema}
             onSubmit={(values, { setSubmitting }) => {
               setSubmitting(true);
+              recaptchaRef.current.execute();
               setLoading();
               register(values.name, values.email, values.password);
               setTimeout(() => setSubmitting(false), 1000);
@@ -167,6 +170,12 @@ const Register = () => {
                       {props.errors.password}
                     </div>
                   )}
+
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    size="invisible"
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                  />
 
                   <Declaration message="signing up" />
 

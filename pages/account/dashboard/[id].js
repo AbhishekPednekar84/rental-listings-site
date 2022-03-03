@@ -44,7 +44,7 @@ export const getServerSideProps = async ({ params, req }) => {
 
   const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/${id}`, {
     headers: {
-      "Authorization": "Bearer " + req.cookies.__ros__listing__token,
+      Authorization: "Bearer " + req.cookies.__ros__listing__token,
     },
   });
 
@@ -61,7 +61,7 @@ export const getServerSideProps = async ({ params, req }) => {
       `${process.env.NEXT_PUBLIC_API_URL}/user/listings/${user.id}`,
       {
         headers: {
-          "Authorization": "Bearer " + req.cookies.__ros__listing__token,
+          Authorization: "Bearer " + req.cookies.__ros__listing__token,
         },
       }
     );

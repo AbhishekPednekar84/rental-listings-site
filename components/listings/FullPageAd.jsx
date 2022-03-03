@@ -470,7 +470,7 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                       </span>
                       &nbsp;
                       <span className="flex items-center font-semibold">
-                        {user && user
+                        {user && user && user.verify_user
                           ? adData.mobile_number
                           : adData.mobile_number.slice(0, 4) + "XXXXXXX"}{" "}
                       </span>
@@ -491,6 +491,16 @@ const FullPageAd = ({ adData, apartmentName, username, disablePrint }) => {
                         <Link href="/account/login">
                           <a className="text-teal-600 underline decoration-teal-600 decoration-2 underline-offset-4">
                             Login
+                          </a>
+                        </Link>{" "}
+                        to view full number
+                      </div>
+                    )}
+                    {user && !user.verify_user && (
+                      <div className="pt-2 text-left text-xs text-zinc-500 print:hidden lg:text-base">
+                        <Link href={`/account/dashboard/${user.id}`}>
+                          <a className="text-teal-600 underline decoration-teal-600 decoration-2 underline-offset-4">
+                            Verify your email
                           </a>
                         </Link>{" "}
                         to view full number

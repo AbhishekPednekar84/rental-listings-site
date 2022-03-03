@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import AuthContext from "@/context/auth/authContext";
 import { starIcon } from "@/utils/icons";
 import { motion, AnimatePresence } from "framer-motion";
+import { toast } from "react-toastify";
 
 // Component imports
 import DeleteUserModal from "@/components/account/DeleteUserModal";
@@ -12,11 +13,18 @@ const variants = {
   },
 };
 
+const emailResendToast = (email) => {
+  toast(`Email sent to ${email}`, {
+    draggablePercent: 60,
+  });
+};
+
 const UserAdSummary = ({ listings, user }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const authContext = useContext(AuthContext);
 
-  const { deleteUser, setLoading, loading } = authContext;
+  const { deleteUser, setLoading, loading, sendVerificationEmail } =
+    authContext;
 
   const closeModal = () => setModalOpen(false);
   const openModal = () => setModalOpen(true);
@@ -83,15 +91,34 @@ const UserAdSummary = ({ listings, user }) => {
         )}
       </div>
 
-      <div className="mt-10 bg-white py-10 px-3 text-center shadow-lg hover:shadow-xl lg:mt-5">
+      <div className="mt-10 flex flex-col items-center gap-10 bg-white py-10 px-3 shadow-lg hover:shadow-xl lg:mt-5">
         <motion.button
           variants={variants}
           whileTap="tap"
           onClick={() => (modalOpen ? closeModal() : openModal())}
-          className="h-12 w-56 rounded-full bg-rose-600 p-3 font-semibold uppercase text-white transition-colors duration-200 ease-in hover:bg-rose-800 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2"
+          className="h-12 w-64 rounded-full bg-rose-600 p-3 font-semibold uppercase text-white transition-colors duration-200 ease-in hover:bg-rose-800 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2"
         >
           Delete My Account
         </motion.button>
+
+        {!user.verify_user && (
+          <motion.button
+            variants={variants}
+            whileTap="tap"
+            disabled={user && user.verification_email_resend_count >= 5}
+            onClick={() => {
+              sendVerificationEmail(user.name, user.email, user.id);
+              emailResendToast(user.email);
+            }}
+            className={`h-12 w-64 rounded-full bg-cyan-600 p-3 font-semibold uppercase text-white transition-colors duration-200 ease-in hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2 ${
+              user &&
+              user.verification_email_resend_count >= 5 &&
+              "bg-gray-500 text-gray-200 hover:bg-gray-500"
+            }`}
+          >
+            Resend Verification Email
+          </motion.button>
+        )}
       </div>
 
       <AnimatePresence exitBeforeEnter>

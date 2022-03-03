@@ -73,10 +73,15 @@ const AuthState = ({ children }) => {
         }
       );
 
-      const data = res.data;
-
       if (res.status === 201) {
-        registerToast(data.name);
+        var data = res.data;
+
+        const name = data.name;
+        const recipientEmail = data.email;
+        const id = data.id;
+
+        registerToast(name);
+        sendVerificationEmail(name, recipientEmail, id);
 
         dispatch({ type: REGISTER, payload: data });
       }
@@ -84,6 +89,33 @@ const AuthState = ({ children }) => {
       dispatch({ type: AUTH_ERROR, payload: err.response.data.detail });
       setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
     }
+  };
+
+  const sendVerificationEmail = (name, recipientEmail, id) => {
+    const verificationLink = `${process.env.NEXT_PUBLIC_SITE_URL}/verify/${id}`;
+
+    var templateParams = {
+      name: name,
+      verificationLink: verificationLink,
+      recipientEmail: recipientEmail,
+    };
+
+    emailjs
+      .send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_VERIFICATION_TEMPLATE_ID,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+      )
+      .then((response) => {
+        updateEmailSentCount(id);
+      });
+  };
+
+  const updateEmailSentCount = async (id) => {
+    await axios.put(
+      `${process.env.NEXT_PUBLIC_API_URL}/user/email_count/${id}`
+    );
   };
 
   // Login
@@ -142,6 +174,10 @@ const AuthState = ({ children }) => {
     } else {
       router.push("/");
     }
+  };
+
+  const logoutWithoutRedirect = async () => {
+    dispatch({ type: LOGOUT });
   };
 
   const deleteUser = async (userId) => {
@@ -363,9 +399,11 @@ const AuthState = ({ children }) => {
         token: state.token,
         fpMessage: state.fpMessage,
         register,
+        sendVerificationEmail,
         login,
         getCurrentUser,
         logout,
+        logoutWithoutRedirect,
         setLoading,
         updateProfile,
         deleteUser,
