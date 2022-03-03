@@ -30,10 +30,10 @@ const VerifyEmail = ({ validUser }) => {
           />
         ) : null}
 
-        <div className="my-5 text-xl">
+        <div className="my-5 px-5 text-center text-xl">
           Thanks! Your email has been verified.
         </div>
-        <div className="text-lg">
+        <div className="text-center text-lg">
           Please{" "}
           <Link href="/account/login">
             <a className="font-semibold text-teal-600 underline decoration-teal-600 decoration-2 underline-offset-2">
