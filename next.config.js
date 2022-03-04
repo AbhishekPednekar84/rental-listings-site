@@ -25,7 +25,7 @@ module.exports = {
             key: "Content-Security-Policy",
             value: `default-src * ${
               process.env.NODE_ENV === "development" && "data: 'unsafe-eval'"
-            }; script-src 'self' ${
+            }; script-src 'self' www.google.com www.gstatic.com ${
               process.env.NODE_ENV === "development" && "data: 'unsafe-eval'"
             }; img-src * data: blob:; style-src * data: 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com data: 'unsafe-inline'; object-src 'self' blob:`,
           },
