@@ -47,7 +47,7 @@ const LoginHeadLayout = (props) => {
                 "url": "https://rentorsale.apartments/account/login",
                 "description":
                   "Find flats for rent or sale in your dream apartment. We provide a quick and easy way for owners to list their flats for rent or sale. Want to know if there is a flat for rent in that apartment you have in mind? Just search for the name of the apartment and find out!",
-                "name": "Find Flats for Rent in your Dream Apartment",
+                "name": "Find flats for rent in your dream apartment",
                 "inLanguage": "en",
                 "isPartOf": "https://rentorsale.apartments",
                 "potentialAction": {

@@ -11,7 +11,7 @@ const ApartmentListingsHeadLayout = ({
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Find Flats for Rent in {apartmentName}</title>
+        <title>Find flats for rent in {apartmentName}</title>
         <meta
           name="description"
           content={`Find flats for rent or sale in ${apartmentName}. We provide a quick and easy way for owners to list their flats for rent or sale. Want to know if there is a flat for rent in ${apartmentName}? Just search for ${apartmentName} and find out!`}
@@ -20,7 +20,7 @@ const ApartmentListingsHeadLayout = ({
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content={`Find Flats for Rent in ${apartmentName}`}
+          content={`Find flats for rent in ${apartmentName}`}
         />
         <meta
           property="og:description"
@@ -66,7 +66,7 @@ const ApartmentListingsHeadLayout = ({
                     " and find out!" +
                     '"'
                   },
-                "name": "Find Flats for Rent in your Dream Apartment",
+                "name": "Find flats for rent in your dream apartment",
                 "inLanguage": "en",
                 "isPartOf": "https://rentorsale.apartments",
                 "potentialAction": {
